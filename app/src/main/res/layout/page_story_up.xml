@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/snow"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/upStoryBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/up_story">
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+
+            <Button
+                android:id="@+id/upNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/note"
+                android:textSize="10sp" />
+            <!--跳出智慧財產權注意事項-->
+
+        </android.support.v7.widget.ButtonBarLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/upStoryBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/holo_green_light"
+        android:visibility="visible"
+        app:srcCompat="@drawable/ic_add_black_24dp"
+        tools:visibility="gone" />
+    <!--預設為visibility="visible"，按下後開啟檔案管理，選擇上載故事，選完確認後，visibility="gone"-->
+
+    <TableRow
+        android:id="@+id/prePlayBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:layout_gravity="bottom"
+        android:background="@color/colorStBearPlayBar"
+        android:visibility="gone"
+        tools:visibility="visible">
+        <!--預設為visibility="gone"，當"@+id/upStoryBtn"選完確認後，visibility="visible"-->
+
+        <Button
+            android:id="@+id/playpauseBtn"
+            style="@style/playButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+        <!--按下狀態為播放，維持按下，再按一下則維持暫停-->
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_light"
+            android:max="100"
+            android:progress="50" />
+        <!--故事之播放進度條，可拉動-->
+
+        <TextView
+            android:id="@+id/totalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:ems="4"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            tools:text="14:20" />
+        <!--故事總分鐘-->
+
+        <ImageButton
+            android:id="@+id/killplayButton_mystory"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="#00FFFFFF"
+            app:srcCompat="@android:drawable/ic_notification_clear_all" />
+            <!--移除上傳故事，並將id="@+id/prePlayBar"之visibility="gone"-->
+
+    </TableRow>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView90"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gooseYellow"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:padding="2dp"
+                android:text="@string/hint31"
+                android:textColor="@color/holo_red_light"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/storyImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView90"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:minHeight="100dp"
+                android:minWidth="100dp"
+                app:srcCompat="@drawable/ic_addphoto_colors_24dp" />
+                <!--點擊後上傳故事代表照片，可上傳，不上傳預設小熊照-->
+
+            <TextView
+                android:id="@+id/textView70"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView90"
+                android:layout_marginLeft="3dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/storyImg"
+                android:layout_toRightOf="@+id/storyImg"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:drawableStart="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/Class" />
+
+            <Spinner
+                android:id="@+id/storyClassSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView70"
+                android:layout_toEndOf="@+id/textView70"
+                android:layout_toRightOf="@+id/textView70"
+                android:entries="@array/storyClass"
+                android:prompt="@string/spinner_prompt_eventclasss" />
+                <!--選擇故事類別-->
+
+            <Switch
+                android:id="@+id/creatorSwitch"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView70"
+                android:layout_alignStart="@+id/textView70"
+                android:layout_alignLeft="@+id/textView70"
+                android:layout_marginTop="3dp"
+                android:checked="false"
+                android:drawableStart="@drawable/ic_asterisk_red_24dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/original" />
+                <!--是否原創，預設為原創-->
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/storyImg"
+                android:layout_marginTop="5dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:drawableStart="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/story_name" />
+
+            <EditText
+                android:id="@+id/storyNameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView2"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_toEndOf="@+id/textView2"
+                android:layout_toRightOf="@+id/textView2"
+                android:hint="@string/hint10"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" />
+                <!--輸入故事名稱-->
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView2"
+                android:layout_alignRight="@+id/textView2"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:drawableStart="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/author" />
+
+            <EditText
+                android:id="@+id/authorNameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView3"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_toEndOf="@+id/textView2"
+                android:layout_toRightOf="@+id/textView2"
+                android:hint="@string/hint34"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" />
+                <!--輸入作者姓名，預設帶入上傳者，
+                    如果可能，當用戶自行輸入時檢索已有上傳作品作者名稱，提示自動輸入-->
+
+            <TextView
+                android:id="@+id/textView85"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView2"
+                android:layout_alignRight="@+id/textView2"
+                android:layout_below="@+id/textView3"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:drawableStart="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/recording" />
+
+            <EditText
+                android:id="@+id/recordingNameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView85"
+                android:layout_alignBottom="@+id/textView85"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_toEndOf="@+id/textView2"
+                android:layout_toRightOf="@+id/textView2"
+                android:hint="@string/hint35"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" />
+                <!--輸入錄音者姓名，預設帶入上傳者，
+                    如果可能，當用戶自行輸入時檢索已有上傳作品作者名稱，提示自動輸入-->
+
+            <TextView
+                android:id="@+id/textView86"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/textView2" 
+                android:layout_alignEnd="@+id/textView2" 
+                android:drawableStart="@drawable/ic_asterisk_red_24dp" 
+                android:layout_below="@+id/textView85"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/tag" />
+
+            <EditText
+                android:id="@+id/TagEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView86"
+                android:layout_alignBottom="@+id/textView86"
+                android:layout_toEndOf="@+id/textView85"
+                android:layout_toRightOf="@+id/textView85"
+                android:hint="@string/hint11"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" />
+                <!--輸入故事標籤，以#及空白來分隔，最多輸入4個，每個最多4字，超過時忽略
+                    第一個標籤在部份地方將用來標著在故事名稱前，如 [母愛]孤單的毛毛蟲-->
+
+            <TextView
+                android:id="@+id/textView88"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/textView2" 
+                android:layout_alignEnd="@+id/textView2" 
+                android:drawableStart="@drawable/ic_asterisk_red_24dp" 
+                android:layout_below="@+id/textView86"
+                android:layout_marginTop="8dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/recommend_age" />
+
+            <Spinner
+                android:id="@+id/ageSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView88"
+                android:layout_toEndOf="@+id/textView88"
+                android:layout_toRightOf="@+id/textView88"
+                android:entries="@array/ageClass"
+                android:prompt="@string/spinner_prompt_eventclasss" />
+                <!--選擇適合年齡，預設全部-->
+                
+            <Button
+                android:id="@+id/storyTxtUp"
+                style="@android:style/Widget.Button.Toggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/TagEdit"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/story_TXT_up" />
+                <!--點擊後，選定將上傳之故事本文文字檔-->
+
+            <TextView
+                android:id="@+id/textView89"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/textView2"
+                android:layout_alignEnd="@+id/textView2" 
+                android:drawableStart="@drawable/ic_asterisk_red_24dp"
+                android:layout_below="@+id/textView88"
+                android:layout_marginTop="5dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/overview"  />
+
+            <EditText
+                android:id="@+id/overviewEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView89"
+                android:gravity="top"
+                android:hint="@string/hint32"
+                android:inputType="textAutoComplete|textMultiLine"
+                android:minLines="5"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" />
+                <!--輸入故事簡介-->
+
+            <CheckBox
+                android:id="@+id/noteCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/overviewEdit"
+                android:layout_centerHorizontal="true"
+                android:text="@string/hint33"
+                android:textSize="12sp" />
+                <!--沒有只有勾選後，才能上傳-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/noteCheck"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/cancelBtn"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:minHeight="30dp"
+                    android:text="@string/cancel"
+                    android:textColor="@android:color/white" />
+                    <!--取消上傳，並回到上一頁-->
+
+                <Button
+                    android:id="@+id/OKBtn"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="4"
+                    android:background="@color/colorStBearBtOrange"
+                    android:minHeight="30dp"
+                    android:text="@string/OK"
+                    android:textColor="@android:color/white" />
+                    <!--確認上傳，檢查所有必需欄位，並將所有資料含音檔文檔上傳至雲端主機-->
+                    
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

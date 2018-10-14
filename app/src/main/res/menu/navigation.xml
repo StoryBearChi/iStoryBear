@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/navigation_blog"
+        android:orderInCategory="0"
+        android:icon="@drawable/ic_blog_orange_24dp"
+        android:title="@string/title_blog" />
+
+    <item android:id="@+id/navigation_play"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_toplay_black_24dp"
+        android:title="@string/title_play" />
+
+    <item android:id="@+id/navigation_story"
+        android:orderInCategory="2"
+        android:icon="@drawable/ic_story_black_24dp"
+        android:title="@string/title_story" />
+
+    <item android:id="@+id/navigation_buy"
+        android:orderInCategory="3"
+        android:icon="@drawable/ic_market_black_24dp"
+        android:title="@string/title_buy" />
+
+    <item android:id="@+id/navigation_me"
+        android:orderInCategory="4"
+        android:icon="@drawable/ic_me_black_24dp"
+        android:title="@string/title_me" />
+
+</menu>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/groupbuyTopView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_ad_height">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/snow"
+                    app:srcCompat="@drawable/boneisland" />
+                <!-- 點擊後頁面跳至該商品的page_groupbuy_detail -->
+
+                <TextView
+                    android:id="@+id/push_story"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="@drawable/ic_star_gold_24dp"
+                    android:gravity="center"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="限時\n優惠"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/story_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:background="#CCD3D3D3"
+                    android:text="新書預購" />
+
+            </android.support.v7.widget.CardView>
+            <!-- 上面CardView需可左右滑動，依據1/5~5/5位置顯示不同資料 -->
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/story_page_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:background="@drawable/bg_oval_with_gradient_red"
+            android:gravity="center"
+            android:text="1/5"
+            android:textColor="@android:color/black" />
+        <!-- 上面CardView需可左右滑動，依據位置顯示1/5~5/5 -->
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorButtonNormal">
+
+        <Button
+            android:id="@+id/book_search_btn"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_search_black_24dp"
+            android:onClick="SearchBtnClk"
+            android:tag="BookSearch"
+            android:text="@string/goodsSearch"
+            android:textSize="12sp" />
+        <!-- 點擊後頁面跳至com_page_search -->
+
+        <Button
+            android:id="@+id/book_promotion_btn"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_cutoff_colors_24dp"
+            android:onClick="ActlistBtnClk"
+            android:tag="BookPromotion"
+            android:text="@string/storyPromotion"
+            android:textSize="12sp" />
+        <!-- 點擊後頁面跳至com_page_groupbuy_list -->
+
+        <Button
+            android:id="@+id/book_love_btn"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_heart_red_24dp"
+            android:onClick="ActlistBtnClk"
+            android:tag="BookLove"
+            android:text="@string/goodsLove"
+            android:textSize="12sp" />
+        <!-- 點擊後頁面跳至com_page_groupbuy_list -->
+
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/groupbuyScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/newGroupbuyBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bar_height"
+                android:background="@color/colorStBearBtOrange"
+                app:title="@string/newGroupbuy"
+                app:titleTextColor="@android:color/white">
+
+                <android.support.v7.widget.ButtonBarLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end">
+
+                    <Button
+                        android:id="@+id/newGroupbuyBtn"
+                        style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="0dp"
+                        android:text="@string/more"
+                        android:textColor="#ffffff" />
+                    <!-- 點擊後頁面跳至com_page_groupbuy_list -->
+
+                </android.support.v7.widget.ButtonBarLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+            <include layout="@layout/item_bar_big_goods" />
+
+            <include layout="@layout/item_bar_big_goods" />
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/hotGroupbuyBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bar_height"
+                android:background="@color/colorStBearBtOrange"
+                app:title="@string/hotGroupbuy"
+                app:titleTextColor="@android:color/white">
+
+                <android.support.v7.widget.ButtonBarLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end">
+
+                    <Button
+                        android:id="@+id/hotGroupbuyBtn"
+                        style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="0dp"
+                        android:text="@string/more"
+                        android:textColor="#ffffff" />
+                    <!-- 點擊後頁面跳至com_page_groupbuy_list -->
+
+                </android.support.v7.widget.ButtonBarLayout>
+            </android.support.v7.widget.Toolbar>
+
+            <include layout="@layout/item_box_goods" />
+
+            <include layout="@layout/item_box_goods" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/timeGroupbuyBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bar_height"
+                android:background="@color/colorStBearBtOrange"
+                app:title="@string/timeGroupbuy"
+                app:titleTextColor="@android:color/white">
+
+                <android.support.v7.widget.ButtonBarLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end">
+
+                    <Button
+                        android:id="@+id/timeGroupbuyBtn"
+                        style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="0dp"
+                        android:text="@string/more"
+                        android:textColor="#ffffff" />
+                    <!-- 點擊後頁面跳至com_page_groupbuy_list -->
+
+                </android.support.v7.widget.ButtonBarLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+            <include layout="@layout/item_box_goods" />
+
+            <include layout="@layout/item_box_goods" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/limitedGroupbuyBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bar_height"
+                android:background="@color/colorStBearBtOrange"
+                app:title="@string/limitedGroupbuy"
+                app:titleTextColor="@android:color/white">
+
+                <android.support.v7.widget.ButtonBarLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end">
+
+                    <Button
+                        android:id="@+id/limitedGroupbuyBtn"
+                        style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="0dp"
+                        android:text="@string/more"
+                        android:textColor="#ffffff" />
+                    <!-- 點擊後頁面跳至com_page_groupbuy_list -->
+
+                </android.support.v7.widget.ButtonBarLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+            <include layout="@layout/item_box_goods" />
+
+            <include layout="@layout/item_box_goods" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

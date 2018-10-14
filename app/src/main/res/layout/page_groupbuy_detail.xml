@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/timeGroupbuy" />
+    <!--
+        收藏商品   title="@string/Love"
+        限時優惠   title="@string/storyPromotion"
+        最新團購   title="@string/newGroupbuy"
+        熱門團購   title="@string/hotGroupbuy"
+        限時團購   title="@string/timeGroupbuy"
+        限量團購   title="@string/limitedGroupbuy" -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rectangle_y">
+
+
+        <ImageView
+            android:id="@+id/goodsImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="3dp"
+            tools:srcCompat="@drawable/p01" />
+        <!--填入商品代表圖-->
+
+        <Button
+            android:id="@+id/loveBtn"
+            style="@style/heartButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp" />
+        <!--點擊該商品加入收藏商品，並且收藏+1-->
+
+        <ImageButton
+            android:id="@+id/childEditBtn1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+        <!--隱藏修改資訊功能，暫不實作-->
+
+        <TextView
+            android:id="@+id/goodsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_toEndOf="@+id/goodsImage"
+            android:layout_toLeftOf="@+id/loveBtn"
+            android:layout_toRightOf="@+id/goodsImage"
+            android:layout_toStartOf="@+id/loveBtn"
+            android:textColor="@color/holo_red_dark"
+            tools:text="阿墨的故事屋" />
+        <!--填入商品名稱-->
+
+        <TextView
+            android:id="@+id/textView104"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/goodsName"
+            android:layout_below="@+id/goodsName"
+            android:layout_marginTop="3dp"
+            android:text="@string/author1"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_alignStart="@+id/goodsName" />
+
+        <TextView
+            android:id="@+id/authorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView104"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/textView104"
+            tools:text="盧怡方"
+            android:textColor="@android:color/black"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/textView104" />
+        <!--填入商品標籤1，繪本填text=著者
+            非繪本則可不填 或填入 10字內商品資訊-->
+
+        <TextView
+            android:id="@+id/textView106"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView104"
+            android:layout_marginLeft="3dp"
+            android:layout_toEndOf="@+id/authorName"
+            android:layout_toRightOf="@+id/authorName"
+            android:text="@string/painter"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="3dp" />
+
+        <TextView
+            android:id="@+id/painterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView104"
+            android:layout_toEndOf="@+id/textView106"
+            android:layout_toRightOf="@+id/textView106"
+            tools:text="陳狐狸"
+            android:textColor="@android:color/black" />
+        <!--填入商品標籤2，繪本填text=繪者
+            非繪本則可不填-->
+
+        <TextView
+            android:id="@+id/matchAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/goodsName"
+            android:layout_below="@+id/authorName"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="適合:3~99歲"
+            android:textSize="12sp"
+            android:layout_alignStart="@+id/goodsName" />
+        <!--填入適用年齡-->
+
+        <TextView
+            android:id="@+id/pricing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/goodsName"
+            android:layout_below="@+id/matchAge"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="12sp"
+            tools:text="定價:$300"
+            android:layout_alignStart="@+id/goodsName" />
+        <!--填入商品定價，text="定價:$“＋金額-->
+
+        <TextView
+            android:id="@+id/specialPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/pricing"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/pricing"
+            android:background="@drawable/bg_rectangle_wo_stroke_red"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            tools:text="特價:$270"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/pricing" />
+        <!--填入商品特價，text="特價:$“＋金額，實際賣出價格-->
+
+        <TextView
+            android:id="@+id/specialNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/specialPrice"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/specialPrice"
+            tools:text="還剩3天"
+            android:textColor="@color/holo_red_dark"
+            android:textSize="12sp"
+            android:visibility="visible"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/specialPrice" />
+        <!--
+            熱門團購區 tools:text="已賣xxx份"
+            限時團購區 tools:text="還剩xx天"，還有"明天結團"， "今天結團“
+            限量團購區 tools:text="僅剩xx份"
+        -->
+
+        <TextView
+            android:id="@+id/starNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/goodsName"
+            android:layout_alignStart="@+id/goodsName"
+            android:layout_below="@+id/pricing"
+            android:layout_marginTop="3dp"
+            android:drawableLeft="@drawable/ic_star_gold_16dp"
+            android:drawablePadding="3dp"
+            android:drawableStart="@drawable/ic_star_gold_16dp"
+            android:minEms="3"
+            tools:text="4.6" />
+            <!--平均評星-->
+
+        <TextView
+            android:id="@+id/loveNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/starNum"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/starNum"
+            android:layout_toRightOf="@+id/starNum"
+            android:drawableLeft="@drawable/ic_heart_red_16dp"
+            android:drawablePadding="3dp"
+            android:drawableStart="@drawable/ic_heart_red_16dp"
+            android:minEms="4"
+            tools:text="99K" />
+        <!--被收藏數-->
+
+        <TextView
+            android:id="@+id/textView107"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/goodsImage"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/tag"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="3dp" />
+
+        <TextView
+            android:id="@+id/tag1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView107"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/textView107"
+            android:layout_toRightOf="@+id/textView107"
+            tools:text="歷史"
+            android:textColor="@android:color/black"
+            android:layout_marginEnd="5dp" />
+
+        <TextView
+            android:id="@+id/tag2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView107"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/tag1"
+            android:layout_toRightOf="@+id/tag1"
+            tools:text="知識"
+            android:textColor="@android:color/black"
+            android:layout_marginEnd="5dp" />
+
+        <TextView
+            android:id="@+id/tag3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView107"
+            android:layout_toEndOf="@+id/tag2"
+            android:layout_toRightOf="@+id/tag2"
+            android:textColor="@android:color/black"
+            tools:text="文訊出版" />
+
+        <TextView
+            android:id="@+id/textView111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView107"
+            android:layout_below="@+id/textView107"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/starRating"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_alignStart="@+id/textView107" />
+
+        <RatingBar
+            android:id="@+id/ratingBar4"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView107"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/textView111"
+            android:numStars="5"
+            tools:rating="4"
+            android:stepSize="1"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/textView111" />
+            <!--評星，並存下-->
+
+        <Button
+            android:id="@+id/listenBtn"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ratingBar4"
+            android:layout_alignEnd="@+id/loveBtn"
+
+            android:layout_alignRight="@+id/loveBtn"
+            android:layout_marginBottom="-5dp"
+            android:drawableTop="@drawable/btn_listen_pause"
+            android:text="@string/listen"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+            <!--有試聽時visibility="visible"，點擊後播放，再點一次終止播放
+                最多可試聽一次(可設定)-->
+
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@android:color/white"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:tabIndicatorColor="#000000">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/overview2" />
+        <!--切到@layout/page_buyitem_detail_overview分頁-->
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/author2" />
+        <!--切到@layout/page_buyitem_detail_author分頁-->
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/related" />
+        <!--切到@layout/page_buyitem_detail_recommend分頁-->
+
+    </android.support.design.widget.TabLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/page_buyitem_detail_recommend" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#00FFFFFF" />
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/sellFABtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_buy_black_24dp" />
+        <!--走購買程序-->
+
+    </RelativeLayout>
+
+</LinearLayout>

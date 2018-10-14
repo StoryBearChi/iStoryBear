@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/user_overview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="《阿墨的故事屋》從一個熱心、好奇與敏感的小鼴鼠－阿墨的視角，來觀看紀州庵自日治時期、戰後、古蹟保存與成為文學森林的百年歷程，除了有地上世界的變化，也有地底世界的樣貌，創造了奇幻與真實之間的交錯，希望能夠傳達讓大家都成為「書的傳播者」的理念。" />
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

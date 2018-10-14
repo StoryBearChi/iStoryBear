@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/snow">
+        <!-- 當該首正在播放時，background="@color/snow"，否則background="@android:color/white"
+            用來指示目前播放故事-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/snow"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <ImageView
+                android:id="@+id/actionBtn"
+                android:layout_width="20dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/ic_play_black_16dp"
+                android:visibility="invisible" />
+            <!-- 當該首正在播放時，visibility="visible"，否則visibility="invisible"
+                用來指示目前播放故事-->
+
+            <TextView
+                android:id="@+id/storyName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="[母愛]孤單的毛毛蟲 孤單的毛毛蟲 孤單的毛毛蟲 孤單的毛毛蟲" />
+            <!-- 顯示 [第一個tag之前兩字]＋故事名稱 -->
+
+            <TextView
+                android:id="@+id/storyStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="end"
+                android:minEms="3"
+                android:singleLine="true"
+                android:text="19:59" />
+            <!--顯示音檔長度-->
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</merge>

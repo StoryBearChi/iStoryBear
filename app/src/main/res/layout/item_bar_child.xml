@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        style="@style/CardView.Content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/snow"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/chidImage1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_girl_colors_24dp" />
+
+            <TextView
+                android:id="@+id/childName1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:onClick="childDetail"
+                android:tag="childDetail"
+                android:text="希希"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+            <!-- 無論有無上傳圖者，都只顯示男女代表圖
+                女孩 drawableLeft="@drawable/ic_girl_colors_24dp"
+                男孩 drawableLeft="@drawable/ic_boy_colors_24dp"
+                懷孕中 drawableLeft="@drawable/ic_pregnancy_colors_24dp"
+                填入小孩名稱
+                點擊後跳至page_me_addchild_detail(目前只完成懷孕中)-->
+
+            <TextView
+                android:id="@+id/childBdayT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:background="@color/snow"
+                android:text="預產期:" />
+
+            <TextView
+                android:id="@+id/childBday1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/snow"
+                android:text="2011/10/10"
+                android:textSize="18sp" />
+            <!-- 生日小於今日(比對年月日) text="生日：“＋出生日期"
+                 生日大於今日(比對年月日) text="預產期：“＋出生日期"
+                 生日等於今日(只比對月日) text="祝你生日快樂"
+
+                 生日者當日給予50點生日贈點[此功能需可用參數開關，並可調整點數]
+                 避免道德風險，需檢核每個小孩最多每年一次(排除反複修改生日者)
+                 並且預設只送前2個小孩(但可透過更新用戶參數調整例外者) -->
+
+            <ImageButton
+                android:id="@+id/childEditBtn1"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:tag="childEdit"
+                app:srcCompat="@drawable/ic_edit_black_24dp" />
+            <!-- 點擊即將資料update到編輯區進行修改 -->
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</merge>

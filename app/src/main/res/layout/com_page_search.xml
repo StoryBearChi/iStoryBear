@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/sToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/colorStBearBtOrange"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/Search" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/snow"
+        android:padding="5dp">
+
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toLeftOf="@+id/key_edit"
+            android:layout_toStartOf="@+id/key_edit"
+            android:text="@string/keyword"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/key_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/hint39"
+            android:imeOptions="actionSearch"
+            android:inputType="text|textAutoComplete"
+            android:maxLength="28"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColorHint="?attr/colorButtonNormal"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/goSearchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/key_edit"
+            android:layout_toRightOf="@+id/key_edit"
+            android:background="@color/colorStBearBtOrange"
+            android:focusableInTouchMode="true"
+            android:onClick="searchGoBtn"
+            android:tag="SearchGo"
+            android:text="@string/Search"
+            android:textColor="@android:color/white" />
+
+        <am.widget.wraplayout.WrapLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/wly_lyt_warp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/key_edit"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            android:horizontalSpacing="5dp"
+            android:padding="10dp"
+            android:verticalSpacing="8dp"
+            app:wlyGravity="top">
+
+            <TextView
+                android:id="@+id/hotAttra0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rectangle_wo_stroke_pink"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="invisible"
+                tools:visibility="visible"
+                tools:text="推薦關鍵字0" />
+
+            <TextView
+                android:id="@+id/hotAttra1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rectangle_wo_stroke_pink"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="推薦關鍵字1" />
+
+            <TextView
+                android:id="@+id/hotAttra2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rectangle_wo_stroke_pink"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="推薦關鍵字2" />
+
+            <TextView
+                android:id="@+id/hotAttra3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rectangle_wo_stroke_pink"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="推薦關鍵字3" />
+
+            <TextView
+                android:id="@+id/hotAttra4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rectangle_wo_stroke_pink"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="推薦關鍵字4" />
+
+            <TextView
+                android:id="@+id/hotAttra5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rectangle_wo_stroke_pink"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="推薦關鍵字5" />
+
+            <TextView
+                android:id="@+id/hotAttra6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rectangle_wo_stroke_pink"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="推薦關鍵字6" />
+
+            <TextView
+                android:id="@+id/hotAttra7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rectangle_wo_stroke_pink"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="推薦關鍵字7" />
+
+        </am.widget.wraplayout.WrapLayout>
+
+        <TableLayout
+            android:id="@+id/storyClassLayout"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_below="@+id/wly_lyt_warp"
+            android:layout_marginTop="3dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/storyClassBtn01"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass01" />
+
+                <Button
+                    android:id="@+id/storyClassBtn05"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass05" />
+
+                <Button
+                    android:id="@+id/storyClassBtn09"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass09" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/storyClassBtn02"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass02" />
+
+                <Button
+                    android:id="@+id/storyClassBtn06"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass06" />
+
+                <Button
+                    android:id="@+id/storyClassBtn10"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass10" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/storyClassBtn03"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass03" />
+
+                <Button
+                    android:id="@+id/storyClassBtn07"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass07" />
+
+                <Button
+                    android:id="@+id/storyClassBtn11"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass11" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/storyClassBtn04"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storySponsor" />
+
+                <Button
+                    android:id="@+id/storyClassBtn08"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass08" />
+
+                <Button
+                    android:id="@+id/storyClassBtn12"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/storyClass12" />
+            </TableRow>
+        </TableLayout>
+
+
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/missingkids"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp">
+
+    </WebView>
+
+
+</LinearLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/resultToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="搜尋結果">
+        <!-- 帶入關鍵字，如搜尋關鍵字/分類名稱
+        搜尋關鍵字 title=搜尋關鍵字
+        預先分類/熱搜關鍵字 title=預先分類/熱搜關鍵字  (如生活教養...)
+        收藏      title="@string/Love"
+        最新      title="@string/New"
+        最近播放   title="@string/history"
+        限時優惠   title="@string/storyPromotion"
+        推播      title="@string/Sponsor"
+        熱門      title="@string/hot">
+
+         -->
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:id="@+id/spinnerLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:visibility="visible">
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:entries="@array/listClass"
+                android:gravity="end" />
+            <!--
+            最新       ->由建立日期由新排到舊
+            最熱門     ->由收藏數或參加數由多排到少
+            已收藏     ->由已收藏者先排
+            最舊      ->由建立日期由舊排到新
+            -->
+
+        </android.support.v7.widget.ButtonBarLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/rScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <!-- 依類型選擇 -->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_articles" />   <!--文章-->
+                <include layout="@layout/item_bar_articles" />   <!--文章-->
+                <include layout="@layout/item_bar_story" />      <!--故事-->
+                <include layout="@layout/item_bar_story" />      <!--故事-->
+                <include layout="@layout/item_attra_event" />    <!--景點或活動-->
+                <include layout="@layout/item_attra_event" />    <!--景點或活動-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+                <include layout="@layout/item_bar_blog" />       <!--專欄-->
+
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <WebView
+            android:id="@+id/missingkids2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="1dp"
+            android:layerType="software"
+            android:visibility="visible" />
+        <!-- 當非webView部分被點擊/滑動時，visibility="gone" -->
+        <!--開啟https://404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn-->
+        <!--android:layerType="software"-->
+    </RelativeLayout>
+
+</LinearLayout>

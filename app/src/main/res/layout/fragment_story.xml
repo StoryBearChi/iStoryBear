@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/storyTablayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            android:background="#FFEE99"
+
+            app:tabIndicatorColor="@android:color/black">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/myStoryTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/myStory" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/buyStoryTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/storyBox" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/upStoryTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/storyUp" />
+        </android.support.design.widget.TabLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
+
+        <FrameLayout
+            android:id="@+id/Storyfragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <!--
+                        <fragment
+                            android:id="@+id/fragment_adapter"
+                            android:name="tw.com.dean.istorybear.Fragment_sub_mystory"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            tools:layout="@layout/fragment_story_mystory" />
+            -->
+
+        </FrameLayout>
+
+        <!-- 此為範例，
+            選擇我的故事時，塞入@layout/fragment_story_mystory
+            選擇故事屋時，塞入@layout/fragment_story_buystory
+            選擇創作提案時，塞入@layout/fragment_story_upstory -->
+
+    </LinearLayout>

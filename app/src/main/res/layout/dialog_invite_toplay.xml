@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialogToPlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:background="@drawable/bg_rectangle_wo_stroke_snow"
+        android:orientation="vertical">
+
+        <SearchView
+            android:id="@+id/searchFriend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/white" />
+        <!--輸入人名或關鍵字，搜尋到的朋友列在最下表-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/checkBox1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:visibility="visible"
+                            tools:text="王小明" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:visibility="visible"
+                            tools:text="王小明" />
+                        <!--最下被勾選後，立即跳升到第一欄-->
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="#DDDDDD" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/checkBox3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="李小華" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+                        <CheckBox
+                            android:id="@+id/checkBox15"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="林大山" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cancelBtn"
+                style="@android:style/Widget.DeviceDefault.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.2"
+                android:text="@string/cancel" />
+
+            <Button
+                android:id="@+id/OKBtn"
+                style="@android:style/Widget.DeviceDefault.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.7"
+                android:text="@string/OK" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

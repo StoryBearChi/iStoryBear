@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/blog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/blogTopView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_ad_height"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/adImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:paddingTop="0dp"
+                    android:src="@drawable/yesfox" />
+                <!-- 用來標示該廣告的代表圖，初期可用來做童書首購宣傳 app:srcCompat="@drawable/boneisland"-->
+
+                <TextView
+                    android:id="@+id/adNote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_margin="5dp"
+                    android:background="#CCD3D3D3"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:maxLength="18"
+                    android:singleLine="true"
+                    android:text="新書上市" />
+                <!-- 用來標示該廣告的標籤，初期可用來做童書首購宣傳 -->
+
+                <TextView
+                    android:id="@+id/adTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="end"
+                    android:layout_margin="5dp"
+                    android:background="#CCD3D3D3"
+                    android:text="贊助" />
+                <!-- 用來標示該廣告的標籤，初期可用來做童書首購宣傳 -->
+
+            </android.support.v7.widget.CardView>
+
+            <!-- 上面CardView需可左右滑動，依據1/5~5/5位置顯示不同資料 -->
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/adPageNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="3dp"
+            android:background="@drawable/bg_oval_with_gradient_red"
+            android:gravity="center"
+            android:text="1/5"
+            android:textColor="@android:color/black" />
+        <!-- 上面CardView需可左右滑動，依據位置顯示1/5~5/5 -->
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorButtonNormal" >
+
+        <Button
+            android:id="@+id/articleSearchBtn"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_search_black_24dp"
+            android:onClick="SearchBtnClk"
+            android:tag="ArticleSearch"
+            android:text="@string/articleSearch"
+            android:textSize="12sp" />
+        <!-- 點擊後跳至搜尋頁com_page_search -->
+
+        <Button
+            android:id="@+id/articleLoveBtn"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_heart_red_24dp"
+            android:onClick="ActlistBtnClk"
+            android:tag="ArticleLove"
+            android:text="@string/articleLove"
+            android:textSize="12sp" />
+        <!-- 點擊後跳至結果清單頁com_page_result_list -->
+
+        <Button
+            android:id="@+id/blogSearchBtn"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_search_black_24dp"
+            android:onClick="SearchBtnClk"
+            android:tag="BlogSearch"
+            android:text="@string/blogSearch"
+            android:textSize="12sp" />
+        <!-- 點擊後跳至搜尋頁com_page_search -->
+
+        <Button
+            android:id="@+id/blogLoveBtn"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_blog_orange_24dp"
+            android:onClick="ActlistBtnClk"
+            android:tag="BlogLove"
+            android:text="@string/blogLove"
+            android:textSize="12sp" />
+        <!-- 點擊後跳至結果清單頁com_page_result_list -->
+
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/blogScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/articleBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bar_height"
+                android:background="@color/colorStBearBtOrange"
+                app:title="@string/classArticle"
+                app:titleTextColor="@android:color/white">
+
+                <android.support.v7.widget.ButtonBarLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end">
+
+                    <TextView
+                        android:id="@+id/articleMoreBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/more"
+                        android:textColor="#ffffff" />
+                    <!-- 點擊後跳至文章分類頁page_blog_classarticle -->
+
+                </android.support.v7.widget.ButtonBarLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/articleClass1"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/holo_green_light"
+                        android:text="@string/articleClass1" />
+                    <!-- 點擊後跳至結果清單頁com_page_result_list -->
+
+                    <Button
+                        android:id="@+id/articleClass2"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/holo_blue_bright"
+                        android:text="@string/articleClass2" />
+                    <!-- 點擊後跳至結果清單頁com_page_result_list -->
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/articleClass3"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/holo_blue_bright"
+                        android:text="@string/articleClass3" />
+                    <!-- 點擊後跳至結果清單頁com_page_result_list
+                    列出以幼兒衛教為分類的文章-->
+
+                    <Button
+                        android:id="@+id/articleClass4"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/holo_green_light"
+                        android:text="@string/articleClass4" />
+                    <!-- 點擊後跳至結果清單頁com_page_result_list
+                    列出以生活教養為分類的文章-->
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/articleClass5"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/holo_green_light"
+                        android:text="@string/articleClass5" />
+                    <!-- 點擊後跳至結果清單頁com_page_result_list
+                    列出以親子旅遊為分類的文章-->
+
+                    <Button
+                        android:id="@+id/articleClass6"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/holo_blue_bright"
+                        android:text="@string/articleClass6" />
+                    <!-- 點擊後跳至結果清單頁com_page_result_list
+                    列出以親子手作為分類的文章-->
+
+                </TableRow>
+
+            </TableLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/hotblogBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bar_height"
+                android:background="@color/colorStBearBtOrange"
+                app:title="@string/hotblog"
+                app:titleTextColor="@android:color/white">
+
+                <android.support.v7.widget.ButtonBarLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end">
+
+                    <TextView
+                        android:id="@+id/notblogMoreBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/more"
+                        android:textColor="#ffffff" />
+                    <!-- 點擊後跳至結果清單頁com_page_result_list
+                        列出平台最多人收藏的專欄，前50個
+                    -->
+
+                </android.support.v7.widget.ButtonBarLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+            <!-- 依權重列出6個平台熱門專欄，權重=總文章被收藏數Ｘ文章數＋總故事被收藏數Ｘ故事數＋系統調整值(預設為0)
+                    點擊後跳至該專欄頁page_userhome，並預設在專欄文章分頁 -->
+            <include layout="@layout/item_author" />
+            <include layout="@layout/item_author" />
+            <include layout="@layout/item_author" />
+            <include layout="@layout/item_author" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

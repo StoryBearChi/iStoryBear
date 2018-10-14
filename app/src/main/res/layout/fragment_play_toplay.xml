@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/toplayFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/playSubTablayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            android:background="@color/snow"
+            app:tabIndicatorColor="@android:color/black">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toplaySponsor" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toplayInvite" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/toplayHost" />
+    </android.support.design.widget.TabLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/toplaySubfragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <!---
+            <fragment android:id="@+id/fragment_adapter"
+                android:name="tw.com.dean.istorybear.Fragment_sub_toplaySponsor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout="@layout/page_toplay_sponsor" />
+                -->
+        </FrameLayout>
+
+            <!-- 此為範例，
+            選擇訂閱/推薦時，塞入@layout/page_toplay_sponsor
+            選擇同遊時，塞入@layout/page_toplay_invitefriend
+            選擇主辦/建立時，塞入@layout/page_toplay_host -->
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

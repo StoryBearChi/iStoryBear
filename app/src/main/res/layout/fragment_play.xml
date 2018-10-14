@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/playTablayout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#FFEE99"
+            app:tabIndicatorColor="@android:color/black">
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/events" />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/attractions" />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/toPlay" />
+        </android.support.design.widget.TabLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD" />
+
+
+    <FrameLayout
+        android:id="@+id/playfragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+<!--
+        <fragment
+            android:id="@+id/fragment_adapter"
+            tools:name="tw.com.dean.istorybear.Fragment_sub_playEvents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_play_events" />
+            -->
+
+    </FrameLayout>
+
+        <!-- 此為範例，
+            選擇活動時，塞入@layout/fragment_play_events
+            選擇景點時，塞入@layout/fragment_play_attractions
+            選擇邀請時，塞入@layout/fragment_play_toplay -->
+
+
+</LinearLayout>

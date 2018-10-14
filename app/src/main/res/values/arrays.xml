@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="userClass">
+        <item>上班族媽媽</item>
+        <item>全職媽媽</item>
+        <item>上班族爸爸</item>
+        <item>全職爸爸</item>
+        <item>故事作者</item>
+        <item>故事講演者</item>
+        <item>閱讀推廣者</item>
+        <item>出版社帳號</item>
+        <item>兒童劇團帳號</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="actBuyItem">
+        <item>購買100點($100)</item>
+        <item>購買550點($500)</item>
+        <item>已收藏</item>
+        <item>最舊</item>
+    </string-array>
+
+    <string-array name="listClass">
+        <item>最新</item>
+        <item>最熱門</item>
+        <item>已收藏</item>
+        <item>最舊</item>
+    </string-array>
+
+    <string-array name="goodsClass">
+        <item>最新</item>
+        <item>最優惠</item>
+        <item>已收藏</item>
+        <item>最舊</item>
+    </string-array>
+
+    <string-array name="storyClass">
+        <item>品格教育</item>
+        <item>生活教育</item>
+        <item>童話寓言</item>
+        <item>聖經故事</item>
+        <item>名人故事</item>
+        <item>英文故事</item>
+        <item>成語故事</item>
+        <item>知識故事</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="articleType">
+        <item>親子共讀</item>
+        <item>育兒寶典</item>
+        <item>幼兒衛教</item>
+        <item>生活教養</item>
+        <item>親子旅遊</item>
+        <item>親子手作</item>
+        <item>家庭營造</item>
+        <item>國小教養</item>
+        <item>國中教養</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="ageClass">
+        <item>全部</item>
+        <item>0~1歲</item>
+        <item>1~6歲</item>
+        <item>6~12歲</item>
+        <item>1~12歲</item>
+        <item>6~14歲</item>
+        <item>12~14歲</item>
+    </string-array>
+
+    <string-array name="weekClass">
+        <item>每天</item>
+        <item>週一～週五</item>
+        <item>週六～週日</item>
+        <item>週一</item>
+        <item>週二</item>
+        <item>週三</item>
+        <item>週四</item>
+        <item>週五</item>
+        <item>週六</item>
+        <item>週日</item>>
+    </string-array>
+
+    <string-array name="attraClass">
+        <item>公園</item>
+        <item>故事屋</item>
+        <item>繪本館</item>
+        <item>遊樂園</item>
+        <item>親子步道</item>
+        <item>戲水景點</item>
+        <item>親子飯店</item>
+        <item>親子餐廳</item>
+        <item>其他戶外景點</item>
+        <item>其他戶內景點</item>
+    </string-array>
+
+    <string-array name="attraClass_LBS">
+        <item>所有</item>
+        <item>公園</item>
+        <item>故事屋</item>
+        <item>繪本館</item>
+        <item>遊樂園</item>
+        <item>親子步道</item>
+        <item>戲水景點</item>
+        <item>親子飯店</item>
+        <item>親子餐廳</item>
+        <item>其他戶外景點</item>
+        <item>其他戶內景點</item>
+    </string-array>
+
+    <string-array name="eventClass">
+        <item>說故事</item>
+        <item>兒童劇</item>
+        <item>園遊會</item>
+        <item>學校活動</item>
+        <item>游泳</item>
+        <item>野餐</item>
+        <item>運動</item>
+        <item>其他戶外活動</item>
+        <item>其他戶內活動</item>
+    </string-array>
+
+    <string-array name="eventClass_LBS">
+        <item>所有</item>
+        <item>說故事</item>
+        <item>兒童劇</item>
+        <item>園遊會</item>
+        <item>學校活動</item>
+        <item>游泳</item>
+        <item>野餐</item>
+        <item>運動</item>
+        <item>其他戶外活動</item>
+        <item>其他戶外活動</item>
+    </string-array>
+
+    <string-array name="TWCity22">
+        <item>臺北市</item><item>新北市</item><item>臺中市</item><item>高雄市</item><item>桃園市</item><item>臺南市</item>
+        <item>彰化縣</item><item>屏東縣</item><item>雲林縣</item><item>苗栗縣</item><item>新竹縣</item><item>新竹市</item>
+        <item>嘉義縣</item><item>嘉義市</item><item>南投縣</item><item>宜蘭縣</item><item>基隆市</item><item>花蓮縣</item>
+        <item>臺東縣</item><item>金門縣</item><item>澎湖縣</item><item>連江縣</item>
+    </string-array>
+
+    <string-array name="TaipeiCity">
+        <item>內湖區</item><item>中正區</item><item>信義區</item><item>大同區</item><item>大安區</item><item>中山區</item>
+        <item>松山區</item><item>南港區</item><item>萬華區</item><item>士林區</item><item>北投區</item><item>文山區</item>
+    </string-array>
+
+    <string-array name="NewTaipeiCity">
+        <item>板橋區</item><item>新莊區</item><item>中和區</item><item>永和區</item><item>土城區</item><item>樹林區</item>
+        <item>三峽區</item><item>鶯歌區</item><item>三重區</item><item>蘆洲區</item><item>五股區</item><item>泰山區</item>
+        <item>林口區</item><item>八里區</item><item>淡水區</item><item>三芝區</item><item>石門區</item><item>金山區</item>
+        <item>萬里區</item><item>汐止區</item><item>瑞芳區</item><item>貢寮區</item><item>平溪區</item><item>雙溪區</item>
+        <item>新店區</item><item>深坑區</item><item>石碇區</item><item>坪林區</item><item>烏來區</item>
+    </string-array>
+
+    <string-array name="TaichungCity">
+        <item>北屯區</item><item>西屯區</item><item>大里區</item><item>太平區</item><item>南屯區</item><item>豐原區</item>
+        <item>北區</item><item>南區</item><item>西區</item><item>潭子區</item><item>大雅區</item><item>沙鹿區</item>
+        <item>清水區</item><item>龍井區</item><item>大甲區	</item><item>東區</item><item>烏日區</item><item>神岡區</item>
+        <item>霧峰區</item><item>梧棲區</item><item>大肚區</item><item>后里區</item><item>東勢區</item><item>外埔區</item>
+        <item>新社區</item><item>大安區</item><item>中區</item><item>石岡區</item><item>和平區</item>
+    </string-array>
+
+    <string-array name="KaohsiungCity"> 
+        <item>楠梓區</item> <item>左營區</item> <item>鼓山區</item> <item>三民區</item> <item>鹽埕區</item> <item>前金區</item>
+        <item>前鎮區</item> <item>新興區</item> <item>苓雅區</item> <item>旗津區</item><item>旗山區</item> <item>小港區</item> 
+        <item>鳳山區</item> <item>大寮區</item><item>大樹區</item> <item>大社區</item> <item>鳥松區</item> <item>林園區</item> 
+        <item>仁武區</item> <item>岡山區</item> <item>路竹區</item> <item>橋頭區</item> <item>梓官區</item> <item>彌陀區</item> 
+        <item>永安區</item> <item>燕巢區</item> <item>田寮區</item> <item>阿蓮區</item> <item>茄萣區</item> <item>湖內區</item> 
+        <item>美濃區</item> <item>內門區</item> <item>杉林區</item> <item>甲仙區</item> <item>六龜區</item> <item>茂林區</item> 
+        <item>桃源區</item> <item>那瑪夏區</item>
+    </string-array>
+
+    <string-array name="TaoyuanCity">
+         <item>桃園區</item> <item>中壢區</item> <item>大溪區</item><item>大園區</item> <item>楊梅區</item> <item>蘆竹區</item> 
+        <item>龜山區</item> <item>八德區</item> <item>龍潭區</item> <item>平鎮區</item> <item>新屋區</item> <item>觀音區</item> 
+        <item>復興區</item>
+    </string-array>
+
+    <string-array name="TainanCity"> 
+        <item>中西區</item> <item>東區</item><item>東山區</item><item>南區</item><item>南化區</item><item>北區</item>
+        <item>北門區</item> <item>安平區</item> <item>安南區</item><item>安定區</item> <item>永康區</item> <item>歸仁區</item> 
+        <item>新化區</item><item>新營區</item><item>新市區</item> <item>左鎮區</item> <item>玉井區</item> <item>楠西區</item> 
+        <item>仁德區</item> <item>關廟區</item> <item>龍崎區</item> <item>官田區</item> <item>麻豆區</item> <item>佳里區</item> 
+        <item>西港區</item> <item>七股區</item> <item>將軍區</item> <item>學甲區</item> <item>後壁區</item> <item>白河區</item> 
+        <item>六甲區</item> <item>下營區</item> <item>柳營區</item> <item>鹽水區</item> <item>善化區</item> <item>大內區</item>
+         <item>山上區</item> 
+    </string-array>
+
+    <string-array name="ChanghuaCounty"> 
+        <item>彰化市</item> <item>員林市</item> <item>鹿港鎮</item> <item>和美鎮</item> <item>北斗鎮</item> <item>溪湖鎮</item>
+        <item>溪州鄉</item> <item>田中鎮</item> <item>二林鎮</item> <item>線西鄉</item> <item>伸港鄉</item> <item>福興鄉</item> 
+        <item>秀水鄉</item> <item>花壇鄉</item> <item>芬園鄉</item> <item>大村鄉</item><item>大城鄉</item> <item>埔鹽鄉</item> 
+        <item>埔心鄉</item> <item>永靖鄉</item> <item>社頭鄉</item> <item>二水鄉</item> <item>田尾鄉</item> <item>埤頭鄉</item> 
+        <item>芳苑鄉</item> <item>竹塘鄉</item> 
+    </string-array>
+
+    <string-array name="PingtungCounty"> 
+        <item>屏東市</item> <item>內埔鄉</item> <item>潮州鎮</item> <item>萬丹鄉</item><item>萬巒鄉</item> <item>東港鎮</item> 
+        <item>新園鄉</item><item>新埤鄉</item> <item>恆春鎮</item> <item>長治鄉</item> <item>里港鄉</item> <item>鹽埔鄉</item> 
+        <item>高樹鄉</item> <item>枋寮鄉</item><item>枋山鄉</item> <item>九如鄉</item> <item>佳冬鄉</item> <item>林邊鄉</item> 
+        <item>竹田鄉</item> <item>崁頂鄉</item> <item>琉球鄉</item> <item>麟洛鄉</item> <item>南州鄉</item> <item>車城鄉</item> 
+        <item>滿州鄉</item> <item>三地門鄉</item> <item>來義鄉</item> <item>瑪家鄉</item> <item>泰武鄉</item> <item>牡丹鄉</item> 
+        <item>春日鄉</item> <item>獅子鄉</item> <item>霧臺鄉</item>
+    </string-array>
+
+    <string-array name="YunlinCounty"> 
+        <item>斗六市</item><item>斗南鎮</item> <item>虎尾鎮</item> <item>西螺鎮</item> <item>麥寮鄉</item> <item>北港鎮</item> 
+        <item>古坑鄉</item> <item>土庫鎮</item> <item>莿桐鄉</item> <item>口湖鄉</item> <item>二崙鄉</item> <item>元長鄉</item> 
+        <item>水林鄉</item> <item>崙背鄉</item> <item>臺西鄉</item> <item>四湖鄉</item> <item>大埤鄉</item> <item>林內鄉</item> 
+        <item>東勢鄉</item> <item>褒忠鄉</item>
+    </string-array>
+
+    <string-array name="MiaoliCounty"> 
+        <item>頭份市</item> <item>苗栗市</item> <item>竹南鎮</item> <item>苑裡鎮</item> <item>後龍鎮</item> <item>通霄鎮</item> 
+        <item>公館鄉</item> <item>銅鑼鄉</item> <item>卓蘭鎮</item> <item>三義鄉</item> <item>大湖鄉</item> <item>造橋鄉</item> 
+        <item>頭屋鄉</item> <item>南庄鄉</item> <item>西湖鄉</item> <item>三灣鄉</item> <item>泰安鄉</item> <item>獅潭鄉</item>
+    </string-array>
+
+    <string-array name="HsinchuCounty">
+         <item>竹北市</item> <item>竹東鎮</item> <item>湖口鄉</item> <item>新豐鄉</item> <item>新埔鎮</item> <item>關西鎮</item>
+         <item>芎林鄉</item> <item>寶山鄉</item> <item>橫山鄉</item> <item>尖石鄉</item> <item>北埔鄉</item> <item>峨眉鄉</item>
+         <item>五峰鄉</item>
+    </string-array>
+
+    <string-array name="HsinchuCity"> 
+        <item>東區</item> <item>北區</item> <item>香山區</item>
+    </string-array>
+
+    <string-array name="ChiayiCounty"> 
+        <item>民雄鄉</item> <item>水上鄉</item> <item>中埔鄉</item> <item>朴子市</item> <item>太保市</item> <item>竹崎鄉</item> 
+        <item>新港鄉</item> <item>大林鎮</item><item>大埔鄉</item> <item>布袋鎮</item> <item>東石鄉</item> <item>六腳鄉</item> 
+        <item>梅山鄉</item> <item>義竹鄉</item> <item>鹿草鄉</item> <item>溪口鄉</item> <item>番路鄉</item> <item>阿里山鄉</item> 
+    </string-array>
+
+    <string-array name="ChiayiCity"> <item>西區</item> <item>東區</item>
+    </string-array>
+
+    <string-array name="NantouCounty"> 
+        <item>南投市</item> <item>草屯鎮</item> <item>埔里鎮</item> <item>竹山鎮</item> <item>名間鄉</item> <item>國姓鄉</item>
+         <item>水里鄉</item> <item>鹿谷鄉</item> <item>信義鄉</item> <item>魚池鄉</item> <item>仁愛鄉</item> <item>中寮鄉</item> 
+        <item>集集鎮</item>
+    </string-array>
+
+    <string-array name="YilanCounty"> 
+        <item>宜蘭市</item> <item>羅東鎮</item> <item>冬山鄉</item> <item>蘇澳鎮</item> <item>五結鄉</item> <item>礁溪鄉</item> 
+        <item>員山鄉</item> <item>頭城鎮</item> <item>壯圍鄉</item> <item>三星鄉</item> <item>大同鄉</item> <item>南澳鄉</item>
+    </string-array>
+
+    <string-array name="KeelungCity"> 
+        <item>安樂區</item> <item>七堵區</item> <item>中正區</item> <item>信義區</item> <item>中山區</item> <item>仁愛區</item> 
+        <item>暖暖區</item>
+    </string-array>
+
+    <string-array name="HualienCounty"> 
+        <item>花蓮市</item> <item>吉安鄉</item> <item>玉里鎮</item> <item>新城鄉</item> <item>壽豐鄉</item> <item>秀林鄉</item>
+         <item>光復鄉</item> <item>瑞穗鄉</item> <item>鳳林鎮</item> <item>富里鄉</item> <item>萬榮鄉</item> <item>卓溪鄉</item> 
+        <item>豐濱鄉</item>
+    </string-array>
+
+    <string-array name="TaitungCounty">
+         <item>臺東市</item> <item>卑南鄉</item> <item>成功鎮</item> <item>太麻里鄉</item> <item>關山鎮</item> <item>東河鄉</item> 
+        <item>池上鄉</item> <item>鹿野鄉</item> <item>長濱鄉</item> <item>大武鄉</item> <item>蘭嶼鄉</item> <item>海端鄉</item> 
+        <item>綠島鄉</item> <item>金峰鄉</item> <item>延平鄉</item> <item>達仁鄉</item>
+    </string-array>
+
+    <string-array name="KinmenCounty"> 
+        <item>金城鎮</item> <item>金寧鄉</item> <item>金湖鎮</item> <item>金沙鎮</item> <item>烈嶼鄉</item> <item>烏坵鄉</item>
+    </string-array>
+
+    <string-array name="PenghuCounty"> 
+        <item>馬公市</item> <item>湖西鄉</item> <item>白沙鄉</item> <item>西嶼鄉</item> <item>望安鄉</item> <item>七美鄉</item>
+    </string-array>
+
+    <string-array name="LienchiangCounty"> 
+        <item>南竿鄉</item> <item>北竿鄉</item> <item>莒光鄉</item> <item>東引鄉</item>
+    </string-array>
+
+
+    <string-array name="pregnancyText">
+
+    <item>Week1\n 現在你已經開始準備要一個可愛的寶寶了，應該準備好身體的內環境與生活的外環境。內環境是指保持健康的身體和心態。\n這時應戒掉煙酒並且降低咖啡因的攝取，因為過度抽煙喝酒會造成精子和卵子畸形，你一定不願意讓寶寶的生命在異常狀態下開始吧。</item>
+    <item>Week2\n 健康寶寶來自健康的爸爸媽媽，在懷孕3個月前，你做為媽媽孕期中應儘量攝取葉酸，因為葉酸是人體三大造血原料之一，能促進紅細胞的生成，孕早期如果缺乏葉酸，會影響胎兒神經系統的正常發育，導致脊柱裂或無腦兒等神經管畸形。因此美國疾病控制中心已經建議：育齡的女性每天都應補充0.4毫克的葉酸，懷孕後的女性每天的攝取量應達到1毫克左右。</item>
+    <item>Week3\n 這個時期你自身可能還沒有什麼感覺，但在你的身體內卻在進行著一場變革，從現在開始，你的生命中就會增加一份責任，你和丈夫的二人世界也會告一段落，你的寶寶將與你同歡樂，你的母愛天性將會發揮得淋漓盡致。</item>
+    <item>Week4\n已經進入第4週了，你還沒有發覺自己身體的變化嗎？ 這個時期胚胎已經在子宮內“著床”。完成著床大概需要4~5天。\n這時要特別注意加強營養，豐富的營養會給腦細胞和神經系統一個良好的成長環境。這個時期你可能會有輕微的不舒服，有時會感到疲勞。稍安勿躁，你馬上會進入一個豐富多彩的孕期生活。</item>
+    <item>Week5\n 在前兩個孕月，體內的孩子還不能叫胎兒，只能叫胚胎或胎芽。如果你還沒有做過早孕檢查，現在你可以去醫院做相關的體檢，以便有一個確實的信息。良好和持續的孕期保健可以幫助你和孩子健康安全地度過整個孕期。</item>
+    <item>Week6\n 進入懷孕第6週後，在你的子宮裏，胚胎正在迅速地成長，他（她）的心臟已經開始劃分心室，並進行有規律的跳動及開始供血。胚胎的長度有0.6公分，像一顆小蘋果籽，這周的細胞還在迅速地分裂。主要器官包括初級的腎和心臟的雛形都已發育，神經管開始連接大腦和脊髓，原腸也開始發育。</item>
+    <item>Week7\n 懷孕進入第7週了，這時的胚胎像一顆豆子，大約有12公分長。現在如果你能看到自己的身體內部，你會發現胚胎已經有了一個與身體不成比例的大頭。\n現在，你是否仍在繼續補充含有葉酸和維他命Ｂ群錠？你要知道，在懷孕三個月之內，一定要堅持補充孕期所需的營養。</item>
+    <item>Week8\n 第8週的胚胎大約有20公分長，看上去像顆葡萄。胚胎的器官已經開始有明顯的特徵，手指和腳趾間看上去有少量的蹼狀物。這時胚胎像跳動的豆子一樣開始有運動。\n從這時你可能因為噁心和嘔吐的原因而胃口不好，但是現在不是控制飲食的時候，你還是應該儘量吃些有營養的食物，以此來保證有足夠的養份為胎兒的成長作後盾。</item>
+     
+    <item>Week9\n 8週過去了，你的胚胎從現在開始可以稱為“胎兒”了，也可以稱之為“小寶寶”。為了接納新居民，你的子宮膨脹得非常大，現在胎兒的尺寸大約有25公分，而且胎兒許多位置都有所改變，如胚胎期的小尾巴不見了等。現在所有的器官、肌肉、神經開始工作。手部從手腕開始變得稍微有些彎曲，雙腳開始擺脫蹼狀的外表，眼帘開始覆蓋住眼睛。</item>
+    <item>Week10\n 孕10週時，可能會對許多事感到不安，但這都很正常，是孕期雌激素作用的結果。你的胎兒的身長會達到40公分，從形狀和大小來說，都像一個扁豆莢 。\n現在，應在食物裏增加碘的含量，胎兒腦的發育必須依賴母體內充足的甲狀腺素。</item>
+    <item>Week11\n 進入孕11週，你的胎兒身長已經達到45~63公分，體重達到14公克，胎兒開始能做吸吮、吞咽和踢腿動作，現在胎兒細微之處已經開始發育，他(她)的手指甲和絨毛狀的頭髮已經開始出現。胎兒維持生命的器官如肝臟、腎、腸、大腦以及呼吸器官都已經開始工作。你可以聽到胎兒心臟快速跳動的聲音，胎兒的骨骼細胞發育加快，肢體慢慢變長。\n此時胎兒就要從孕婦體內攝取大量的鈣質，因此孕婦從現在開始就要多喝牛奶，多吃高鈣食品，這時可以適當進行室外活動，多接觸日光照射，避免發生缺鈣抽筋。</item>
+    <item>Week12\n 胎兒初具人形了。這時胎兒的大腦體積越來越大，佔了整個身體的一半左右。現在發生流產的機會相應地減小了，胎兒成長的關鍵器官也將在兩週內完成。他(她)手指和腳趾已經完全分開，一部分骨骼開始變得堅硬，並出現關節雛形。</item>
+    <item>Week13\n 可以感到腹部變大了，進入懷孕中期，現在你需要做一些適當的運動，比如可以有目的地做一些孕婦操，這是最安全的運動。</item> 
+    <item>Week14\n 胎兒現在已經76~100公分，重達28公克。在他(她)手指上已經出現獨一無二的指紋印。你的情況變化也很大，孕期的疲勞、噁心以及尿頻都已經減少。現在你的子宮增大，你的腹部也隆起，看上去已是明顯的孕婦模樣。儘管現在離分娩的時間還很久，但是你的乳頭已經可以擠出一些乳汁了，看上去就像剛分娩後分泌出的初乳。</item>
+    <item>Week15\n 胎兒現在的生長速度很快，遠遠地超過了前幾週，他(她)的身長已經達到10~12公分，體重也達到50公克。現在胎兒薄薄的皮膚上覆蓋了一層細細的絨毛，全身看上去就像披著一層薄絨毯，這層絨毛通常出生時就會消失。在懷孕15~18週期間，你可能要根據醫生建議做一次產前診斷。</item>
+    <item>Week16\n 在16週到20週之間，媽媽可以感到明顯的胎動，這個階段胎兒的發育非常迅速。\n孕婦在這時對鐵的需求量增加了近4倍，孕婦現在極易出現缺鐵性貧血，其後果是導致孕婦的血細胞攜氧能力降低，從而引發胎兒的宮內缺氧，造成胎死宮內或早產。貧血還會影響胎兒腦細胞的發育，導致將來學習能力低下。</item>
+    <item>Week17\n 胎動現在已經非常活躍，現在你可以與胎兒進行交流，把握時機，良好的親子關係從現在起就可以建立了。\n現在是胎教的最佳時期，胎兒可以聽到你的各種聲音，胎兒最喜歡的就是聽到媽媽溫柔的說話聲，這時候可以開始說故事給他(她)聽，你的教育計劃從現在就開始吧！</item>
+    <item>Week18\n 現在胎兒的身長接近14公分，體重大約200公克，骨骼幾乎全部是類似橡膠似的軟骨，以後會變得越來越硬，一種可以保護骨骼的物質“髓磷脂”開始慢慢地裹在脊髓上。常見一些媽媽孕期體重猛增，而生出的胎兒卻十分瘦小，這是因為營養不均衡造成的。過量飲食會增加分娩時的困難，同時增加媽媽的身體負荷，容易出現高血壓、糖尿病等症狀。因此，在進食要注意科學均衡的營養搭配。</item>
+    <item>Week19\n 現在你應該堅持有規律地數胎動了，時間最好固定在每天晚間8~9點，胎動一般平均每小時3~5次。每天堅持數胎動，是一種直接胎教，當你對胎兒高度注意時，可以想像胎兒的各種體態，胎兒也會回應你的感受，這樣會增進母子之間的感情交流。 \n胎兒最喜歡聽中低頻調的聲音，爸爸的說話聲正好適當，如果你與丈夫每天能堅持與子宮內的胎兒講話，能夠喚起胎兒的熱情，幫助胎兒智力的發育，這時候爸爸如果不知道說些什麼，每天說一個故事也是很棒的親子活動。</item>
+    <item>Week20\n 懷孕中期，胎兒開始能吞咽羊水，腎臟已能夠製造尿液，頭腦也在迅速地生長。感覺器官開始按區域迅速發育，神經元分成各個不同的感官，味覺、嗅覺、聽覺、視覺和觸覺都從現在開始，在大腦裏的專門區域裏發育。\n胎兒在發育和形成的過程中，對卵磷脂的需求量極大。卵磷脂是構成大腦細胞膜的重要基礎物質，約佔腦細胞比重的30%以上，胎兒發育期間，腦部發育對磷脂的需 求量將是其他組織的2~3倍。因此，懷孕期間胎兒能否發育良好與磷脂的吸收密切相關。</item>
+     
+    <item>Week21\n 這時胎兒的體重正在不斷增加。因此胎兒和母體的生長發育都需要更多的營養，要注意增加鐵質的攝入量，胎兒要靠吸收鐵質來製造血液中的紅血球。\n這一階段媽媽出現貧血的機會也多了起來。應該多吃富含鐵質的食物，如：瘦肉、雞蛋、動物肝、魚、含鐵較多的蔬菜及強化鐵質的榖類食品！</item>
+    <item>Week22\n 這時胎兒的體重大約已有350公克，身長已有19公分了。胎兒的眉毛和眼瞼已經清晰可辨，10 個小手指上也已長出了嬌嫩的指甲。\n另外，由於懷孕激素的作用，你的手指、腳趾和全身關節韌帶變得鬆弛，這也會使你覺得有些不舒服。</item>
+    <item>Week23\n 23週的胎兒看起來已經很像一個微型寶寶了，他的身長大約20公分，體重大約450公克。\n此時在胎兒的牙齦下面，恆牙的牙胚也開始發育了，這是你沒有想到的吧？為此你要多補充些鈣質，為寶寶將來能長出一口好牙打下基礎。</item>
+    <item>Week24\n 這時胎兒可以聽到你發出的說話聲音、你心跳的聲音和你的腸胃蠕動時發出的咕嚕咕嚕的聲音。\n一些大的噪音，胎兒也能聽到，比如吸塵器發出的聲音、開得很大的音響聲、鄰家裝修時的電鑽聲，這些聲音都會使胎兒躁動不安。胎兒對外界聲音的反應是比較敏感的。</item>
+    <item>Week25\n 此時胎兒體重穩定增加，與上週相比又長了100多公克，大約已有570公克了，注意這時胎兒大腦細胞迅速增殖分化，體積增大，這表示胎兒的大腦發育將進入一個高峰期。\n這時媽媽可以多吃一些磨碎的亞麻籽、芝麻、酪梨、堅果之類含有omega 3的健腦食品，為胎兒大腦發育提供充足的營養。</item>
+    <item>Week26\n 現在胎兒的體重在800公克左右，坐高約為22公分。這個時候胎兒的大腦對觸摸已經有了反應，而且胎兒的視覺已經發展，他的眼睛已能夠睜開了。\n這時你可能會覺得心神不安，睡眠不好，經常做一些記憶清晰的惡夢，這是你在懷孕階段對即將承擔的母親的重任感到憂慮不安的反應。這是正常的，你也不必為此自責。\n重要的是你應該為了你的胎兒的健康發育保持良好的心境，你可以向丈夫或親友訴說你的內心感受，他們也許能夠幫助你放鬆下來。</item>
+    <item>Week27\n 27週的胎兒現在體重已有900公克左右了，身長大約已達到38公分，坐高大約為25公分。很多胎兒此時已經長出了頭髮，眼睛也已可以睜開。如果是男孩，他的睾丸尚未降下來，如果是女孩則已經可以看到突起的小陰唇。\n這時胎兒的聽覺神經系統也已發育完全，同時對外界聲音刺激的反應也更為明顯。你可以繼續為他(她)講故事或者給他聽音樂，這會讓你和胎兒都感到平靜和愉快。</item>
+     
+    <item>Week28\n 他的眼睛既能睜開也能閉上，而且已形成了自己的睡眠週期。有趣的是，他甚至會把自己的大拇指或其他手指放到嘴裏去吸吮。胎兒從28週左右開始就會做夢了，那麼他會做一些什麼夢呢？誰也不知道。但是胎兒大腦活動在這時是非常活躍的，大腦皮層表面開始出現一些特有的溝回，腦組織快速增殖。做個好夢吧，小寶貝。\n馬上就要進入懷孕後期了，這時由於腹部迅速增大，媽媽會感到很容易疲勞，腳腫、腿腫、痔瘡、靜脈曲張等等都使媽媽感到不適。離分娩已經不是很遙遠了，如果你還沒有參加分娩課，那麼自己也應該認真了解一下有關的知識了。</item>
+    <item>Week29\n 這時胎兒體重大約有1300多公克，坐高約為26~27公分，如果加上腿長，身長大約已有43公分了。這時胎兒的皮下脂肪已初步形成，看上去比原來顯得胖一些了。手指甲也已很清晰。此時如果有光亮透過媽媽子宮壁照射進來，胎兒就會睜開眼睛並把頭轉向光源，這說明胎兒的視覺發育已相當完善。</item>
+    <item>Week30\n 胎兒頭部還在增大，而且這時大腦發育非常迅速。幾乎大多數胎兒此時對聲音都有了反應。大腦和神經系統已發達到了一定程度。\n懷孕後期胎兒的營養需求達到了最高峰，你需要攝入大量的蛋白質、維生素C、葉酸、維生素B群、鐵質和鈣質，每天大約需要200毫克的鈣用於胎兒的骨骼發育。這時胎兒的骨骼、肌肉和肺部發育正日趨成熟。  \n媽媽這時會感到身體越發沉重，肚子大得看不到腳下，行動越來越吃力。呼吸困難，胃部不適。一旦發生不規則宮縮應立刻停下來休息，最好中午睡個午覺。</item>
+    <item>Week31\n 這時胎兒的肺部和消化系統已基本發育完成，身長增長減慢而體重迅速增加。這周胎兒的眼睛時開時閉，他大概已經能夠看到子宮裏的景象，也能辨別明暗，甚至能跟蹤光源。如果你用一個小手電照射腹部，胎兒會轉過頭來追隨這個光亮，甚至可能會伸出小手來觸摸。 \n這時子宮底已上升到了橫膈膜處，你會感到越發的呼吸困難，喘不上氣來。吃下食物後也總是覺得胃裏不舒服。但是光明即將出現，情況很快會有所緩解。大約34週左右時，胎兒的頭部將開始下降，進入骨盆，到達子宮頸，這是在為即將到來的分娩做準備。那時，你會覺得呼吸和進食舒暢多了。</item>
+
+    <item>Week32\n胎兒已經32週了，他的身體和四肢還在繼續長大，最終要長得與頭部比例相稱。胎兒現在的體重約為2000公克左右，全身的皮下脂肪更加豐富，皺紋減少，看起來更像一個嬰兒了。\n你會發現，現在胎兒動得次數比原來少了，動作也減弱了，再也不會像原來那樣你的肚子裏翻筋斗了。別擔心，只要你還能感覺得到胎兒在蠕動，就說明他很好。這是因為胎兒身體長大了許多，媽媽子宮內的空間已經快被佔滿了，他的手腳動不開了。即使如此，胎兒還要繼續長大，而且在出生前至少還要再長1000公克左右呢！\n這時媽媽會感到很疲勞，休息不好，行動又更加不便，食欲因胃部不適也有所下降。分泌物增多。排尿次數也增多了。</item>
+
+    <item>Week33\n 現在你的胎兒體重大約已有2000公克了，身長約為48公分。媽媽子宮裏的空間已顯得很擁擠，胎兒的活動空間也小多了。這時胎兒身體開始變得圓潤。胎兒的呼吸系統、消化系統發育已近成熟。有的胎兒頭部已開始降入骨盆。 \n媽媽現在會感到尿意頻繁，這是由於胎頭下降，壓迫膀胱的緣故。你還會感到骨盆和恥骨連接處酸疼不適，不規則宮縮的次數增多。這些都代表著胎兒在逐漸下降。沉重的腹部使你更加懶於行動，更易疲憊，但還是要適當活動。</item>
+    <item>Week34\n 你的胎兒現在體重大約2300公克，坐高約為30公分。此時胎兒應該已經為分娩做好了準備，將身體轉為頭位，即頭朝下的姿勢，頭部已經進入骨盆。 \n如果你是初產婦，那麼這時胎兒的頭部大多已降入骨盆，緊壓在你的子宮頸口。而經產婦的胎兒入盆時間會較晚一些，有的產婦胎兒在分娩前才會入盆。\n也許這時你的腿腳腫得更厲害了，但此不要限制水分的攝取量，因為母體和胎兒都需要大量的水分。</item>
+    <item>Week35\n 35週時，絕大多數的胎兒如果在此時出生大多也不會發生什麼大的問題，儘管胎兒的中樞神經系統尚未完全發育成熟，但是他的肺部發育已基本完成，存活的可能性為99%。 \n由於胎兒增大，並且逐漸下降，相當多的孕婦此時會覺得腹墜腰酸，骨盆後部附近的肌肉和韌帶變得麻木，甚至有一種牽拉式的疼痛，使行動變得更為艱難。\n日益臨近的分娩會使你感到忐忑不安甚至有些緊張，和丈夫、朋友或自己的媽媽聊一聊，也許可以稍稍緩解一下自己內心的壓力。</item>
+    <item>Week36\n 現在你需要每週做一次產前檢查了。你會發現胎兒動得少了，你應該請教醫生，如何正確監測胎心和胎動。\n這時媽媽肚子已相當沉重，上下樓梯和洗澡時一定要注意安全，防止滑倒。同時做家務時也一定要注意動作輕緩，不要過猛，更不能做有危險的動作。</item>
+    <item>Week37\n 恭喜妳，因為現在已進入懷孕的最後階段，到這週末你的胎兒就足月了（38週到40週的新生兒都稱為足月兒），這意味著，你的寶寶隨時可能降臨人間，你們母子很快就要見面了！ 這時醫生會在每周一次的體檢中檢查胎兒是否已經入盆，估計何時入盆，胎位是否正常且是否已經固定等。如果此時胎位尚不正常，那麼胎兒自動轉為頭位的機會就很少了，如果醫生也無法糾正，那麼很可能會建議你採取剖腹產，以保證你和寶寶的安全。 \n這時胎兒在母腹中的位置在不斷下降，下腹墜脹，不規則宮縮頻率增加。媽媽會不斷地想上廁所，便次增加，分泌物也更多了，要注意保持身體清潔。現在最重要的是要充分休息，迎接隨時可能來臨的分娩。</item>
+    <item>Week38\n 現在你的胎兒可能已經有3200公克重了，身長也得有52公分左右了。胎兒的頭在你的骨盆腔內搖擺，周圍有骨盆的骨架保護，很安全。這樣也騰出了更多的地方長他的小胳膊、小腿、小屁股。 \n媽媽現在可能會既緊張又焦急，既盼望寶寶早日降生，又對分娩的痛苦有些恐懼。現在應該適當活動，充分休息，密切關注自己身體變化，即臨產徵兆的出現，隨時做好入院準備。</item>
+    <item>Week39\n 現在出生的寶寶就已經是足月兒了。胎兒現在的體重應該已有3200~3400公克。現在體重在3500公克以上的新生兒也很常見，甚至4000公克以上的高體重新生兒和巨大兒也增多了，這跟人們營養狀況的改善有很大關係。一般情況下男孩比女孩的平均體重略重一些。 \n胎兒現在還在繼續長肉，這些脂肪儲備將會有助於寶寶出生後的體溫調節。這個小家伙的身體各部份器官已發育完成，其中肺部是最後一個成熟的器官，在寶寶出生後幾個小時內他才能建立起正常的呼吸模式。 \n你的小寶寶現在已經準備好向這個世界報到了，準備好了嗎，年輕的爸爸媽媽？你現在是不是很想知道你的寶寶是男孩還是女孩，也許你已經可以從胎動的特點上作出初步判斷，不妨和誰打個賭。也許明天？後天？寶寶就會降生了。</item>
+    <item>Week40\n 大多數的胎兒都將在這週誕生，但真正能準確地在預產期出生的嬰兒只有5%，提前兩週或推遲兩週都是正常的。但如果推遲兩週後還沒有臨產跡象，那就需要採取催產等措施儘快生下胎兒，否則胎兒過熟也會有危險。 \n這時胎兒所處的羊水環境也有所變化，原來的羊水是清澈透明的，現在由於胎兒身體表面絨毛和胎脂的脫落，及其它分泌物的產生，羊水變得有些渾濁，呈乳白色。胎盤的功能也從此逐漸退化，直到胎兒娩出即完成使命。</item>
+    </string-array>
+
+
+
+
+</resources>

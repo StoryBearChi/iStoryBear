@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/fragment_adapter"
+        android:name="tw.com.dean.istorybear.Fragment_story"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_story" />
+        <!-- 上面這個include只是示意
+         以BottomNavigationView選擇換fragment
+         專欄帶入@layout/fragment_blog
+         去玩帶入@layout/fragment_play
+         故事帶入@layout/fragment_story
+         購物帶入@layout/fragment_buy
+         會員直接換整頁成@layout/fragment_me -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include android:id="@+id/story_player"
+            layout="@layout/bar_story_player"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFEE99"
+        app:menu="@menu/navigation"/>
+
+</LinearLayout>
+

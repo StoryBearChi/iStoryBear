@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar6"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/colorStBearBtOrange"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/post">
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+
+            <Button
+                android:id="@+id/button36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/note" />
+
+        </android.support.v7.widget.ButtonBarLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorButtonNormal"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/textView90"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gooseYellow"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:padding="2dp"
+                    android:text="@string/intellectualPropertyNote"
+                    android:textColor="@color/holo_red_light"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView90"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/Class" />
+
+                <Spinner
+                    android:id="@+id/articleClass_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView70"
+                    android:layout_toEndOf="@+id/textView70"
+                    android:layout_toRightOf="@+id/textView70"
+                    android:entries="@array/articleType"
+                    android:prompt="@string/spinner_prompt_eventclasss" />
+
+                <Switch
+                    android:id="@+id/TypeSW"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/articleClass_spinner"
+                    android:layout_alignBottom="@+id/articleClass_spinner"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/articleClass_spinner"
+                    android:layout_toRightOf="@+id/articleClass_spinner"
+                    android:checked="true"
+                    android:padding="3dp"
+                    android:showText="true"
+                    android:textOff="@string/friend"
+                    android:textOn="@string/open"
+                    android:thumb="@drawable/bg_rectangle_wo_stroke_gold"
+                    android:thumbTextPadding="12dp" tools:targetApi="lollipop" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView70"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/title" />
+
+                <EditText
+                    android:id="@+id/title_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView2"
+                    android:layout_toEndOf="@+id/textView2"
+                    android:layout_toRightOf="@+id/textView2"
+                    android:background="@android:color/white"
+                    android:hint="@string/hint10"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/cardview_shadow_start_color"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textView86"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/textView2"
+                    android:layout_below="@+id/textView2"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/tag" android:layout_alignEnd="@+id/textView2" />
+
+                <EditText
+                    android:id="@+id/tag_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView86"
+                    android:layout_toEndOf="@+id/textView2"
+                    android:layout_toRightOf="@+id/textView2"
+                    android:background="@android:color/white"
+                    android:hint="@string/hint11"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@color/cardview_shadow_start_color"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/article_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@android:color/white"
+                android:gravity="top"
+                android:hint="@string/hint12"
+                android:inputType="textAutoComplete|textMultiLine"
+                android:minLines="19"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gooseYellow"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/add_pic"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="30dp"
+            android:minWidth="48dp"
+            app:srcCompat="@drawable/ic_addphoto_colors_24dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:minHeight="30dp"
+            android:minWidth="48dp"
+            app:srcCompat="@drawable/ic_map_black_24dp" android:layout_marginStart="5dp" android:layout_marginEnd="15dp" />
+
+        <Button
+            android:id="@+id/cancelBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.5"
+            android:background="@android:color/darker_gray"
+            android:minHeight="30dp"
+            android:text="@string/cancel"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/OKBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@color/colorStBearBtOrange"
+            android:minHeight="30dp"
+            android:text="@string/OK"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

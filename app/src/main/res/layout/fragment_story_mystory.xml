@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/snow"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/sponsorStoryBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        app:logo="@drawable/ic_sponsor_black_24dp"
+        app:title="@string/storySponsor"
+        app:titleMarginStart="25dp"
+        app:titleTextColor="@android:color/white">
+        <!-- 當@+id/sponsorStoryBar被點擊時，@+id/sponsorStoryList之visibility="visible"，其餘list之visibility="gone“
+ 但，除非App被重開，否則紀錄上次最後一次開啟之list -->
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+
+            <Button
+                android:id="@+id/sponsorMoreBtn"
+                style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:text="@string/more"
+                android:textColor="#ffffff"
+                android:visibility="gone" />
+            <!-- 當下面故事數量不足20個時，則預設為visibility="gone"，否則為visibility="visible" -->
+
+        </android.support.v7.widget.ButtonBarLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/sponsorStoryList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/snow"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <!-- 當@+id/sponsorStoryBar被點擊時，@+id/sponsorStoryList之visibility="visible"，其餘list之visibility="gone“
+ 但，除非App被重開，否則紀錄上次最後一次開啟之list -->
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- 舉例 未加入或已超過期限，贊助故事 -->
+                <!-- 舉例 已收聽>1分鐘，未超過期限 -->
+                <!-- 舉例 已加入，但未收聽>1分鐘 -->
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/myStrorBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorStBearBtOrange"
+        app:logo="@drawable/ic_logo_black_24dp"
+        app:title="@string/myStory"
+        app:titleMarginStart="25dp"
+        app:titleTextColor="@android:color/white">
+        <!-- 當@+id/myStrorBar被點擊時，@+id/myStrorList之visibility="visible"，其餘list之visibility="gone“ -->
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+
+            <Button
+                android:id="@+id/myStoryMoreBtn"
+                style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:text="@string/more"
+                android:textColor="#ffffff"
+                android:visibility="gone"
+                tools:visibility="visible" />
+            <!-- 當下面故事數量不足20個時，則預設為visibility="gone"，否則為visibility="visible" -->
+
+        </android.support.v7.widget.ButtonBarLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/myStrorList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/snow"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <!-- app一開始預設@+id/myStrorList之visibility="visible"，
+        當@+id/myStrorBar被點擊時，@+id/myStrorList之visibility="visible"，其餘list之visibility="gone“
+        但，除非App被重開，否則紀錄上次最後一次開啟之list -->
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- 超過期限，直接移除 -->
+                <!-- 舉例 已收聽>1分鐘，未超過期限 -->
+                <!-- 舉例 已加入或購買，但未收聽>1分鐘 -->
+                <android.support.v7.widget.CardView
+                    android:id="@+id/item_story1"
+                    style="@style/CardView.Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/snow">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/snow"
+                        android:orientation="horizontal"
+                        android:padding="3dp">
+
+                        <ImageButton
+                            android:id="@+id/actionBtn"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="5dp"
+                            android:onClick="toStoryPlayerBtnClk"
+                            app:srcCompat="@drawable/ic_play_black_16dp" />
+                        <!--android:srcCompat="@drawable/ic_play_black_16dp" -->
+                        <!-- 當該首已選擇購買並且還在有效期間或該首故事是用戶本人上傳時，顯示@drawable/ic_play_black_16dp，點擊即跳到播放頁(單曲播放)
+            當該首為贊助故事並在有效期間，顯示@drawable/ic_add2_green_16dp，點擊即加入我的故事，並跳“已加入我的故事中”提示
+            當該首尚未購買或超過有效期間，顯示@drawable/ic_buy_orange_16dpp，點擊即加入我的故事，並跳“已購買並加入我的故事中，如欲取消，請點故事右邊X取消”提示
+            如果該首故事是用戶本人上傳時，顯示@drawable/ic_add2_green_16dp，點擊即加入我的故事，並跳“已加入我的故事中”提示-->
+
+                        <TextView
+                            android:id="@+id/storyName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:ellipsize="end"
+                            android:focusable="true"
+                            android:singleLine="true"
+                            android:onClick="toStoryPlayerBtnClk"
+                            android:text="[母愛] 孤單的毛毛蟲" />
+                        <!-- 點擊後頁面跳至該故事的page_buystory_detail -->
+                        <!-- 如為未上架審查或審查退回，則點擊後頁面跳至該故事的page_story_up可修改資料 -->
+
+
+                        <TextView
+                            android:id="@+id/expireNum"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginRight="7dp"
+                            android:background="@drawable/bg_rectangle_wo_stroke_red"
+                            android:gravity="center"
+                            android:text="3"
+                            android:textColor="@android:color/white"
+                            android:visibility="visible"
+                            tools:visibility="visible" />
+                        <!-- 當該首已選擇購買,還在有效期間並且已扣點(聆聽超過1分鐘）時，text顯示剩餘有效天數，末日不計(30,29...3,2,1,0)
+            否則，visibility="gone"
+            如果該首故事是用戶本人上傳時 visibility="gone"
+            -->
+                        <!--  ecpireNum與cancelBtn同時最多存在一個貨都不存在  -->
+                        <ImageButton
+                            android:id="@+id/cancelBtn"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:contentDescription="@string/cancel"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_cancel_black_16dp" />
+                        <!--如果該首故事是用戶本人並申請審查中時，visibility="visible"，點擊可取消申請
+                如果該首故事是用戶本人並未申請上架時，visibility="visible"，點擊可刪除此一故事，並跳“已刪除此一故事“提示；
+
+                當該首已選擇購買並且尚未聆聽或聽不足1分鐘時，顯示@drawable/ic_cancel_black_16dp，
+                點擊即從我的故事list中移除，並跳“已取消購買，將不扣點“提示，並且不扣點；
+                當該首未購買或剛取消時，visibility="gone" -->
+
+                        <TextView
+                            android:id="@+id/storyStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="end"
+                            android:minEms="3"
+                            android:singleLine="true"
+                            android:text="99:59" />
+                        <!--如果該首故事是用戶本人上傳時
+                    1.上傳尚未申請上架時==> 點擊後，進行上架申請審查，並跳“已申請，待審查後上架，如欲取消，請點擊x“提示；
+                        android:textColor="@android:color/white"
+                        android:background="@color/colorStBearPlayBar"
+                        android:text="申請上架"
+                    2.審查尚未上架時==> 點擊可取消上架申請審查
+                        android:textColor=""
+                        android:background="#00000000"
+                        android:text="審查中"
+                    3.通過審查後==> 點擊不處理
+                        android:textColor=""
+                        android:background="#00000000"
+                        android:text= 顯示音檔長度
+                如果該首故事是非用戶本人上傳時
+                    1.當該首已被購買或已播放>1分鐘時==> 點擊不處理
+                        android:textColor=""
+                        android:background="#00000000"
+                        android:text= 顯示音檔長度 ；
+                    2.贊助故事時==> 點擊不處理
+                        android:textColor=""
+                        android:background="#00000000"
+                        android:text= 顯示贊助單位(如遠傳電信贊助)；
+                    3.否則==> 點擊不處理
+                        android:textColor=""
+                        android:background="#00000000"
+                        android:text= 顯示收聽價格(有特價顯示特價$數字，無特價直接顯示$數字);
+             -->
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+                <include layout="@layout/item_bar_story" />
+                <include layout="@layout/item_bar_story" />
+                <include layout="@layout/item_bar_story" />
+                <include layout="@layout/item_bar_story" />
+                <include layout="@layout/item_bar_story" />
+                <include layout="@layout/item_bar_story" />
+                <include layout="@layout/item_bar_story" />
+                <include layout="@layout/item_bar_story" />
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+                <include layout="@layout/item_bar_story" />
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <ImageButton
+            android:id="@+id/AddStoryBtn"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/holo_green_light"
+            android:onClick="SearchBtnClk"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:tag="StorySearch"
+            app:srcCompat="@drawable/ic_add_black_24dp" />
+        <!-- 點擊後跳到故事屋頁 fragment_story_buystory-->
+
+    </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/historyBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorStBearBtOrange"
+        app:logo="@drawable/ic_clock_black_24dp"
+        app:title="@string/history"
+        app:titleMarginStart="25dp"
+        app:titleTextColor="@android:color/white">
+        <!-- 當@+id/historyBar被點擊時，@+id/historyList之visibility="visible"，其餘list之visibility="gone“
+但，除非App被重開，否則紀錄上次最後一次開啟之list -->
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+
+            <Button
+                android:id="@+id/historyMoreBtn"
+                style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:text="@string/more"
+                android:textColor="#ffffff"
+                android:visibility="gone" />
+            <!-- 當下面故事數量不足20個時，則預設為visibility="gone"，否則為visibility="visible" -->
+
+        </android.support.v7.widget.ButtonBarLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/historyList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <!-- 當@+id/historyBar被點擊時，@+id/historyList之visibility="visible"，其餘list之visibility="gone“
+但，除非App被重開，否則紀錄上次最後一次開啟之list -->
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include layout="@layout/item_bar_story" />
+                <!-- 舉例 已收聽>1分鐘，未超過期限 -->
+                <!-- 舉例 已加入或購買，但未收聽>1分鐘 -->
+                <!-- 舉例 未購買或已超過期限，有特價 -->
+                <!-- 舉例 未購買或已超過期限，無特價 -->
+                <!-- 舉例 未加入或已超過期限，贊助故事 -->
+
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/scenesBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorStBearBtOrange"
+        app:logo="@drawable/ic_scenes_black_24dp"
+        app:title="@string/storyScenes"
+        app:titleMarginStart="25dp"
+        app:titleTextColor="@android:color/white">
+        <!-- 當@+id/scenesBar被點擊時，@+id/lscenesList之visibility="visible"，其餘list之visibility="gone“
+但，除非App被重開，否則紀錄上次最後一次開啟之list -->
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/scenesList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/snow"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <!-- 當@+id/scenesBar被點擊時，@+id/lscenesList之visibility="visible"，其餘list之visibility="gone“
+但，除非App被重開，否則紀錄上次最後一次開啟之list -->
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:id="@+id/row1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/gooseYellow">
+
+                        <TextView
+                            android:id="@+id/scenes0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/ic_play_black_16dp"
+                            android:drawableStart="@drawable/ic_play_black_16dp"
+                            android:focusable="true"
+                            android:text="@string/scenes0"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                        <!-- 被點擊時，照場景設定播放 -->
+
+                        <ImageButton
+                            android:id="@+id/scenesEditBtn0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_margin="5dp"
+                            android:background="#00FFFFFF"
+                            android:onClick="ActItemBtnClk"
+                            android:tag="scenesEditBtn0"
+                            app:srcCompat="@drawable/ic_edit_black_24dp" />
+                        <!-- 被點擊時，跳出dialog_mystory_scenes -->
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:visibility="visible"
+                        app:cardBackgroundColor="@color/holo_blue_bright">
+
+                        <TextView
+                            android:id="@+id/scenes1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/ic_play_black_16dp"
+                            android:drawableStart="@drawable/ic_play_black_16dp"
+                            android:focusable="true"
+                            android:text="@string/scenes01"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/scenesEditBtn1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_margin="5dp"
+                            android:background="#00FFFFFF"
+                            app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+                    </android.support.v7.widget.CardView>
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:cardBackgroundColor="@color/holo_blue_bright">
+                        <!--當@+id/scenes1被重訂使用時，visibility="visible"-->
+
+                        <TextView
+                            android:id="@+id/scenes2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/ic_play_black_16dp"
+                            android:drawableStart="@drawable/ic_play_black_16dp"
+                            android:focusable="true"
+                            android:text="@string/scenes02"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/scenesEditBtn2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_margin="5dp"
+                            android:background="#00FFFFFF"
+                            app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:cardBackgroundColor="@color/gooseYellow">
+                        <!--當@+id/scenes2被重訂使用時，visibility="visible"-->
+
+                        <TextView
+                            android:id="@+id/scenes3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/ic_play_black_16dp"
+                            android:drawableStart="@drawable/ic_play_black_16dp"
+                            android:focusable="true"
+                            android:text="@string/scenes03"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/scenesEditBtn3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_margin="5dp"
+                            android:background="#00FFFFFF"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+                    </android.support.v7.widget.CardView>
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:cardBackgroundColor="@color/gooseYellow">
+                        <!--當@+id/scenes3被重訂使用時，visibility="visible"-->
+
+                        <TextView
+                            android:id="@+id/scenes4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/ic_play_black_16dp"
+                            android:drawableStart="@drawable/ic_play_black_16dp"
+                            android:focusable="true"
+                            android:text="@string/scenes04"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/scenesEditBtn4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_margin="5dp"
+                            android:background="#00FFFFFF"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:cardBackgroundColor="@color/holo_blue_bright">
+                        <!--當@+id/scenes4被重訂使用時，visibility="visible"-->
+
+                        <TextView
+                            android:id="@+id/scenes5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/ic_play_black_16dp"
+                            android:drawableStart="@drawable/ic_play_black_16dp"
+                            android:focusable="true"
+                            android:text="@string/scenes05"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/scenesEditBtn5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_margin="5dp"
+                            android:background="#00FFFFFF"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+                    </android.support.v7.widget.CardView>
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/row4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:cardBackgroundColor="@color/gooseYellow">
+                        <!--當@+id/scenes5被重訂使用時，visibility="visible"-->
+
+                        <TextView
+                            android:id="@+id/scenes6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/ic_play_black_16dp"
+                            android:drawableStart="@drawable/ic_play_black_16dp"
+                            android:focusable="true"
+                            android:text="@string/scenes06"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/scenesEditBtn6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_margin="5dp"
+                            android:background="#00FFFFFF"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:visibility="invisible"
+                        app:cardBackgroundColor="@color/holo_blue_bright">
+                        <!--當@+id/scenes6被重訂使用時，visibility="visible"-->
+
+                        <TextView
+                            android:id="@+id/scenes7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:drawableLeft="@drawable/ic_play_black_16dp"
+                            android:drawableStart="@drawable/ic_play_black_16dp"
+                            android:focusable="true"
+                            android:text="@string/scenes07"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/scenesEditBtn7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:layout_margin="5dp"
+                            android:background="#00FFFFFF"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+                    </android.support.v7.widget.CardView>
+
+                </TableRow>
+
+            </TableLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/loveStoryBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorStBearBtOrange"
+        app:logo="@drawable/ic_heart_red_24dp"
+        app:title="@string/loveStory"
+        app:titleMarginStart="25dp"
+        app:titleTextColor="@android:color/white">
+        <!-- 當@+id/loveStoryBar被點擊時，@+id/loveStoryList之visibility="visible"，其餘list之visibility="gone“
+但，除非App被重開，否則紀錄上次最後一次開啟之list -->
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+
+            <Button
+                android:id="@+id/loveMoreBtn"
+                style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:text="@string/more"
+                android:textColor="#ffffff"
+                android:visibility="gone" />
+            <!-- 當下面故事數量不足20個時，則預設為visibility="gone"，否則為visibility="visible" -->
+
+        </android.support.v7.widget.ButtonBarLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/loveStoryList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <!-- 當@+id/loveStoryBar被點擊時，@+id/loveStoryList之visibility="visible"，其餘list之visibility="gone“
+但，除非App被重開，否則紀錄上次最後一次開啟之list -->
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/item_bar_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include layout="@layout/item_bar_story" />
+                <!-- 舉例 已收聽>1分鐘，未超過期限 -->
+                <!-- 舉例 已加入或購買，但未收聽>1分鐘 -->
+                <!-- 舉例 未購買或已超過期限，有特價 -->
+                <!-- 舉例 未購買或已超過期限，無特價 -->
+                <!-- 舉例 未加入或已超過期限，贊助故事 -->
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+
+</LinearLayout>

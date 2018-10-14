@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/snow"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/AddAttraBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/attractionAdd" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:drawableStart="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/attraction_name"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/attractionName_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView1"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/textView1"
+                android:hint="@string/hint01"
+                android:minEms="12"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" android:layout_marginEnd="10dp" android:layout_toEndOf="@+id/textView1" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/attractionName_edit"
+                android:layout_toLeftOf="@+id/location_edit"
+                android:layout_toStartOf="@+id/location_edit"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/Class"
+                android:textSize="14sp"
+                android:textStyle="bold" android:drawableStart="@drawable/ic_asterisk_red_24dp" />
+
+            <Spinner
+                android:id="@+id/eventClass_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView2"
+                android:layout_alignBottom="@+id/textView2"
+                android:layout_toEndOf="@+id/textView2"
+                android:layout_toRightOf="@+id/textView2"
+                android:entries="@array/attraClass"
+                android:prompt="@string/spinner_prompt_userclass" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView1"
+                android:layout_alignRight="@+id/textView1"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/location"
+                android:textSize="14sp"
+                android:textStyle="bold" android:drawableStart="@drawable/ic_asterisk_red_24dp" />
+
+            <EditText
+                android:id="@+id/location_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/attractionName_edit"
+                android:layout_alignStart="@+id/attractionName_edit"
+                android:layout_below="@+id/textView2"
+                android:layout_toLeftOf="@+id/locationBtn"
+                android:layout_toRightOf="@+id/textView3"
+                android:layout_toStartOf="@+id/locationBtn"
+                android:autoLink="map"
+                android:gravity="top"
+                android:hint="@string/hint02"
+                android:inputType="textAutoComplete|textMultiLine|textPostalAddress"
+                android:minLines="2"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" android:layout_toEndOf="@+id/textView3" />
+
+            <ImageButton
+                android:id="@+id/locationBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/textView3"
+                android:layout_marginRight="5dp"
+                android:background="@color/snow"
+                app:srcCompat="@drawable/ic_map_black_24dp" android:layout_alignParentEnd="true" android:layout_marginEnd="5dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView1"
+                android:layout_alignRight="@+id/textView1"
+                android:layout_below="@+id/location_edit"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:drawableStart="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/opening"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/opening_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/attractionName_edit"
+                android:layout_alignRight="@+id/attractionName_edit"
+                android:layout_below="@+id/location_edit"
+                android:layout_toRightOf="@+id/textView4"
+                android:gravity="top"
+                android:hint="@string/hint03"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" android:layout_toEndOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView4"
+                android:layout_alignRight="@+id/textView4"
+                android:layout_below="@+id/opening_edit"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/charges"
+                android:textSize="14sp"
+                android:textStyle="bold" android:drawableStart="@drawable/ic_asterisk_red_24dp" />
+
+            <EditText
+                android:id="@+id/charges_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView5"
+                android:layout_alignRight="@+id/attractionName_edit"
+                android:layout_toRightOf="@+id/textView5"
+                android:hint="@string/hint04"
+                android:inputType="textAutoComplete|textMultiLine"
+                android:text="@string/free"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" android:layout_toEndOf="@+id/textView5" android:layout_alignEnd="@+id/attractionName_edit" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView5"
+                android:layout_alignRight="@+id/textView5"
+                android:layout_below="@+id/charges_edit"
+                android:layout_marginTop="10dp"
+                android:text="@string/website"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/wed_address_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView6"
+                android:layout_alignRight="@+id/attractionName_edit"
+                android:layout_toRightOf="@+id/textView6"
+                android:hint="@string/hint05"
+                android:inputType="textAutoComplete|textUri"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" android:layout_alignEnd="@+id/attractionName_edit" android:layout_toEndOf="@+id/textView6" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView6"
+                android:layout_alignRight="@+id/textView6"
+                android:layout_below="@+id/wed_address_edit"
+                android:layout_marginTop="10dp"
+                android:text="@string/phone"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/phone_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView7"
+                android:layout_alignEnd="@+id/attractionName_edit"
+                android:layout_alignRight="@+id/attractionName_edit"
+                android:layout_toEndOf="@+id/textView7"
+                android:layout_toRightOf="@+id/textView7"
+                android:hint="@string/hint18"
+                android:inputType="textAutoComplete|phone"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView7"
+                android:layout_alignRight="@+id/textView7"
+                android:layout_below="@+id/phone_edit"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/tag"
+                android:textSize="14sp"
+                android:textStyle="bold" android:drawableStart="@drawable/ic_asterisk_red_24dp" />
+
+            <EditText
+                android:id="@+id/tag_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView8"
+                android:layout_alignRight="@+id/attractionName_edit"
+                android:layout_toRightOf="@+id/textView8"
+                android:hint="@string/hint07"
+                android:inputType="textAutoComplete|textPostalAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" android:layout_alignEnd="@+id/attractionName_edit" android:layout_toEndOf="@+id/textView8" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView1"
+                android:layout_alignRight="@+id/textView1"
+                android:layout_below="@+id/tag_edit"
+                android:layout_marginTop="5dp"
+                android:drawableLeft="@drawable/ic_asterisk_red_24dp"
+                android:text="@string/overview"
+                android:textSize="14sp"
+                android:textStyle="bold" android:drawableStart="@drawable/ic_asterisk_red_24dp" />
+
+            <EditText
+                android:id="@+id/overview_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/attractionName_edit"
+                android:layout_alignRight="@+id/attractionName_edit"
+                android:layout_below="@+id/tag_edit"
+                android:layout_toEndOf="@+id/textView26"
+                android:layout_toRightOf="@+id/textView26"
+                android:gravity="top"
+                android:hint="@string/hint08"
+                android:inputType="textAutoComplete|textMultiLine"
+                android:minLines="6"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/upPicBtn"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView26"
+                android:layout_toLeftOf="@+id/overview_edit"
+                android:layout_toStartOf="@+id/overview_edit"
+                android:drawableTop="@drawable/ic_addphoto_colors_24dp"
+                android:text="@string/up_pic" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/overview_edit"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gooseYellow"
+                android:text="@string/hint09"
+                android:textColor="@color/holo_red_light"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/OKBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/attractionName_edit"
+                android:layout_alignRight="@+id/attractionName_edit"
+                android:layout_below="@+id/textView18"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@+id/textView1"
+                android:layout_toRightOf="@+id/textView1"
+                android:background="@color/colorStBearBtOrange"
+                android:minHeight="30dp"
+                android:text="@android:string/ok"
+                android:textColor="@android:color/white" />
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

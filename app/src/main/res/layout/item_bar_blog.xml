@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        style="@style/CardView.Content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <Button
+                android:id="@+id/heartBtu"
+                style="@style/heartButton"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:enabled="true" />
+            <!-- 當該專欄為用戶已收藏者，為按鈕按下狀態(紅心)，可點擊收藏及取消 -->
+
+            <TextView
+                android:id="@+id/blogName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:maxEms="9"
+                android:singleLine="true"
+                android:text="陳櫻慧 (櫻慧老師)" />
+            <!-- 顯示專欄名稱，點擊跳到Page_userhome，並到專欄分頁 -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/likeBlog"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/likeNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:maxLines="1"
+                android:minEms="3"
+                android:paddingLeft="2dp"
+                android:text="999Ｋ" />
+            <!-- 顯示專欄被關注數-->
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</merge>

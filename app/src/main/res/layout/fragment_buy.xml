@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/buyTablayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="#FFEE99"
+        app:tabIndicatorColor="@android:color/black">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_buy" />
+        <!--點擊後切到@layout/fragment_buy_groupbuy 分頁-->
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/co_mall" />
+        <!--點擊後切到@layfragment_buy_c2c 分頁-->
+
+    </android.support.design.widget.TabLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+
+
+    <FrameLayout
+        android:id="@+id/buyfragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!--
+        <fragment
+            android:id="@+id/fragment_adapter"
+            android:name="tw.com.dean.istorybear.Fragment_sub_buygroupbuy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_buy_groupbuy" />
+            -->
+
+    </FrameLayout>
+
+</LinearLayout>

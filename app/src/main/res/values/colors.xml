@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="colorFBBule">#0044bb</color>
+    <color name="colorStBearBtOrange">#ffbb00</color>
+    <color name="colorStBearTxOrange">#ffbb00</color>
+    <color name="colorStBearPlayBar">#2e8b57</color>
+    <color name="gooseYellow">#fff143</color>
+    <color name="snow">#fffafa</color>
+    <color name="holo_green_dark">#669900</color>
+    <color name="holo_green_light">#99cc00</color>
+    <color name="holo_blue_bright">#00ddff</color>
+    <color name="holo_red_dark">#cc0000</color>
+    <color name="holo_red_light">#ff4444</color>
+    <color name="Bear_green_light">#eeffbb</color>
+    <color name="Bear_green_dark">#2e8b57</color>
+    <color name="Bear_Orange_dark">#ffbb00</color>
+    <color name="Bear_Yellow_dark">#fff143</color>
+    <color name="Bear_snow_light">#fffafa</color>
+
+</resources>

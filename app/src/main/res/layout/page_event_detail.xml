@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        tools:title="紀州庵說故事-方方姐姐" />
+    <!--填入活動名稱-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/top_ad_height">
+
+            <ImageView
+                android:id="@+id/attra_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:paddingTop="0dp"
+                tools:srcCompat="@drawable/p01" />
+            <!--填入活動代表圖-->
+
+            <TextView
+                android:id="@+id/attra_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="#CCD3D3D3"
+                tools:text="2.0km" />
+            <!--填入活動地點距用戶距離-->
+
+            <TextView
+                android:id="@+id/attra_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/gooseYellow"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                tools:text="倒數2天" />
+            <!--填入活動時間距離現在天數-->
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@+id/attra_image"
+                android:gravity="center"
+                android:weightSum="5">
+                <!--活動是否參加按鈕，同時最多只有一個能保持被按下-->
+
+                <Button
+                    android:id="@+id/joinBtn"
+                    style="@style/joinButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/join" />
+                <!--按下時表示用戶選擇參加，保持被按下，其他按鈕取消按下狀態，並參加人數+1-->
+
+                <Button
+                    android:id="@+id/thinkingBtn"
+                    style="@style/joinButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/thinking" />
+                <!--按下時表示用戶選擇考慮參加，保持被按下，其他按鈕取消按下狀態-->
+
+                <Button
+                    android:id="@+id/refuseBtn"
+                    style="@style/joinButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/refuse" />
+                <!--按下時表示用戶選擇無法參加，保持被按下，其他按鈕取消按下狀態，並如先前用戶參加按鈕被按下則參加人數-1-->
+
+            </TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/attra_image"
+                android:background="#DDDDDD" />
+
+        </RelativeLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/snow">
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_toLeftOf="@+id/loveBtn"
+                        android:layout_toStartOf="@+id/loveBtn"
+                        android:autoLink="map"
+                        android:clickable="true"
+                        android:drawableLeft="@drawable/ic_map_black_24dp"
+                        android:drawablePadding="3dp"
+                        android:drawableStart="@drawable/ic_map_black_24dp"
+                        android:gravity="center_vertical"
+                        tools:text="台北市中正區同安街107號" android:focusable="true" />
+                    <!--填入活動地點地址，如果可以請實作，點擊後跳出mapView，並顯示所在位置地圖-->
+
+                    <TextView
+                        android:id="@+id/textView36"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/address"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:drawableLeft="@drawable/ic_home_black_24dp"
+                        android:drawablePadding="3dp"
+                        android:drawableStart="@drawable/ic_home_black_24dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/organizer" />
+
+                    <TextView
+                        android:id="@+id/organizerName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView36"
+                        android:layout_alignBottom="@+id/textView36"
+                        android:layout_toEndOf="@+id/textView36"
+                        android:layout_toRightOf="@+id/textView36"
+                        tools:text="紀州庵文學森林"/>
+                    <!--填入活動主辦單位名稱-->
+
+                    <TextView
+                        android:id="@+id/textView37"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView36"
+                        android:layout_alignTop="@+id/textView36"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@+id/organizerName"
+                        android:layout_toRightOf="@+id/organizerName"
+                        android:drawableLeft="@drawable/ic_edit_black_24dp"
+                        android:drawablePadding="3dp"
+                        android:drawableStart="@drawable/ic_edit_black_24dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/editor" />
+
+                    <TextView
+                        android:id="@+id/dataInput"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@+id/textView36"
+                        android:layout_alignTop="@+id/textView36"
+                        android:layout_toEndOf="@+id/textView37"
+                        android:layout_toRightOf="@+id/textView37"
+                        android:clickable="true"
+                        android:gravity="center_vertical"
+                        tools:text="熊爸" android:focusable="true" />
+                    <!--填入活動資料建立者，點擊後跳至該用戶之page_userhome-->
+
+                    <Button
+                        android:id="@+id/loveBtn"
+                        style="@style/heartButton"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="5dp" />
+                    <!--點擊後，維持被按下，收藏+1-->
+
+                    <TextView
+                        android:id="@+id/joinNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_alignLeft="@+id/address"
+                        android:layout_alignStart="@+id/address"
+                        android:layout_below="@+id/organizerName"
+                        android:layout_marginTop="5dp"
+                        android:drawableLeft="@drawable/ic_join_black_24dp"
+                        android:drawableStart="@drawable/ic_join_black_24dp"
+                        android:ems="5"
+                        android:gravity="center"
+                        tools:text="999K" />
+                    <!--填入活動參與人數-->
+
+                    <TextView
+                        android:id="@+id/loveNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_alignTop="@+id/joinNum"
+                        android:layout_toEndOf="@+id/joinNum"
+                        android:layout_toRightOf="@+id/joinNum"
+                        android:drawableLeft="@drawable/ic_heart_red_24dp"
+                        android:drawableStart="@drawable/ic_heart_red_24dp"
+                        android:ems="5"
+                        android:gravity="center"
+                        tools:text="999K" />
+                    <!--填入活動收藏人數-->
+
+                    <TextView
+                        android:id="@+id/chatNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_alignBaseline="@+id/loveNum"
+                        android:layout_alignBottom="@+id/loveNum"
+                        android:layout_toEndOf="@+id/loveNum"
+                        android:layout_toRightOf="@+id/loveNum"
+                        android:drawableLeft="@drawable/ic_chat_black_24dp"
+                        android:drawableStart="@drawable/ic_chat_black_24dp"
+                        android:ems="5"
+                        android:gravity="center"
+                        tools:text="999K" />
+                    <!--填入活動討論串貼文數-->
+
+                    <Button
+                        android:id="@+id/inviteBtn"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:drawableTop="@drawable/ic_addplayer_colors_32dp"
+                        android:text="@string/add_player"
+                        android:textColor="@color/colorStBearBtOrange" />
+                    <!--填入活動參與人數-->
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#DDDDDD"/>
+
+                </RelativeLayout>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="5dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/Tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="@string/tag"
+                            android:textStyle="bold" />
+                        <!--填入活動標籤-->
+
+                        <TextView
+                            android:id="@+id/tag1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            tools:text="免費"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tag2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            tools:text="說故事"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tag3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            tools:text="方方姐姐"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tag4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            tools:text="keyword"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/textView50"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="@string/charges"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/fee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            tools:text="@string/free" />
+                        <!--填入活動費用-->
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/textView52"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="@string/event_date"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:layout_weight="1"
+                            tools:text="2017/11/12(六) 16:30~17:00" />
+                        <!--填入活動時間-->
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/textView54"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="@string/phone"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:layout_weight="1"
+                            android:autoLink="phone"
+                            tools:text="02-23687577" />
+                        <!--填入活動聯絡電話-->
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/textView56"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="@string/apply_website"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/url"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_span="2"
+                            android:layout_weight="1"
+                            android:autoLink="web"
+                            tools:text="https://goo.gl/C7QN4W" />
+                        <!--填入活動網址或報名網址-->
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/textView58"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:text="@string/overview"
+                            android:textStyle="bold" />
+
+                    </TableRow>
+
+                    <TextView
+                        android:id="@+id/overview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        tools:text="《阿墨的故事屋》從一個熱心、好奇與敏感的小鼴鼠－阿墨的視角，來觀看紀州庵自日治時期、戰後、古蹟保存與成為文學森林的百年歷程，除了有地上世界的變化，也有地底世界的樣貌，創造了奇幻與真實之間的交錯，希望能夠傳達讓大家都成為「書的傳播者」的理念。\n《阿墨的故事屋》從一個熱心、好奇與敏感的小鼴鼠－阿墨的視角，來觀看紀州庵自日治時期、戰後、古蹟保存與成為文學森林的百年歷程，除了有地上世界的變化，也有地底世界的樣貌，創造了奇幻與真實之間的交錯，希望能夠傳達讓大家都成為「書的傳播者」的理念。\n《阿墨的故事屋》從一個熱心、好奇與敏感的小鼴鼠－阿墨的視角，來觀看紀州庵自日治時期、戰後、古蹟保存與成為文學森林的百年歷程，除了有地上世界的變化，也有地底世界的樣貌，創造了奇幻與真實之間的交錯，希望能夠傳達讓大家都成為「書的傳播者」的理念。" />
+                    <!--填入活動介紹-->
+
+                </TableLayout>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+
+    <Button
+        android:id="@+id/chatBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_gravity="center"
+        android:drawableEnd="@drawable/ic_chat_black_24dp"
+        android:drawablePadding="10dp"
+        android:drawableRight="@drawable/ic_chat_black_24dp"
+        android:text="@string/chat" />
+
+
+</LinearLayout>

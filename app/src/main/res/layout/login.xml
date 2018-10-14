@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEE99"
+    tools:layout_editor_absoluteY="8dp"
+    tools:layout_editor_absoluteX="8dp">
+    <TextView
+        android:id="@+id/s01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:textSize="23sp"/>
+    <TextView
+        android:id="@+id/s02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/welcome2"
+        android:textSize="18sp"
+        android:layout_below="@id/s01"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/s02"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        app:srcCompat="@drawable/ic_logo_black_24dp" />
+
+    <Button
+        android:id="@+id/FBlogin_button"
+        android:layout_width="250dp"
+        android:layout_height="36dp"
+        android:layout_below="@id/logo"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorFBBule"
+        android:onClick="BtnClk"
+        android:tag="facebooklogin"
+        android:text="@string/FBlogin"
+        android:textColor="#FFFFFF" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/addChild_layout"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/FBlogin_button"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp">
+
+        <EditText
+            android:id="@+id/account_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/account_hint"
+            android:imeOptions="actionNext"
+            android:maxLength="35"
+            android:maxLines="1"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/password_layout"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addChild_layout"
+        android:layout_alignLeft="@+id/addChild_layout"
+        android:layout_alignStart="@+id/addChild_layout">
+
+        <EditText
+            android:id="@+id/password_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/repassword_layout"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password_layout"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        tools:visibility="visible">
+
+        <EditText
+            android:id="@+id/repassword_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/repassword"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="250dp"
+        android:layout_height="36dp"
+        android:layout_alignLeft="@+id/repassword_layout"
+        android:layout_below="@+id/repassword_layout"
+        android:background="@color/colorStBearBtOrange"
+        android:onClick="BtnClk"
+        android:tag="loginok"
+        android:text="@string/login"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/missPW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_button"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="3dp"
+        android:layout_toLeftOf="@+id/hbar"
+        android:clickable="true"
+        android:onClick="BtnClk"
+        android:tag="forgetpw"
+        android:text="@string/missPassword"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/hbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_button"
+        android:layout_centerInParent="true"
+        android:text="|"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/newAC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_button"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@+id/hbar"
+        android:clickable="true"
+        android:onClick="BtnClk"
+        android:tag="memberreg"
+        android:text="@string/newAccount" />
+    <TextView
+        android:id="@+id/s03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/welcome3"
+        android:textSize="18sp"
+        android:textColor="@color/colorStBearTxOrange"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/hbar"/>
+
+</RelativeLayout>
+
+

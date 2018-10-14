@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/addEventBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/holo_green_light"
+        android:onClick="AddItemBtnClk"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:tag="AddEvent"
+        app:srcCompat="@drawable/ic_add_black_24dp" />
+    <!-- 當被選擇按下，跳至page_event_addevent，新增一個活動 -->
+
+    <include layout="@layout/item_event_invite" />
+    <include layout="@layout/item_event_invite" />
+    <include layout="@layout/item_event_invite" />
+    <include layout="@layout/item_event_invite" />
+    <!-- 在page_toplay_host，顯示所有該用戶本人建立之活動
+     id="@+id/recommendOwner"之visibility="gone"
+     id="@+id/inviteBtn"之visibility="visible"-->
+
+</LinearLayout>

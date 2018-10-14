@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        style="@style/CardView.Content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/snow"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/eventImg"
+                    android:layout_width="90dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="false"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/attraction01" />
+                <!-- 填入該活動代表圖 -->
+
+                <TextView
+                    android:id="@+id/recommendOwner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="start"
+                    android:layout_margin="5dp"
+                    android:layout_toEndOf="@+id/eventImg"
+                    android:layout_toRightOf="@+id/eventImg"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:textSize="12sp"
+                    android:visibility="visible"
+                    android:text="推薦:愛說故事小熊" />
+                <!-- 填入該活動推送者，本人建立之活動時visibility="gone"
+                     本平台推送時，為“推薦:愛說故事小熊"
+                     喜好專欄辦活動時，為“訂閱:”+"用戶名稱"
+                     朋友邀請時，為“邀請:"+"用戶名稱"
+                     點擊可跳至該活動推送者專欄page_userhome並指到overview  -->
+
+                <!-- 暫時不實作用戶自訂活動鬧鈴
+                <Button
+                    android:id="@+id/alarmButton15"
+                    style="@style/alarmButton"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/textView22"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp" />
+                -->
+
+                <TextView
+                    android:id="@+id/eventName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/eventDate"
+                    android:layout_alignStart="@+id/eventDate"
+                    android:layout_below="@+id/recommendOwner"
+                    android:layout_gravity="start"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/ic_open2all_black_16dp"
+                    android:drawablePadding="3dp"
+                    android:drawableStart="@drawable/ic_open2all_black_16dp"
+                    android:ellipsize="end"
+                    android:focusable="true"
+                    android:maxLength="15"
+                    android:maxLines="1"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:text="大湖公園野餐日" />
+                <!-- 填入該活動名稱，並公開活動drawableLeft="@drawable/ic_open2all_black_16dp"
+                    私人活動drawableLeft="@drawable/ic_private_black_16dp"
+                    點擊可跳至該活動詳細頁page_event_detail -->
+
+                <TextView
+                    android:id="@+id/eventDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/recommendOwner"
+                    android:layout_alignStart="@id/recommendOwner"
+                    android:layout_below="@+id/eventName"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="5dp"
+                    android:maxLines="1"
+                    android:text="2017/11/03(六) 11:00~16:00" />
+                <!-- 填入該活動日期 -->
+
+                <TextView
+                    android:id="@+id/joinNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/chatNum"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_toLeftOf="@+id/chatNum"
+                    android:layout_toStartOf="@+id/chatNum"
+                    android:drawableLeft="@drawable/ic_join_black_16dp"
+                    android:drawablePadding="3dp"
+                    android:drawableStart="@drawable/ic_join_black_24dp"
+                    android:ems="4"
+                    android:text="999" />
+                <!-- 填入該活動參加人數 -->
+
+                <TextView
+                    android:id="@+id/chatNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/childEditBtn1"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_toLeftOf="@+id/inviteBtn"
+                    android:layout_toStartOf="@+id/inviteBtn"
+                    android:drawableLeft="@drawable/ic_chat_black_24dp"
+                    android:drawablePadding="3dp"
+                    android:drawableStart="@drawable/ic_chat_black_24dp"
+                    android:ems="4"
+                    android:text="999K" />
+                <!-- 填入該活動討論留言數 -->
+
+                <ImageButton
+                    android:id="@+id/inviteBtn"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_alignBottom="@+id/childEditBtn1"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/childEditBtn1"
+                    android:layout_toStartOf="@+id/childEditBtn1"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/ic_addplayer_colors_32dp"
+                    tools:visibility="visible" />
+                <!-- 當該活動為該用戶建立或為公開活動時，visibility="visible"否則="invisible"
+                    當被點擊時，畫面跳出dialog_invite_toplay-->
+
+                <ImageButton
+                    android:id="@+id/childEditBtn1"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/eventDate"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/ic_edit_black_24dp"
+                    tools:visibility="visible" />
+                <!-- 當該活動為該用戶建立時，visibility="visible"否則="invisible"
+                    當被點擊時，畫面跳至page_event_addevent，並帶入該活動資料-->
+
+            </RelativeLayout>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:gravity="center"
+                android:weightSum="5">
+                <!-- 同時最多只能有一個被選擇按下，按鈕狀態停在被按下 -->
+                <Button
+                    android:id="@+id/joinBtn"
+                    style="@style/joinButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:text="@string/join" />
+                <!-- 當被選擇按下，該活動參加人數+1，再按一次，則-1回來 -->
+                <Button
+                    android:id="@+id/thinkingBtn"
+                    style="@style/joinButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:text="@string/thinking" />
+
+                <Button
+                    android:id="@+id/refuseBtn"
+                    style="@style/joinButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:text="@string/refuse" />
+                <!-- 當被選擇按下，移除該活動邀請 -->
+            </TableRow>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</merge>

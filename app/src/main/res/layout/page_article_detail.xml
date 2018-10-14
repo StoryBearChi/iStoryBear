@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator">
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+
+            <Switch
+                android:id="@+id/fontColorSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:padding="3dp"
+                android:showText="true"
+                android:textOff="@string/font_green"
+                android:textOn="@string/font_black"
+                android:thumb="@drawable/bg_rectangle_wo_stroke_gold"
+                android:thumbTextPadding="12dp"
+                tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/fontBigBtn"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:text="@string/font_big" />
+
+            <Button
+                android:id="@+id/fontSmallBtn"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/font_small"
+                android:textSize="12sp" />
+
+        </android.support.v7.widget.ButtonBarLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_shadow_start_color">
+
+        <TextView
+            android:id="@+id/textView71"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="3dp"
+            android:ellipsize="end"
+            tools:text="有你的陪伴，孩子在學習的起步會更順利！"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView69"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView71"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            tools:text="紀登淵於2017/10/25發布"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button37"
+            style="@style/heartButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView69" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+
+                <TextView
+                    android:id="@+id/textView72"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/background_dark"
+                    android:padding="3dp"
+                    android:textColor="@color/holo_green_dark"
+                    tools:text="作者：陳櫻慧&#xA;發表日期：2016-05-10&#xA;&#xA;曾記得看過一句話，意思是「學習是孩子的責任，他必須為自己負責」。&#xA;&#xA;對於這個觀點我謹記在心，也打算要求自己做到「放手」，給孩子學習為自己負責的機會！由於沒有機會抽中公立，私立的幼稚園難免有回家作業，所以，從孩子幼稚園中班起，我便開始讓孩子自己面對「功課」，即使只是聽聽英文CD。&#xA;&#xA;學習負責，不代表不需要陪伴&#xA;&#xA;執行了一小段時間，開始覺得有點不對勁，孩子偶爾會不想主動複習，我腦海直覺出現孩子是不是「不負責任」、「沒有做好應該要做的事」的念頭，壓抑著負面情緒的出現，我第一次好好地坐下來「觀察」她複習的狀況，才驚訝地發現，原來是我錯用了那句話的意思。&#xA;&#xA;是的，女兒不是不願複習，也不是不想複習，更不是不想負責任；而是，才中班的她，完全無法聽懂CD裡所說的頁數，不知從何複習起，回到課堂上也面臨鴨子聽雷的狀態，一段時日下來，對這項學習產生挫折感，於是開始逃避。這件事之於我對她的誤解，是個很大的震撼，發現其實要求孩子必須學習做好自己的事「之前」，也是需要我們從旁給予適當的「技術上」的協助，例如，幫助她將課本隨CD翻到指示的頁數，並教會她如何聽懂CD的指示。&#xA;&#xA;之後的每天晚上，陪伴著她一起聽CD，學會操作CD、翻頁等前置工作，約莫兩三個星期後，女兒慢慢可以自己複習，漸漸追上進度，開始能聽懂老師課堂的教授內容，自信心因此累積建立。孩子一輩子要面對許多不同的學習，就連我們自己也希望能天天有所進步，如果在面臨突破時，可以有個願意一起陪伴、討論的對象，「學習」這件事變得更有樂趣，也更有力量與活力看待「學習」隨之而來的難易起伏，與我原先所認知的－所謂的「自己負責就是在不需要陪伴的狀況下獨立完成」，是兩件截然不同的事情。&#xA;&#xA;快樂學習面對挫折&#xA;&#xA;約莫兩歲多，女兒便開始和音樂玩在一起；如今六歲，慢慢接觸鋼琴的簡單練習。有時候，反覆的練習是蠻單調的，卻又很重要，尤其遇到比較困難的樂曲，必須克服不順暢的彈奏，又希望孩子不要輕言放棄的時候，與其責備「不夠用心」，不如「陪伴」一起欣賞吧！透過CD伴奏欣賞樂曲的美好，欣賞孩子每一次練習的努力，同理他彈得不如預期的挫折。記得有部影集《交響情人夢》，有女主角對樂曲情境的想像，我把這份想像帶進女兒練習的過程，試著用欣賞的心情去彈奏，就算彈得不完美，至少感受到作曲家賦予樂曲的情懷，多了這份趣味，就算練一遍、練兩遍、練三遍……似乎不再是那麼「用力」於練習了。&#xA;&#xA;孩子的優點因為用心陪伴而被看見&#xA;&#xA;繪本故事《探黑》（小魯）的主角備齊工具去探險，他來到森林、冰原、深海……都只著眼於手電筒亮光所聚焦的地方，結果什麼也沒發現，殊不知在亮光之外，其實有好多可能。坊間很多的教養書，很多觀點在我們的腦海心裡慢慢被形塑，有時候太執著於某個觀點，一旦不如預期就忍不住急著貼標籤，卻忘了在這個觀點的先備條件，是要讓孩子學會如何使用工具，知道應該如何運用，才有機會擁有更多的發現。《你有沒有看到大象？》（東方）故事採用了絕妙的反差來呈現趣味，大象這麼大，我們卻看不見，而誰知道烏龜也可能很跑很快？！孩子的優點會因為我們的用心陪伴而被看見，即使不夠完美，也會知道他們真的很努力，如同《有麻煩了》（三之三），孩子也許還沒學會的是，怎麼恰當地使用熨斗，還好有媽咪的欣賞，讓孩子的願意幫忙的心思、坦誠的勇氣，被熨斗燙焦的懊悔，統統都化作一塊美麗又獨特的桌布。&#xA;&#xA;尤其在孩子還年幼的時候，每一種學習都必須要有被嚐試與研究的機會，不論是穿衣服褲子，或是學習洗碗拖地，乃至於語言、音樂……，除了讓孩子自己摸索、探究外，撇除父母插手干預思考與作法，基本的陪伴與觀察還是不可或缺，「為自己負責」與「不需要陪伴」兩件事如果可以不要劃上等號，在學習的初始多多陪伴在孩子身邊，那「負責」一詞也許更有機會順利「起步」。" />
+            </LinearLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView69"
+            android:visibility="gone" />
+        <!-- 當本文是url時，直接載入網頁，並visibility="visible" -->
+
+    </RelativeLayout>
+</LinearLayout>

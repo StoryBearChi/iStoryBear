@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/item_event_invite" />
+    <include layout="@layout/item_event_invite" />
+
+    <!-- 在page_toplay_sponsor 顯示活動是平台推薦或喜好專欄訂閱來的
+             id="@+id/recommendOwner"之visibility="visible"
+             id="@+id/editBtn"之visibility="invisible"
+        這裡只有公開活動，則 id="@+id/inviteBtn"之visibility="visible"-->
+
+</LinearLayout>

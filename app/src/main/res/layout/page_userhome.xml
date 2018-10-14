@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/userHomeBar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rectangle_y">
+             
+        <ImageView
+            android:id="@+id/storyImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="3dp"
+            tools:srcCompat="@drawable/ic_logo_round_colors_24dp"
+            app:srcCompat="@drawable/dean" />
+        <!--帳號本人的專欄，點照片可換圖-->
+
+        <Button
+            android:id="@+id/loveBtn"
+            style="@style/heartButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="5dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+        <!--如果是帳號本人的專欄，則不出現
+            沒按過則預設空心紅心
+            已按過要變成實心紅心，然後列在已關注專欄內-->
+                                             
+        <ImageButton
+            android:id="@+id/imageButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/nickname"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_edit_black_24dp"
+            tools:visibility="invisible" />
+        <!--如果下面的FloatingActionButton可以實作，就不須這個button-->
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/storyImage"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/black"
+            android:text="紀登淵" />
+            <!--填入該專欄用戶姓名-->
+                  
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userName"
+            android:layout_centerHorizontal="true"
+            android:textSize="10sp"
+            android:text="小熊爸" />
+            <!--填入該專欄用戶暱稱-->
+
+        <TextView
+            android:id="@+id/storyNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView8"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_toLeftOf="@+id/textView2" 
+            android:layout_toStartOf="@+id/textView2"
+            android:gravity="center"
+            android:minWidth="60dp"
+            android:text="100" />
+            <!--填入該專欄用戶上傳故事數-->
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/storyNum"
+            android:layout_alignRight="@+id/storyNum"
+            android:layout_below="@+id/storyNum"
+            android:layout_marginTop="2dp"
+            android:drawableLeft="@drawable/ic_story_black_16dp"
+            android:drawableStart="@drawable/ic_story_black_16dp" 
+            android:layout_alignStart="@+id/storyNum" 
+            android:layout_alignEnd="@+id/storyNum"
+            android:drawablePadding="-10dp"
+            android:gravity="center"
+            android:text="@string/story" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView8"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@+id/articlesNum"
+            android:layout_toStartOf="@+id/articlesNum"
+            android:text="|"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/articlesNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView8"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_toLeftOf="@+id/textView8"
+            android:layout_toStartOf="@+id/textView8"
+            android:gravity="center"
+            android:minWidth="60dp"
+            android:text="200" />
+            <!--填入該專欄用戶上傳文章數-->
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/articlesNum"
+            android:layout_alignRight="@+id/articlesNum"
+            android:layout_below="@+id/articlesNum"
+            android:drawableLeft="@drawable/ic_blog_orange_16dp" 
+            android:drawableStart="@drawable/ic_blog_orange_16dp" 
+            android:layout_alignStart="@+id/articlesNum" 
+            android:layout_alignEnd="@+id/articlesNum"
+            android:drawablePadding="-10dp"
+            android:gravity="center"
+            android:text="@string/blog" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/nickname"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="13dp"
+            android:text="|"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/loveNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView8"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_toEndOf="@+id/textView8"
+            android:layout_toRightOf="@+id/textView8"
+            android:gravity="center"
+            android:minWidth="60dp"
+            android:text="10k" />
+            <!--填入該專欄被收藏關注數-->
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/loveNum"
+            android:layout_alignRight="@+id/loveNum"
+            android:layout_below="@+id/loveNum"
+            android:drawableLeft="@drawable/ic_heart_red_16dp"   
+            android:drawableStart="@drawable/ic_heart_red_16dp" 
+            android:layout_alignStart="@+id/loveNum" 
+            android:layout_alignEnd="@+id/loveNum"
+            android:drawablePadding="-10dp"
+            android:gravity="center"
+            android:text="@string/likeBlog"/>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView8"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toEndOf="@+id/loveNum"
+            android:layout_toRightOf="@+id/loveNum"
+            android:text="|"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/audienceNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView10"
+            android:layout_alignBottom="@+id/textView10"
+            android:layout_toEndOf="@+id/textView10"
+            android:layout_toRightOf="@+id/textView10"
+            android:gravity="center"
+            android:minWidth="60dp"
+            android:text="23.4k" />
+            <!--填入該專欄用戶故事不重複聽眾數(曾經聽過故事累計人數)-->
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/audienceNum"
+            android:layout_alignRight="@+id/audienceNum"
+            android:layout_below="@+id/audienceNum"
+            android:drawableLeft="@drawable/ic_headset_black_16dp"   
+            android:drawableStart="@drawable/ic_headset_black_16dp" 
+            android:layout_alignStart="@+id/audienceNum" 
+            android:layout_alignEnd="@+id/audienceNum"
+            android:drawablePadding="-10dp"
+            android:gravity="center"
+            android:text="@string/audience"/>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/hometTabs"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@android:color/white"
+        app:tabIndicatorColor="#000000">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/story" />                
+            <!--切到分頁page_userhome_story-->
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/overview2" />
+            <!--切到分頁page_userhome_overview-->
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blog" />
+            <!--切到分頁page_userhome_blog-->
+            
+    </android.support.design.widget.TabLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DDDDDD" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_edit_fABtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_add_black_24dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginEnd="10dp"/>
+        <!--帳號本人的專欄，才出現visibility="visible"
+            故事與專欄都用@drawable/ic_add_black_24dp，為新增；
+              => 故事跳到 page_story_up
+              => 專欄跳到 page_blog_post
+            簡介時改@drawable/ic_edit_black_24dp，變編輯
+              =>可直接修改用戶暱稱、自我簡介、照片 -->
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/myhomelist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--故事導入@layout/page_userhome_story
+                    專欄導入@layout/page_userhome_blog
+                    簡介導入@layout/page_userhome_overview
+                    不同的進入點，開啟不同的預設分頁-->
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

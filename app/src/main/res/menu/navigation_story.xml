@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/navigation_story"
+        android:orderInCategory="0"
+
+        android:title="我的故事" />
+
+    <item android:id="@+id/navigation_buy"
+        android:orderInCategory="1"
+
+        android:title="故事寶盒" />
+
+    <item android:id="@+id/navigation_me"
+        android:orderInCategory="2"
+
+        android:title="創作上傳" />
+
+</menu>

@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar6"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/colorStBearBtOrange"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/history" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/addBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_add2_green_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/playBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_play_black_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/buyBut"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_buy_orange_16dp" />
+
+                        <TextView
+                            android:id="@+id/storyName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="[母愛] 孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲" />
+
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:minEms="6"
+                            android:text="$5" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/addBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_add2_green_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/playBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_play_black_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/buyBut"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_buy_orange_16dp" />
+
+                        <TextView
+                            android:id="@+id/storyName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="[母愛] 孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲" />
+
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:minEms="6"
+                            android:text="特價$1"
+                            android:textColor="@color/holo_red_dark" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/addBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_add2_green_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/playBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_play_black_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/buyBut"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_buy_orange_16dp" />
+
+                        <TextView
+                            android:id="@+id/storyName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="[母愛] 孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲" />
+
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:minEms="6"
+                            android:text="剩1天" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/addBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_add2_green_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/playBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_play_black_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/buyBut"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_buy_orange_16dp" />
+
+                        <TextView
+                            android:id="@+id/storyName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="[母愛] 孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲" />
+
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:minEms="6"
+                            android:text="本平台贊助" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/addBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_add2_green_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/playBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_play_black_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/buyBut"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_buy_orange_16dp" />
+
+                        <TextView
+                            android:id="@+id/storyName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="[母愛] 孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲" />
+
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:minEms="6"
+                            android:text="剩29天" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/addBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_add2_green_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/playBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_play_black_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/buyBut"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_buy_orange_16dp" />
+
+                        <TextView
+                            android:id="@+id/storyName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="[母愛] 孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲" />
+
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:minEms="6"
+                            android:text="特價＄3"
+                            android:textColor="@color/holo_red_dark" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/addBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_add2_green_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/playBtu"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_play_black_16dp" />
+
+                        <ImageButton
+                            android:id="@+id/buyBut"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/ic_buy_orange_16dp" />
+
+                        <TextView
+                            android:id="@+id/storyName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="[母愛] 孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲" />
+
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="right"
+                            android:maxLines="1"
+                            android:minEms="6"
+                            android:text="特價$1"
+                            android:textColor="@color/holo_red_dark" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:minHeight="250dp"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/addFriend"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/addFriend">
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+
+            <ImageButton
+                android:id="@+id/imageButton11"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_search_black_24dp" />
+
+        </android.support.v7.widget.ButtonBarLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/note1"  />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/userImage1"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/dean"
+                    android:layout_marginStart="5dp" />
+
+                <TextView
+                    android:id="@+id/userName1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/userImage1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/userImage1"
+                    android:textColor="@android:color/black"
+                    android:text="紀登淵"
+                    android:layout_marginStart="10dp" android:layout_toEndOf="@id/userImage1" />
+
+                <TextView
+                    android:id="@+id/nickname1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/userName1"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/userName1"
+                    android:maxEms="5"
+                    android:minEms="4"
+                    android:textSize="12sp"
+                    android:text="小熊爸"
+                    android:layout_marginStart="5dp" android:layout_toEndOf="@+id/userName1" />
+
+                <TextView
+                    android:id="@+id/liveNote1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/nickname1"
+                    android:layout_toRightOf="@+id/userImage1"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="現居台北"
+                    android:layout_marginEnd="10dp" />
+
+                <TextView
+                    android:id="@+id/comFriend1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/liveNote1"
+                    android:layout_below="@+id/liveNote1"
+                    android:layout_marginTop="2dp"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="10位共同好友" android:layout_alignStart="@+id/liveNote1" />
+
+                <Button
+                    android:id="@+id/OKBtn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/userImage1"
+                    android:layout_alignLeft="@+id/userName1"
+                    android:layout_below="@+id/userName1"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorStBearBtOrange"
+                    android:text="@string/accept"
+                    android:textColor="@android:color/white" android:layout_alignStart="@+id/userName1" android:layout_marginEnd="5dp" />
+
+                <Button
+                    android:id="@+id/cancelBtn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/OKBtn1"
+                    android:layout_alignTop="@+id/OKBtn1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/OKBtn1"
+                    android:background="@android:color/darker_gray"
+                    android:text="@string/cancel2"
+                    android:textColor="@android:color/white" android:layout_marginStart="15dp" android:layout_toEndOf="@+id/OKBtn1" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/userImage2"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/ic_logo_round_colors_24dp"
+                    android:layout_marginStart="5dp" />
+
+                <TextView
+                    android:id="@+id/userName2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/userImage2"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/userImage2"
+                    android:textColor="@android:color/black"
+                    android:text="周姵慈" android:layout_toEndOf="@id/userImage2" android:layout_marginStart="10dp" />
+
+                <TextView
+                    android:id="@+id/nickname2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/userName2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/userName2"
+                    android:maxEms="5"
+                    android:minEms="4"
+                    android:textSize="12sp"
+                    android:text="吐司姐姐" android:layout_marginStart="5dp" android:layout_toEndOf="@+id/userName2" />
+
+                <TextView
+                    android:id="@+id/liveNote2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/nickname2"
+                    android:layout_toRightOf="@+id/userImage2"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="現居台北" android:layout_marginEnd="10dp" />
+
+                <TextView
+                    android:id="@+id/comFriend2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/liveNote2"
+                    android:layout_below="@+id/liveNote2"
+                    android:layout_marginTop="2dp"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="10位共同好友" android:layout_alignStart="@+id/liveNote2" />
+
+                <Button
+                    android:id="@+id/OKBtn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/userImage2"
+                    android:layout_alignLeft="@+id/userName2"
+                    android:layout_below="@+id/userName2"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorStBearBtOrange"
+                    android:text="@string/accept"
+                    android:textColor="@android:color/white" android:layout_marginEnd="5dp" android:layout_alignStart="@+id/userName2" />
+
+                <Button
+                    android:id="@+id/cancelBtn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/OKBtn2"
+                    android:layout_alignTop="@+id/OKBtn2"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/OKBtn2"
+                    android:background="@android:color/darker_gray"
+                    android:text="@string/cancel2"
+                    android:textColor="@android:color/white" android:layout_marginStart="15dp" android:layout_toEndOf="@+id/OKBtn2" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/userImage3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/ic_logo_round_colors_24dp"
+                    android:layout_marginStart="5dp" />
+
+                <TextView
+                    android:id="@+id/userName3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/userImage3"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/userImage3"
+                    android:textColor="@android:color/black"
+                    android:text="洪玉蕊" android:layout_marginStart="10dp" android:layout_toEndOf="@id/userImage3" />
+
+                <TextView
+                    android:id="@+id/nickname3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/userName3"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/userName3"
+                    android:maxEms="5"
+                    android:minEms="4"
+                    android:textSize="12sp"
+                    android:text="韓吉姐姐" android:layout_marginStart="5dp" android:layout_toEndOf="@+id/userName3" />
+
+                <TextView
+                    android:id="@+id/liveNote3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/nickname3"
+                    android:layout_toRightOf="@+id/userImage3"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="現居高雄" android:layout_marginEnd="10dp" />
+
+                <TextView
+                    android:id="@+id/comFriend3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/liveNote3"
+                    android:layout_below="@+id/liveNote3"
+                    android:layout_marginTop="2dp"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="9999位共同好友" android:layout_alignStart="@+id/liveNote3" />
+
+                <Button
+                    android:id="@+id/OKBtn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/userImage3"
+                    android:layout_alignLeft="@+id/userName3"
+                    android:layout_below="@+id/userName3"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorStBearBtOrange"
+                    android:text="@string/accept"
+                    android:textColor="@android:color/white" android:layout_marginEnd="5dp" android:layout_alignStart="@+id/userName3" />
+
+                <Button
+                    android:id="@+id/cancelBtn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/OKBtn3"
+                    android:layout_alignTop="@+id/OKBtn3"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toEndOf="@+id/OKBtn3"
+                    android:layout_toRightOf="@+id/OKBtn3"
+                    android:background="@android:color/darker_gray"
+                    android:text="@string/cancel2"
+                    android:textColor="@android:color/white" android:layout_marginStart="15dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#DDDDDD" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/note2"
+                android:textSize="18sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+
+                <ImageView
+                    android:id="@+id/userImage21"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/ic_logo_round_colors_24dp" />
+
+                <TextView
+                    android:id="@+id/userName21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/userImage21"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@id/userImage21"
+                    android:layout_toRightOf="@id/userImage21"
+                    android:textColor="@android:color/black"
+                    android:text="盧怡方" />
+
+                <TextView
+                    android:id="@+id/nickname21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/userName21"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/userName21"
+                    android:layout_toRightOf="@+id/userName21"
+                    android:maxEms="5"
+                    android:minEms="4"
+                    android:textSize="12sp"
+                    android:text="方方老師" />
+
+                <TextView
+                    android:id="@+id/liveNote21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/nickname21"
+                    android:layout_toRightOf="@+id/nickname21"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="現居台北" />
+
+                <TextView
+                    android:id="@+id/comFriend21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/liveNote21"
+                    android:layout_alignStart="@+id/liveNote21"
+                    android:layout_below="@+id/liveNote21"
+                    android:layout_marginTop="2dp"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="109位共同好友" />
+
+                <Button
+                    android:id="@+id/addBtn21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/userImage21"
+                    android:layout_alignLeft="@+id/userName21"
+                    android:layout_alignStart="@+id/userName21"
+                    android:layout_below="@+id/userName21"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorStBearBtOrange"
+                    android:text="@string/addFriend"
+                    android:textColor="@android:color/white" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+
+                <ImageView
+                    android:id="@+id/userImage22"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/ic_logo_round_colors_24dp" />
+
+                <TextView
+                    android:id="@+id/userName22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/userImage22"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@id/userImage22"
+                    android:layout_toRightOf="@id/userImage22"
+                    android:textColor="@android:color/black"
+                    android:text="陳櫻慧" />
+
+                <TextView
+                    android:id="@+id/nickname22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/userName22"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/userName22"
+                    android:layout_toRightOf="@+id/userName22"
+                    android:maxEms="5"
+                    android:minEms="4"
+                    android:textSize="12sp"
+                    android:text="櫻慧老師" />
+
+                <TextView
+                    android:id="@+id/liveNote22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/nickname22"
+                    android:layout_toRightOf="@+id/nickname22"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="現居新北" />
+
+                <TextView
+                    android:id="@+id/comFriend22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/liveNote22"
+                    android:layout_alignStart="@+id/liveNote22"
+                    android:layout_below="@+id/liveNote22"
+                    android:layout_marginTop="2dp"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="30位共同好友" />
+
+                <Button
+                    android:id="@+id/addBtn22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/userImage22"
+                    android:layout_alignLeft="@+id/userName22"
+                    android:layout_alignStart="@+id/userName22"
+                    android:layout_below="@+id/userName22"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorStBearBtOrange"
+                    android:text="@string/addFriend"
+                    android:textColor="@android:color/white" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+
+                <ImageView
+                    android:id="@+id/userImage23"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/ic_logo_round_colors_24dp" />
+
+                <TextView
+                    android:id="@+id/userName23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/userImage23"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@id/userImage23"
+                    android:layout_toRightOf="@id/userImage23"
+                    android:textColor="@android:color/black"
+                    android:text="陳彥如" />
+
+                <TextView
+                    android:id="@+id/nickname23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/userName23"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/userName23"
+                    android:layout_toRightOf="@+id/userName23"
+                    android:maxEms="5"
+                    android:minEms="4"
+                    android:textSize="12sp"
+                    tools:text="彥如姐姐" />
+
+                <TextView
+                    android:id="@+id/liveNote23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/nickname23"
+                    android:layout_toRightOf="@+id/nickname23"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="現居台北" />
+
+                <TextView
+                    android:id="@+id/comFriend23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/liveNote23"
+                    android:layout_alignStart="@+id/liveNote23"
+                    android:layout_below="@+id/liveNote23"
+                    android:layout_marginTop="2dp"
+                    android:background="?attr/colorButtonNormal"
+                    android:textSize="10sp"
+                    android:text="999位共同好友" />
+
+                <Button
+                    android:id="@+id/addBtn23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/userImage23"
+                    android:layout_alignLeft="@+id/userName23"
+                    android:layout_alignStart="@+id/userName23"
+                    android:layout_below="@+id/userName23"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorStBearBtOrange"
+                    android:text="@string/addFriend"
+                    android:textColor="@android:color/white" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

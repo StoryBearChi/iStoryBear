@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        style="@style/CardView.Content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/goodsImage1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/p02" />
+            <!--填入商品代表圖，點擊後頁面跳至該商品的page_groupbuy_detail-->
+
+            <TextView
+                android:id="@+id/goods_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/goodsImage1"
+                android:singleLine="true"
+                android:text="寵物離家記"
+                android:textColor="@color/holo_red_dark"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/goodsImage1" />
+            <!--填入商品名稱，點擊後頁面跳至該商品的page_groupbuy_detail-->
+
+            <TextView
+                android:id="@+id/author_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/goods_name1"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/goods_name1"
+                android:singleLine="true"
+                android:text="著/盧怡方"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/goods_name1" />
+            <!--填入商品標籤1，繪本填text="著/“＋著者
+                非繪本則可不填 或填入 10字內商品資訊-->
+
+            <TextView
+                android:id="@+id/painter_Name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/goods_name1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/author_name1"
+                android:layout_toRightOf="@+id/author_name1"
+                android:singleLine="true"
+                android:textSize="12sp"
+                android:text="繪/蔡美保" />
+            <!--填入商品標籤2，繪本填text="繪/“＋繪者
+                非繪本則可不填-->
+
+            <TextView
+                android:id="@+id/goods_price1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/goods_name1"
+                android:layout_below="@+id/goods_name1"
+                android:layout_marginTop="3dp"
+                android:singleLine="true"
+                android:text="定價:$300"
+                android:textSize="12sp"
+                android:layout_alignStart="@+id/goods_name1" />
+            <!--填入商品定價，text="定價:$“＋金額-->
+
+            <TextView
+                android:id="@+id/goods_special1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/goods_price1"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/goods_price1"
+                android:background="@drawable/bg_rectangle_wo_stroke_red"
+                android:singleLine="true"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:text="特價:$270"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/goods_price1" />
+            <!--填入商品特價，text="特價:$“＋金額，實際賣出價格-->
+
+            <TextView
+                android:id="@+id/goods_use1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/goods_price1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/goods_special1"
+                android:layout_toRightOf="@+id/goods_special1"
+                android:singleLine="true"
+                android:textSize="12sp"
+                tools:text="適合:3~99歲" />
+            <!--填入適用年齡-->
+
+            <TextView
+                android:id="@+id/hotIndex1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/goodsImage1"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_star_gold_24dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+            <!--熱銷商品標籤-->
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</merge>

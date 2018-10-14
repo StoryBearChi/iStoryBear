@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        style="@style/CardView.Content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/goods_image11"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    app:srcCompat="@drawable/p01" />
+                <!--填入商品代表圖，點擊後頁面跳至該商品的page_groupbuy_detail-->
+
+                <TextView
+                    android:id="@+id/goods_index11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:background="#CCD3D3D3"
+                    android:padding="2dp"
+                    android:text="已賣9999份" />
+                <!--
+                    熱門團購區 tools:text="已賣xxx份"
+                    限時團購區 tools:text="還剩xx天"，還有"明天結團"， "今天結團“
+                    限量團購區 tools:text="僅剩xx份"
+                -->
+
+                <TextView
+                    android:id="@+id/goods_name11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/goods_image11"
+                    android:singleLine="true"
+                    android:text="阿墨的故事屋"
+                    android:textColor="@color/holo_red_dark"
+                    android:textSize="12sp" />
+                <!--填入商品名稱，點擊後頁面跳至該商品的page_groupbuy_detail-->
+
+                <TextView
+                    android:id="@+id/goods_use11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/goods_name11"
+                    android:singleLine="true"
+                    android:text="適合:3~99歲"
+                    android:textSize="12sp" />
+                <!--填入適用年齡-->
+
+                <TextView
+                    android:id="@+id/goods_price11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/goods_use11"
+                    android:singleLine="true"
+                    android:text="定價:$300"
+                    android:textSize="12sp" />
+                <!--填入商品定價，text="定價:$“＋金額-->
+
+                <TextView
+                    android:id="@+id/goods_special11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/goods_use11"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/goods_price11"
+                    android:background="@drawable/bg_rectangle_wo_stroke_red"
+                    android:singleLine="true"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:text="特價:$270"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/goods_price11" />
+                <!--填入商品特價，text="特價:$“＋金額，實際賣出價格-->
+
+                <TextView
+                    android:id="@+id/hotIndex11"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignBottom="@+id/goods_price11"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:background="@drawable/ic_star_gold_24dp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+                <!--熱銷商品標籤-->
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/goods_image12"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    app:srcCompat="@drawable/p03" />
+                <!--填入商品代表圖，點擊後頁面跳至該商品的page_groupbuy_detail-->
+
+                <TextView
+                    android:id="@+id/goods_index12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:background="#CCD3D3D3"
+                    android:padding="2dp"
+                    android:text="已賣9999份" />
+                <!--
+                    熱門團購區 tools:text="已賣xxx份"
+                    限時團購區 tools:text="還剩xx天"，還有"明天結團"， "今天結團“
+                    限量團購區 tools:text="僅剩xx份"
+                -->
+
+                <TextView
+                    android:id="@+id/goods_name12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/goods_image12"
+                    android:singleLine="true"
+                    android:text="大野狼別吃我"
+                    android:textColor="@color/holo_red_dark"
+                    android:textSize="12sp" />
+                <!--填入商品名稱，點擊後頁面跳至該商品的page_groupbuy_detail-->
+
+                <TextView
+                    android:id="@+id/goods_use12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/goods_name12"
+                    android:singleLine="true"
+                    android:text="適合:3~99歲"
+                    android:textSize="12sp" />
+                <!--填入適用年齡-->
+
+                <TextView
+                    android:id="@+id/goods_price12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/goods_use12"
+                    android:singleLine="true"
+                    android:text="定價:$380"
+                    android:textSize="12sp" />
+                <!--填入商品定價，text="定價:$“＋金額-->
+
+                <TextView
+                    android:id="@+id/goods_special12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/goods_use12"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/goods_price12"
+                    android:background="@drawable/bg_rectangle_wo_stroke_red"
+                    android:singleLine="true"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:text="特價:$323"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/goods_price12" />
+                <!--填入商品特價，text="特價:$“＋金額，實際賣出價格-->
+
+                <TextView
+                    android:id="@+id/hotIndex12"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignBottom="@+id/goods_price12"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginRight="3dp"
+                    android:background="@drawable/ic_star_gold_24dp"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+                <!--熱銷商品標籤-->
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</merge>

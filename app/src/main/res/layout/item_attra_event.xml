@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        style="@style/CardView.Content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:background="@color/snow"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/event_img"
+                android:layout_width="90dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/attraction02" />
+            <!-- 填入該活動代表圖 -->
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_toEndOf="@+id/event_img"
+                android:layout_toRightOf="@+id/event_img"
+                android:textSize="12sp"
+                android:text="台北市內湖區" />
+            <!-- 填入該地點區域名稱，縣市＋鄉鎮市區-->
+
+            <TextView
+                android:id="@+id/distanc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/location"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/location"
+                android:layout_toRightOf="@+id/location"
+                android:text="2.2km" />
+            <!-- 填入該地點距離，以km為單位，取到小數點後1位，四捨五入-->
+
+            <ImageButton
+                android:id="@+id/loveBtn"
+                style="@style/heartButton"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="3dp"
+                android:visibility="visible"
+                tools:visibility="visible" />
+            <!--被收藏時，為點下狀態，再點擊時直接取消收藏，並在該收藏數-1-->
+
+            <TextView
+                android:id="@+id/storyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/location"
+                android:layout_alignStart="@+id/location"
+                android:layout_below="@+id/location"
+                android:layout_gravity="start"
+                android:drawableLeft="@drawable/ic_private_black_16dp"
+                android:drawablePadding="3dp"
+                android:drawableStart="@drawable/ic_private_black_16dp"
+                android:ellipsize="end"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:text="大湖公園一日遊" />
+            <!-- 填入該活動名稱，並公開活動drawableLeft="@drawable/ic_open2all_black_16dp"
+            私人活動drawableLeft="@drawable/ic_private_black_16dp"
+            點擊可跳至該活動詳細頁page_event_detail -->
+
+            <TextView
+                android:id="@+id/eventDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/location"
+                android:layout_alignStart="@+id/location"
+                android:layout_below="@+id/storyName"
+                android:layout_gravity="start"
+                android:maxLines="1"
+                android:text="2017/11/03(六) 11:00~16:00" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/location"
+                android:layout_alignStart="@+id/location"
+                android:layout_below="@+id/eventDate"
+                android:layout_marginBottom="3dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/starNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_star_gold_16dp"
+                    android:drawablePadding="3dp"
+                    android:drawableStart="@drawable/ic_star_gold_16dp"
+                    android:gravity="center_vertical|start"
+                    android:visibility="visible"
+                    android:text="4.6"
+                    tools:visibility="visible" />
+                <!-- 填入平均星等，取到小數1位，四捨五入
+                當為活動時，visibility="gone"，景點visibility="visible"-->
+
+                <TextView
+                    android:id="@+id/joinNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_join_black_16dp"
+                    android:drawablePadding="3dp"
+                    android:drawableStart="@drawable/ic_join_black_16dp"
+                    android:gravity="center_vertical|start"
+                    android:visibility="visible"
+                    android:text="2"
+                    tools:visibility="visible" />
+                <!-- 填入該活動參加人數，超過1000時，改以K為單位，四捨五入
+                當為景點時，visibility="visible"，景點visibility="gone"-->
+
+                <TextView
+                    android:id="@+id/loveNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_heart_red_16dp"
+                    android:drawablePadding="3dp"
+                    android:drawableStart="@drawable/ic_heart_red_16dp"
+                    android:gravity="center_vertical|start"
+                    android:text="3" />
+                <!-- 填入被收藏數，超過1000時，改以K為單位，四捨五入-->
+
+                <TextView
+                    android:id="@+id/chatNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_chat_black_16dp"
+                    android:drawablePadding="3dp"
+                    android:drawableStart="@drawable/ic_chat_black_16dp"
+                    android:gravity="center_vertical|start"
+                    android:text="12" />
+                <!-- 填入討論貼文數，超過1000時，改以K為單位，四捨五入-->
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</merge>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        style="@style/CardView.Content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <Button
+                android:id="@+id/heartBtu"
+                style="@style/heartButton"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:enabled="true" />
+            <!-- 當該文章為用戶已收藏者，為按鈕按下狀態(紅心)，可點擊收藏及取消 -->
+
+            <TextView
+                android:id="@+id/articlesName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:ellipsize="end"
+                android:focusable="true"
+                android:singleLine="true"
+                android:text="有你的陪伴，孩子在學習的起步會更順利！" />
+            <!-- 顯示專欄名稱，點擊跳到Page_userhome，並到專欄分頁 -->
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/Love"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/likeNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="start"
+                android:minEms="3"
+                android:paddingStart="2dp"
+                android:paddingLeft="2dp"
+                android:paddingEnd="1dp"
+                android:singleLine="true"
+                android:text="999K" />
+            <!-- 顯示被收藏數-->
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</merge>

@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/snow"
+        android:padding="8dp">
+        <!--
+        <TextView
+            android:id="@+id/storyName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="marquee"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/hisStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/storyName"
+            android:layout_toLeftOf="@+id/heartButton"
+            android:layout_toRightOf="@+id/storyName"
+            android:width="20dp"
+            android:drawableLeft="@drawable/ic_star_gold_16dp"
+            android:text="4.8"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/heartButton"
+            style="@style/heartButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp" />
+            -->
+        <!--收藏愛心，按下後維持紅心，收藏數+1-->
+
+        <LinearLayout
+            android:id="@+id/storyNameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/storyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text="孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+            <!--故事名稱-->
+
+            <Button
+                android:id="@+id/heartButton"
+                style="@style/heartButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <!--收藏愛心，按下後維持紅心，收藏數+1-->
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/storyNameLayout"
+            android:text="@string/author1"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/authorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView28"
+            android:layout_alignBottom="@+id/textView28"
+            android:layout_toEndOf="@+id/textView28"
+            android:layout_toRightOf="@+id/textView28"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="紀登淵"
+            android:textColor="@android:color/black" />
+        <!--作者姓名，點擊跳至該作家之page_userhone 故事分頁-->
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/authorName"
+            android:layout_alignBottom="@+id/authorName"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/authorName"
+            android:layout_toRightOf="@+id/authorName"
+            android:text="@string/recording1"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/recordingName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView28"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/textView30"
+            android:layout_toRightOf="@+id/textView30"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="紀登淵"
+            android:textColor="@android:color/black" />
+        <!--錄者姓名，點擊跳至該作家之page_userhone 故事分頁-->
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView28"
+            android:layout_alignStart="@+id/textView28"
+            android:layout_alignLeft="@+id/textView28"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
+            android:text="@string/tag"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/storyTag1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView32"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/textView32"
+            android:layout_toRightOf="@+id/textView32"
+            android:background="@drawable/bg_rectangle_wo_stroke_pink"
+            android:text="母愛"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:visibility="visible" />
+        <!--故事標籤1-->
+
+        <TextView
+            android:id="@+id/storyTag2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/storyTag1"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/storyTag1"
+            android:layout_toRightOf="@+id/storyTag1"
+            android:background="@drawable/bg_rectangle_wo_stroke_pink"
+            android:text="手足相處"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:visibility="visible" />
+        <!--故事標籤2-->
+
+        <TextView
+            android:id="@+id/storyTag3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/storyTag2"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/storyTag2"
+            android:layout_toRightOf="@+id/storyTag2"
+            android:background="@drawable/bg_rectangle_wo_stroke_pink"
+            android:text="生態教育"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:visibility="visible" />
+        <!--故事標籤3-->
+
+        <TextView
+            android:id="@+id/storyTag4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/storyTag3"
+            android:layout_toEndOf="@+id/storyTag3"
+            android:layout_toRightOf="@+id/storyTag3"
+            android:background="@drawable/bg_rectangle_wo_stroke_pink"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="標籤4" />
+        <!--故事標籤4-->
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView32"
+            android:layout_alignStart="@+id/textView28"
+            android:layout_alignLeft="@+id/textView28"
+            android:layout_gravity="center"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/starRating"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView32"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_toEndOf="@+id/textView25"
+            android:layout_toRightOf="@+id/textView25"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="1" />
+
+        <TextView
+            android:id="@+id/hisStar"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ratingBar"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:width="20dp"
+            android:drawableLeft="@drawable/ic_star_gold_16dp"
+            android:text="4.8"
+            android:textSize="12sp" />
+        <!--故事評分，存入用戶為該故事之評分，並納入平均-->
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorStBearPlayBar">
+
+        <TextView
+            android:id="@+id/playMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="4"
+            android:gravity="center"
+            android:text="07:10"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+        <!--故事已播放分鐘-->
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/playMin"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:layout_toStartOf="@+id/totalTime"
+            android:layout_toLeftOf="@+id/totalTime"
+            android:layout_toEndOf="@+id/playMin"
+            android:layout_toRightOf="@+id/playMin"
+            android:background="@android:color/holo_blue_light"
+            android:max="100"
+            android:progress="50" />
+        <!--故事之播放進度條，可拉動-->
+
+        <TextView
+            android:id="@+id/totalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/playMin"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:ems="4"
+            android:gravity="center"
+            android:text="14:20"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+        <!--故事總分鐘-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seekBar"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="40">
+
+            <Button
+                android:id="@+id/playAllBtn"
+                style="@style/replayButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:onClick="playerBtnClk"
+                android:tag="playAllBtn" />
+            <!--按下狀態為重複播放，維持按下-->
+
+            <Button
+                android:id="@+id/backBtn"
+                style="@style/backButton"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:onClick="playerBtnClk"
+                android:tag="backBtn" />
+            <!--按下狀態為回到該故事最前面，如果已經是最前面則，跳至上個故事，如果已經是第一個故事則，跳至最後一個故事-->
+
+            <Button
+                android:id="@+id/playBtn"
+                style="@style/playButton"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:onClick="playerBtnClk"
+                android:tag="playBtn" />
+            <!--按下狀態為播放，維持按下，再按一下則維持暫停-->
+
+            <Button
+                android:id="@+id/nextBtn"
+                style="@style/nextButton"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:onClick="playerBtnClk"
+                android:tag="nextBtn" />
+            <!--按下狀態為跳至下個故事，如果已經是最後一個故事則，跳至第一個故事-->
+
+            <Button
+                android:id="@+id/storyListBtn"
+                style="@style/listButton"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:onClick="playerBtnClk"
+                android:tag="storyListBtn" />
+            <!--按下狀態為下方翻至 page_playstory_list故事播放清單-->
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+
+        <!--支援左右滑動-->
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"/>
+        <!--如果非贊助故事，則故事播放時預設此頁
+        page_playstory_home-->
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"/>
+        <!--當播放面板上的右下故事清單被點擊時，則翻至此頁
+            page_playstory_list-->
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"/>
+        <!--page_playstory_404pj-->
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+        <!--如果是贊助故事，則visibility="visible"，且故事播放時預設此頁
+            page_playstory_sponsor
+            如果是非贊助故事，則visibility="gone"-->
+
+    </android.support.design.widget.TabLayout>
+
+    <include layout="@layout/page_playstory_list"/>
+
+
+</LinearLayout>
+
+

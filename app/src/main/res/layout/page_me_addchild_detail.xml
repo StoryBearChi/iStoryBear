@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/childDetailBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        tools:title="小寶" />
+    <!-- 填入小孩名稱 -->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/snow"
+        android:padding="2dp">
+
+        <ImageView
+            android:id="@+id/myChildImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="2dp"
+            tools:srcCompat="@drawable/ic_girl_colors_24dp" />
+        <!--當有上傳照片者，直接顯示照片
+            當出生日大於當日時，@drawable/ic_pregnancy_colors_24dp
+            當出生日小於當日並且@+id/sex_Switch＝ＯＮ時，@drawable/ic_girl_colors_24dp
+            當出生日小於當日並且@+id/sex_Switch＝ＯFF時，@drawable/ic_boy_colors_24dp-->
+
+        <TextView
+            android:id="@+id/BdayT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/myChildImage"
+            android:layout_margin="5dp"
+            android:layout_toEndOf="@+id/myChildImage"
+            tools:text="@string/dueDate" />
+
+        <TextView
+            android:id="@+id/nowChildBday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/BdayT"
+            android:layout_toEndOf="@+id/BdayT"
+            android:background="@drawable/bg_rectangle_wo_stroke_pink"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            tools:text="2018.02.11" />
+
+
+        <TextView
+            android:id="@+id/YrlOld"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/BdayT"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/nowChildBday"
+            android:text="5" />
+
+        <TextView
+            android:id="@+id/afterDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BdayT"
+            android:layout_alignStart="@+id/BdayT"
+            android:layout_marginTop="5dp"
+            tools:text="已經32週3天了"
+            android:textColor="@color/holo_green_dark" />
+        <!--當出生日大於當日時，以 "已經xx週x天了“為格式
+        當出生日小於當日時，以 "已經xx歲了“為格式-->
+
+        <TextView
+            android:id="@+id/deliveryDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/afterDay"
+            android:layout_alignStart="@+id/BdayT"
+            android:layout_marginTop="2dp"
+            tools:text="(還有53天出生)" />
+
+        <!--當出生日大於當日時，才顯示-->
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#DDDDDD" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#DDDDDD">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/weekText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Bear_green_light"
+                android:text="尚無相關育兒注意事項"
+                android:textSize="18sp"
+                android:visibility="visible" />
+            <!--當出生日大於當日時，以週來提供懷孕指南
+                年紀0~1歲，以月來提供養育指南
+                年紀>1歲，以年來提供養育指南-->
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Bear_snow_light"
+        android:orientation="horizontal"
+        android:visibility="visible">
+        <!--之後再提供-->
+
+        <Button
+            android:id="@+id/button40"
+            style="@android:style/Widget.DeviceDefault.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/ic_grow_colors_36dp"
+            android:text="@string/growthCurve" />
+
+        <Button
+            android:id="@+id/button43"
+            style="@android:style/Widget.DeviceDefault.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/ic_check_colors_36dp"
+            android:text="@string/growingMileage" />
+
+        <Button
+            android:id="@+id/button45"
+            style="@android:style/Widget.DeviceDefault.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/ic_book_colors_36dp"
+            android:text="@string/parentingBook" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

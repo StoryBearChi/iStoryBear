@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/storyPlayerBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorStBearPlayBar"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:visibility="visible"
+        tools:visibility="visible">
+        <!-- 當故事被播放時後，visibility="visible" -->
+
+        <Button
+            android:id="@+id/backBtn"
+            style="@style/backButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="xPlayerBtnClk"
+            android:tag="backBtn" />
+        <!-- 點一次，故事從頭開始播放，
+        連點兩次，則如有上一個故事則跳到上一個故事，如果沒有則跳出提示“已經是此目錄的第一個故事” -->
+
+        <Button
+            android:id="@+id/playpauseBtn"
+            style="@style/playButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:onClick="xPlayerBtnClk"
+            android:tag="playBtn" />
+        <!--當未被按下狀態時按下後，故事播放，並維持被按下狀態
+            當被按下狀態時按下後，故事暫停，並維持未被按下狀態  -->
+
+        <Button
+            android:id="@+id/nextBtn"
+            style="@style/nextButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="xPlayerBtnClk"
+            android:tag="nextBtn" />
+        <!-- 點擊後，如有下一個故事則跳到下一個故事，如果沒有則跳回到第一個故事，
+        如果只有一個故事則跳出提示“此目錄只有一個故事” -->
+
+        <TextView
+            android:id="@+id/playStoryName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/bg_rectangle_with_stroke_dimgray_textwindow"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:text="孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲" />
+        <!-- 顯示任何被選選播的故事之名稱，超過長度則跑馬燈循回顯示；
+        點擊後跳至page_playstory_home -->
+
+        <ImageButton
+            android:id="@+id/killPlayerBtn"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="#00FFFFFF"
+            android:onClick="xPlayerBtnClk"
+            android:tag="killPlayer"
+            app:srcCompat="@android:drawable/ic_notification_clear_all" />
+        <!-- 點擊後@+id/storyPlayBar.android:visibility="gone"，並且播放終止 -->
+
+    </LinearLayout>
+
+</merge>

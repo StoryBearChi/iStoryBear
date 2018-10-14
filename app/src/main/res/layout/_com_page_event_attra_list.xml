@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar6"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/colorStBearBtOrange"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            tools:title="@string/New" />
+        <!-- 依據
+        收藏活動/景點 title="@string/Love"
+        最新活動/景點 title="@string/New"
+        景點/活動推播 title="@string/Sponsor"
+         -->
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--
+               收藏活動/景點 顯示該用戶按愛心收藏之活動或景點，依收藏時間，由新排到舊
+               最新活動/景點 顯示平台最新的活動，依建立時間，由新排到舊
+               景點/活動推播 顯示平台廣告活動(權重較高)及熱門/公益(權重最高)活動資料，依權重/距離(Km)後排序
+                -->
+                <include layout="@layout/item_attra_event"/>
+                <include layout="@layout/item_attra_event"/>
+                <include layout="@layout/item_attra_event"/>
+                <include layout="@layout/item_attra_event"/>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:minHeight="250dp"
+        android:visibility="visible" />
+    <!-- 當非webView部分被點擊/滑動時，visibility="gone" -->
+    <!--開啟https://404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn-->
+
+</RelativeLayout>

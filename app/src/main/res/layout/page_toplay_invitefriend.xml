@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/item_event_invite" />
+    <include layout="@layout/item_event_invite" />
+    <include layout="@layout/item_event_invite" />
+    <include layout="@layout/item_event_invite" />
+    <!-- 在page_toplay_invitefriend 顯示所有被邀請的活動
+         id="@+id/recommendOwner"之visibility="visible"
+         id="@+id/editBtn"之visibility="invisible"
+         並且如果為公開活動，則 id="@+id/inviteBtn"之visibility="visible"，否則為"invisible"-->
+
+</LinearLayout>

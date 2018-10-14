@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_scenes"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/scenesBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="編輯播放場景"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textView76"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="8dp"
+            android:text="@string/scenes_name" />
+
+        <EditText
+            android:id="@+id/scenesName_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView76"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/textView76"
+            android:layout_toRightOf="@+id/textView76"
+            android:ems="12"
+            android:hint="@string/hint36"
+            android:inputType="textPersonName"
+            android:maxEms="4"
+            android:paddingBottom="8dp"
+            android:textColorHint="@color/cardview_shadow_start_color"
+            android:textSize="16sp" />
+        <!--場景命名-->
+
+        <TextView
+            android:id="@+id/textView77"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView76"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="8dp"
+            android:text="@string/repeat_play" />
+
+        <Switch
+            android:id="@+id/repeat_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView77"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/textView77"
+            android:layout_toRightOf="@+id/textView77"
+            android:checked="false"
+            android:paddingBottom="8dp"
+            tools:checked="true" />
+        <!--checked="true" 整個故事單循環播放-->
+
+        <TextView
+            android:id="@+id/textView78"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView77"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="8dp"
+            android:text="@string/random_play" />
+
+        <Switch
+            android:id="@+id/random_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView78"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/textView78"
+            android:layout_toRightOf="@+id/textView78"
+            android:checked="false"
+            android:paddingBottom="8dp"
+            tools:checked="true" />
+        <!--checked="true" 整個故事單隨機播放-->
+
+        <!--循環播放＋隨機播放=不停止一直隨機播放
+                只有循環播放=不停止一直照順序循環播放
+                只有隨機播放=隨機播放1個
+            -->
+
+        <TextView
+            android:id="@+id/textView87"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView78"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="8dp"
+            android:text="@string/fade_play" />
+
+        <Switch
+            android:id="@+id/fade_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView87"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/textView87"
+            android:layout_toRightOf="@+id/textView87"
+            android:checked="false"
+            android:paddingBottom="8dp"
+            tools:checked="true" />
+        <!--checked="true" 最後一個故事或最後10分鐘，聲音逐漸變小-->
+
+        <TextView
+            android:id="@+id/textView92"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView87"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="8dp"
+            android:text="@string/volume" />
+
+        <SeekBar
+            android:id="@+id/volume_seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView92"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@+id/textView92"
+            android:layout_toRightOf="@+id/textView92"
+            android:paddingBottom="8dp"
+            android:progress="50" />
+        <!--設定該場景最大音量，拉動時播放聲音試聽-->
+
+        <TextView
+            android:id="@+id/textView93"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView92"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="8dp"
+            android:text="@string/play_minutes" />
+
+        <EditText
+            android:id="@+id/playMin_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView93"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/textView93"
+            android:layout_toRightOf="@+id/textView93"
+            android:ems="6"
+            android:hint="@string/hint37"
+            android:inputType="number"
+            android:paddingBottom="8dp"
+            android:textColorHint="@color/cardview_shadow_start_color"
+            android:textSize="16sp" />
+        <!--設定該場景最長播放時間-->
+
+        <TextView
+            android:id="@+id/textView94"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView93"
+            android:layout_toEndOf="@+id/playMin_edit"
+            android:layout_toRightOf="@+id/playMin_edit"
+            android:paddingBottom="8dp"
+            android:text="@string/minutes" />
+
+        <TextView
+            android:id="@+id/textView95"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView93"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="8dp"
+            android:text="@string/alarm_play" />
+
+        <Switch
+            android:id="@+id/alarm_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView95"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/textView95"
+            android:layout_toRightOf="@+id/textView95"
+            android:checked="false"
+            android:paddingBottom="8dp"
+            tools:checked="true" />
+        <!--checked="true" 將id="@+id/alarmSet" visibility="visible"-->
+
+        <LinearLayout
+            android:id="@+id/alarmSet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView95"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:visibility="invisible"
+            tools:visibility="visible">
+
+            <EditText
+                android:id="@+id/time_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:ems="5"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:padding="3dp"
+                android:textSize="14sp"
+                tools:text="07:30 上午" />
+            <!--點擊再跳出TimePickerDialog-->
+
+            <Spinner
+                android:id="@+id/specifyDate_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:entries="@array/weekClass" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:background="#DDDDDD" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/cancelBtn"
+            style="@android:style/Widget.DeviceDefault.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.2"
+            android:text="@string/cancel" />
+        <!--取消後，回到原頁面-->
+
+        <Button
+            android:id="@+id/OKBtn"
+            style="@android:style/Widget.DeviceDefault.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.7"
+            android:text="@string/OK" />
+        <!--確認後，啟動扣款串接，扣款結束後回到原頁面-->
+
+    </LinearLayout>
+
+</LinearLayout>

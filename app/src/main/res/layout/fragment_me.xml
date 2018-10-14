@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/title_me" />
+    -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rectangle_y">
+
+
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_logo_round_colors_24dp"
+            tools:srcCompat="@drawable/dean"  />
+        <!--填入用戶照片，預設為drawable/ic_logo_round_colors_24dp，點擊可更換-->
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/userImage"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:text="紀登淵"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/userImage"/>
+        <!--填入用戶姓名-->
+
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/userName"
+            android:layout_below="@id/userName"
+            tools:text="小熊爸"
+            android:layout_alignStart="@id/userName"  />
+        <!--填入用戶暱稱-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nickname"
+            android:layout_toRightOf="@+id/userImage"
+            android:orientation="horizontal"
+            android:layout_toEndOf="@+id/userImage">
+
+            <Button
+                android:id="@+id/myBlog"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_blog_orange_24dp"
+                android:onClick="myHomeBtnClk"
+                android:tag="myBlog"
+                android:text="@string/blog" />
+            <!--跳至page_userhome的page_userhome_blog-->
+
+            <Button
+                android:id="@+id/myStory"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_upstory_black_24dp"
+                android:onClick="myHomeBtnClk"
+                android:tag="myStory"
+                android:text="@string/story" />
+            <!--跳至page_userhome的page_userhome_story-->
+
+            <Button
+                android:id="@+id/addFriend"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_addfriends_colors_24dp"
+                android:onClick="ActItemBtnClk"
+                android:tag="addFriend"
+                android:text="@string/friendAdd" />
+            <!--跳至page_me_addfriend-->
+
+            <Button
+                android:id="@+id/myNotice"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_messages_black_24dp"
+                android:onClick="ActItemBtnClk"
+                android:tag="myNotice"
+                android:text="@string/myNotice" />
+            <!--跳至page_me_notice-->
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/userProfileBtn"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="ActItemBtnClk"
+                    android:padding="5dp"
+                    android:tag="userProfile"
+                    android:text="@string/myData" />
+                <!--跳至page_me_userprofile-->
+
+
+                <Button
+                    android:id="@+id/myChildBtn"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/userProfileBtn"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="ActItemBtnClk"
+                    android:padding="5dp"
+                    android:tag="myChild"
+                    android:text="@string/myChild" />
+                <!--跳至page_me_addchild-->
+
+                <TextView
+                    android:id="@+id/childNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/myChildBtn"
+                    android:layout_alignBottom="@+id/myChildBtn"
+                    android:layout_alignLeft="@+id/royaltyNum"
+                    android:layout_alignStart="@+id/royaltyNum"
+                    android:ems="4"
+                    android:textSize="12sp"
+                    android:text="2人" />
+                <!--填入用戶已輸入小孩人數-->
+
+                <Button
+                    android:id="@+id/addChild"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/myChildBtn"
+                    android:layout_alignBottom="@id/myChildBtn"
+                    android:layout_toEndOf="@+id/childNum"
+                    android:layout_toRightOf="@+id/childNum"
+                    android:background="@android:color/darker_gray"
+                    android:onClick="ActItemBtnClk"
+                    android:tag="myChild"
+                    android:text="@string/childData"
+                    android:textColor="@android:color/white" />
+                <!--跳至page_me_addchild-->
+
+                <Button
+                    android:id="@+id/myPoints"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/myChildBtn"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="ActItemBtnClk"
+                    android:padding="5dp"
+                    android:tag="myPoints"
+                    android:text="@string/myPoints" />
+                <!--跳至page_me_mypoints-->
+
+                <TextView
+                    android:id="@+id/pointNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/childNum"
+                    android:layout_alignStart="@+id/childNum"
+                    android:layout_centerVertical="true"
+                    android:ems="4"
+                    android:textSize="12sp"
+                    android:text="523點" />
+                <!--填入用戶點數-->
+
+                <Button
+                    android:id="@+id/buyPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/addChild"
+                    android:layout_alignLeft="@id/addChild"
+                    android:layout_alignTop="@id/myPoints"
+                    android:layout_alignBottom="@id/myPoints"
+                    android:layout_toEndOf="@id/myPoints"
+                    android:layout_toRightOf="@id/myPoints"
+                    android:background="@color/colorStBearBtOrange"
+                    android:onClick="ActItemBtnClk"
+                    android:tag="buyPoints"
+                    android:text="@string/buyPoints"
+                    android:textColor="@android:color/white" />
+                <!--跳出dialog_me_buypoints-->
+
+                <Button
+                    android:id="@+id/myEvents"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/myPoints"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="ActItemBtnClk"
+                    android:padding="5dp"
+                    android:tag="myEvents"
+                    android:text="@string/myEvents" />
+                <!--跳至fragment_play的fragment_play_events的page_toplay_host-->
+
+                <Button
+                    android:id="@+id/myRoyalty"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/myEvents"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:onClick="ActItemBtnClk"
+                    android:padding="5dp"
+                    android:tag="myRoyalty"
+                    android:text="@string/myRoyalty" />
+                <!--跳至page_me_myroyalty-->
+
+                <TextView
+                    android:id="@+id/royaltyNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/myRoyalty"
+                    android:layout_toEndOf="@+id/myRoyalty"
+                    android:layout_toRightOf="@+id/myRoyalty"
+                    android:ems="4"
+                    android:textSize="12sp"
+                    android:text="$12,546" />
+                <!--填入用戶未兌換版稅-->
+
+                <Button
+                    android:id="@+id/toPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/addChild"
+                    android:layout_alignLeft="@id/addChild"
+                    android:layout_alignTop="@id/myRoyalty"
+                    android:layout_alignBottom="@id/myRoyalty"
+                    android:layout_toEndOf="@id/myRoyalty"
+                    android:layout_toRightOf="@id/myRoyalty"
+                    android:background="@android:color/darker_gray"
+                    android:onClick="ActItemBtnClk"
+                    android:tag="toPoints"
+                    android:text="@string/toPoints"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/toCash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/toPoints"
+                    android:layout_alignBottom="@id/toPoints"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toEndOf="@id/toPoints"
+                    android:layout_toRightOf="@id/toPoints"
+                    android:background="@android:color/darker_gray"
+                    android:onClick="ActItemBtnClk"
+                    android:tag="toCash"
+                    android:text="@string/toCash"
+                    android:textColor="@android:color/white" />
+                <!--跳出dialog_me_buypoints-->
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD" />
+
+            <Button
+                android:id="@+id/QnA"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="4dp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="5dp"
+                android:text="@string/QnA"
+                android:layout_marginStart="5dp"/>
+
+            <Button
+                android:id="@+id/Terms_of_Service"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="4dp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="5dp"
+                android:text="@string/Terms_of_Service"
+                android:layout_marginStart="5dp"/>
+
+            <Button
+                android:id="@+id/email2We"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="4dp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="5dp"
+                android:text="@string/email2We"
+                android:layout_marginStart="5dp"/>
+
+            <Button
+                android:id="@+id/aboutWe"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="4dp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:padding="5dp"
+                android:text="@string/about_iStoryBear"
+                android:layout_marginStart="5dp"/>
+
+            <Button
+                android:id="@+id/exitiStoryBear"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="4dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:onClick="ActItemBtnClk"
+                android:padding="5dp"
+                android:tag="Logout"
+                android:text="@string/logout" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

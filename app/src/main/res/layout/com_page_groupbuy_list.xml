@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:background="@color/colorStBearBtOrange"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        tools:title="@string/newGroupbuy" >
+        <!-- 帶入關鍵字，如搜尋關鍵字/分類名稱
+        搜尋關鍵字 title=搜尋關鍵字
+        預先分類/熱搜關鍵字 title=預先分類/熱搜關鍵字  (如兒童繪本...)
+        收藏商品   title="@string/Love"
+        限時優惠   title="@string/storyPromotion"
+        最新團購   title="@string/newGroupbuy"
+        熱門團購   title="@string/hotGroupbuy"
+        限時團購   title="@string/timeGroupbuy"
+        限量團購   title="@string/limitedGroupbuy"
+         -->
+
+        <android.support.v7.widget.ButtonBarLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:entries="@array/goodsClass"
+                android:gravity="end" />
+            <!--
+            最新       ->由建立日期由新排到舊
+            最優惠     ->由特價與定價之價差由多排到少
+            已收藏     ->由已收藏者先排
+            最舊      ->由建立日期由舊排到新
+            -->
+
+        </android.support.v7.widget.ButtonBarLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <include layout="@layout/item_bar_goods"/>       <!--團購-->
+                <include layout="@layout/item_bar_goods"/>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            tools:minHeight="250dp"
+            android:visibility="visible" />
+        <!-- 當非webView部分被點擊/滑動時，visibility="gone" -->
+        <!--開啟https://404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn-->
+
+    </RelativeLayout>
+
+</LinearLayout>

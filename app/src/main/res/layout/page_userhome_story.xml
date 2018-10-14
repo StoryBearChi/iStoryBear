@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeStorylist"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    tools:context=".userHomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gooseYellow"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:padding="2dp"
+            android:text="@string/hint31"
+            android:textColor="@color/holo_red_light"
+            android:textSize="12sp" />
+
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+        <include layout="@layout/item_bar_story" />
+
+        <include layout="@layout/item_bar_story" />
+    </LinearLayout>
+
+    <!--載入該專攔用戶之上傳故事
+            如果為該專欄用戶本人時，有3種狀態:上傳尚未申請上架(可申請上架)、審查中尚未上架(可取消)、通過審查後、審查退回(可取消)
+              無論那個狀態，該故事上傳者均可免費加入播放清單不限制播放，。
+           如果該專欄非用戶本時，則正常顯示故事行銷使用狀態: 
+              當該首已被購買/加入並已播放>1分鐘時、當該首已被購買/加入並已播放<1分鐘時、贊助故事時、有特價時、一般原價時-->
+
+
+</FrameLayout>
