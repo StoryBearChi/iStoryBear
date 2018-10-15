@@ -252,29 +252,29 @@ public class MainActivity extends AppCompatActivity {
         switch (vtag) {
 
             case "backBtn":
-                Toast.makeText(MainActivity.this, "跳到上一個故事", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, R.string.playback , Toast.LENGTH_SHORT).show();
 
                 break;
 
             case "playBtn":
                 if (xPlayBtn.isSelected()){ /* 暫停播放 */
                     xPlayBtn.setSelected(false);
-                    Toast.makeText(MainActivity.this, "暫停播放", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.paused , Toast.LENGTH_SHORT).show();
 
                 } else { /* 開始播放 */
                     xPlayBtn.setSelected(true);
-                    Toast.makeText(MainActivity.this, "開始播放", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.playing , Toast.LENGTH_SHORT).show();
 
                 }
                 break;
 
             case "nextBtn":
-                Toast.makeText(MainActivity.this, "跳到下一個故事", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, R.string.playnext , Toast.LENGTH_SHORT).show();
 
                 break;
 
             case "killPlayer":
-                Toast.makeText(MainActivity.this, "關閉故事播放", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, R.string.killPlaying , Toast.LENGTH_SHORT).show();
                 xPlayer.setVisibility(View.GONE);
 
                 break;
@@ -285,27 +285,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setDialogBroadcast(String vtag) {
-        String mTitle= "a title";
+        String mTitle = null;
         BuyCheckItem=0;
         switch (vtag) {
             case "buyPoints":
-                mTitle = "信用卡購點";
-                items[0] = "購買100點($100)";
-                items[1] = "購買550點($500) \n* 加贈送10% *";
+                mTitle = getString(R.string.buyPoints);
+                items[0] = getString(R.string.buy100points);
+                items[1] = getString(R.string.buy550points);
                 break;
             case "toPoints":
-                mTitle = "版稅兌點";
-                items[0] = "$100 兌換 120點";
-                items[1] = "$500 兌換 600點 \n* 加贈送20% *";
+                mTitle = getString(R.string.toPoints);
+                items[0] = getString(R.string.to120Points);
+                items[1] = getString(R.string.to600Points);
                 break;
 
             case "toCash":
-                mTitle = "版稅兌現";
-                items[0] = "兌現＄1000";
-                items[1] = "兌現＄5000";
+                mTitle = getString(R.string.toCash);
+                items[0] = getString(R.string.to1000cash);
+                items[1] = getString(R.string.to5000cash);
                 break;
         }
-
 
         new AlertDialog.Builder(MainActivity.this)
                 //    .setView(viewDialogBroadcast)
@@ -318,14 +317,14 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 })
-                .setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(MainActivity.this, items[BuyCheckItem], Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
                 })
-                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

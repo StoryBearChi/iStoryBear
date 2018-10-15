@@ -126,7 +126,7 @@ public class StoryPlayerActivity extends AppCompatActivity {
 
             case "backBtn":
 
-                Toast.makeText(StoryPlayerActivity.this, "跳到上一個故事", Toast.LENGTH_SHORT).show();
+                Toast.makeText(StoryPlayerActivity.this, R.string.playback , Toast.LENGTH_SHORT).show();
 
                 break;
 
@@ -134,16 +134,16 @@ public class StoryPlayerActivity extends AppCompatActivity {
                 if (mPlayBtn.isSelected()){ /* 暫停播放 */
                     mPlayBtn.setSelected(false);
 
-                    Toast.makeText(StoryPlayerActivity.this, "暫停播放", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StoryPlayerActivity.this, R.string.paused , Toast.LENGTH_SHORT).show();
                 } else { /* 開始播放 */
                     mPlayBtn.setSelected(true);
 
-                    Toast.makeText(StoryPlayerActivity.this, "開始播放", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StoryPlayerActivity.this, R.string.playing , Toast.LENGTH_SHORT).show();
                 }
                 break;
 
             case "nextBtn":
-                Toast.makeText(StoryPlayerActivity.this, "跳到下一個故事", Toast.LENGTH_SHORT).show();
+                Toast.makeText(StoryPlayerActivity.this, R.string.playnext , Toast.LENGTH_SHORT).show();
 
                 break;
 

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">愛說故事小熊</string>
     <string name="login">登入</string>
     <string name="FBlogin">Facebook登入</string>
@@ -141,7 +141,7 @@
     為了讓每隻小毛毛蟲都能有足夠的樹葉吃，而且紫斑蝶出生時會把蛋殼吃掉，如果都生在一起，先出生的小毛毛蟲吃蛋殼時，會不小心把其它的蛋吃掉，所以媽媽很辛苦地把他們生在每一片不同的嫩葉上。\n
     </string>
 
-    <string name="more">更多...</string>
+    <string name="more">更多&#8230;</string>
     <string name="nonPlay">未播放</string>
 
     <string name="toPlay">邀請</string>
@@ -396,5 +396,57 @@
     <string name="title_activity_result">result</string>
     <string name="title_activity_story_player">StoryPlayerActivity</string>
     <string name="Bdayis">生日:</string>
+    <string name="BDaying">誕生:</string>
+    <string name="childMAX5">抱歉，目前系統最多只讓您輸入5個小孩資料</string>
+    <string name="NameBdayisNULL">抱歉，姓名及生日不能是空白</string>
+    <string name="selGirl">已選擇女孩</string>
+    <string name="selBoy">已選擇男孩</string>
+
+  <!--  xliff是一个缩写，全称XML Localization Interchange File Format ，即XML本地化数据交换格式,用來文字介面在地化 -->
+
+    <string name="yr">
+        <xliff:g id="yr">%1$s</xliff:g> 歲
+    </string>
+    <string name="pregnancyIndays">
+        恭喜❤️您已懷孕 <xliff:g id="weeks">%1$d</xliff:g> 週又 <xliff:g id="days">%2$d</xliff:g> 天
+    </string>
+    <string name="pregnancyToBday">
+        (再過 <xliff:g id="ndays">%1$d</xliff:g> 天， <xliff:g id="childsname">%2$s</xliff:g> 就要出生了)
+    </string>
+
+    <string name="nonpregnancy">
+        祝福️您能如你所規劃懷孕，並在 <xliff:g id="ndays">%1$d</xliff:g> 天後，生下 <xliff:g id="childsname">%2$s</xliff:g>
+    </string>
+
+    <string name="Bdaying">
+        恭喜 <xliff:g id="childsname">%1$s</xliff:g> 今天就要出生了❤️ \n祝福生產順利，平安健康！！
+    </string>
+
+    <string name="BdayToday">
+        恭喜 <xliff:g id="childsname">%1$s</xliff:g> 今天  <xliff:g id="Age">%2$d</xliff:g> 歲了，生日快樂🎂️
+    </string>
+
+    <string name="nonBdayToday">
+        再過  <xliff:g id="days">%1$d</xliff:g> 天， <xliff:g id="childsname">%2$s</xliff:g> 就要生日了❤️
+    </string>
+
+    <string name="selDate">
+        您選擇的日期為  <xliff:g id="date">%1$s</xliff:g>
+    </string>
+    <string name="buy100points">購買100點($100)</string>
+    <string name="buy550points">購買550點($500)  * 加贈送10% *</string>
+    <string name="to120Points">$100 兌換 120點  * 加贈送20% *</string>
+    <string name="to600Points">$500 兌換 600點  * 加贈送20% *</string>
+    <string name="to1000cash">兌現＄1000</string>
+    <string name="to5000cash">兌現＄5000</string>
+
+    <string name="playback">跳到上一個故事</string>
+    <string name="paused">暫停播放</string>
+    <string name="playing">開始播放</string>
+    <string name="playnext">跳到下一個故事</string>
+    <string name="killPlaying">關閉故事播放</string>
+
+
+
 
 </resources>

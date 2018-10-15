@@ -33,6 +33,7 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class ActActivity extends AppCompatActivity {
     private String searchTag;
@@ -156,109 +157,106 @@ public class ActActivity extends AppCompatActivity {
         EditText ChildNameEdit = (EditText) findViewById(R.id.childName_edit);
         EditText ChildBdayEdit = (EditText) findViewById(R.id.childBday_edit);
 
-        // String vtag = v.getTag().toString();
-
-        switch (childMod) {
-            case "childEdit1":
-                ChildName = (TextView) findViewById(R.id.childName1);
-                tBday = (TextView) findViewById(R.id.childBdayT1);
-                ChildBday = (TextView) findViewById(R.id.childBday1);
-                ChildImage = (ImageView) findViewById(R.id.chidImage1);
-                break;
-
-            case "childEdit2":
-                ChildName = (TextView) findViewById(R.id.childName2);
-                tBday = (TextView) findViewById(R.id.childBdayT2);
-                ChildBday = (TextView) findViewById(R.id.childBday2);
-                ChildImage = (ImageView) findViewById(R.id.chidImage2);
-                break;
-
-            case "childEdit3":
-                ChildName = (TextView) findViewById(R.id.childName3);
-                tBday = (TextView) findViewById(R.id.childBdayT3);
-                ChildBday = (TextView) findViewById(R.id.childBday3);
-                ChildImage = (ImageView) findViewById(R.id.chidImage3);
-                break;
-
-            case "childEdit4":
-                ChildName = (TextView) findViewById(R.id.childName4);
-                tBday = (TextView) findViewById(R.id.childBdayT4);
-                ChildBday = (TextView) findViewById(R.id.childBday4);
-                ChildImage = (ImageView) findViewById(R.id.chidImage4);
-                break;
-
-            case "childEdit5":
-                ChildName = (TextView) findViewById(R.id.childName5);
-                tBday = (TextView) findViewById(R.id.childBdayT5);
-                ChildBday = (TextView) findViewById(R.id.childBday5);
-                ChildImage = (ImageView) findViewById(R.id.chidImage5);
-                break;
-
-            default:
-                switch (childNUM) {
-                    case 0:
-                        Big = (CardView) findViewById(R.id.big1);
-                        ChildName = (TextView) findViewById(R.id.childName1);
-                        tBday = (TextView) findViewById(R.id.childBdayT1);
-                        ChildBday = (TextView) findViewById(R.id.childBday1);
-                        ChildImage = (ImageView) findViewById(R.id.chidImage1);
-                        childNUM = 1;
-                        break;
-
-                    case 1:
-                        Big = (CardView) findViewById(R.id.big2);
-                        ChildName = (TextView) findViewById(R.id.childName2);
-                        tBday = (TextView) findViewById(R.id.childBdayT2);
-                        ChildBday = (TextView) findViewById(R.id.childBday2);
-                        ChildImage = (ImageView) findViewById(R.id.chidImage2);
-                        childNUM = 2;
-                        break;
-
-                    case 2:
-                        Big = (CardView) findViewById(R.id.big3);
-                        ChildName = (TextView) findViewById(R.id.childName3);
-                        tBday = (TextView) findViewById(R.id.childBdayT3);
-                        ChildBday = (TextView) findViewById(R.id.childBday3);
-                        ChildImage = (ImageView) findViewById(R.id.chidImage3);
-                        childNUM = 3;
-                        break;
-
-                    case 3:
-                        Big = (CardView) findViewById(R.id.big4);
-                        ChildName = (TextView) findViewById(R.id.childName4);
-                        tBday = (TextView) findViewById(R.id.childBdayT4);
-                        ChildBday = (TextView) findViewById(R.id.childBday4);
-                        ChildImage = (ImageView) findViewById(R.id.chidImage4);
-                        childNUM = 4;
-                        break;
-
-                    case 4:
-                        Big = (CardView) findViewById(R.id.big5);
-                        ChildName = (TextView) findViewById(R.id.childName5);
-                        tBday = (TextView) findViewById(R.id.childBdayT5);
-                        ChildBday = (TextView) findViewById(R.id.childBday5);
-                        ChildImage = (ImageView) findViewById(R.id.chidImage5);
-                        childNUM = 5;
-                        break;
-
-                    case 5:
-                        childNUM = 6;
-                        Toast.makeText(ActActivity.this, "抱歉，目前系統最多只讓您輸入5個小孩資料", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-        }
-
         name = ChildNameEdit.getText();
         BDay = ChildBdayEdit.getText();
 
-        if ((!childMod.equals("ADD")) || (childNUM <= 5)) {
-            if (BDay.toString().equals("") || BDay.toString().equals("")) {
-                Toast.makeText(ActActivity.this, "抱歉，姓名及生日不能是空白", Toast.LENGTH_SHORT).show();
-                if (childMod.equals("ADD")) {
-                    childNUM--;
-                }
-            } else {
+        if (name.toString().equals("") || BDay.toString().equals("")) {
+            Toast.makeText(ActActivity.this, R.string.NameBdayisNULL, Toast.LENGTH_SHORT).show();
+        } else {
+            // String vtag = v.getTag().toString();
 
+            switch (childMod) {
+                case "childEdit1":
+                    ChildName = (TextView) findViewById(R.id.childName1);
+                    tBday = (TextView) findViewById(R.id.childBdayT1);
+                    ChildBday = (TextView) findViewById(R.id.childBday1);
+                    ChildImage = (ImageView) findViewById(R.id.chidImage1);
+                    break;
+
+                case "childEdit2":
+                    ChildName = (TextView) findViewById(R.id.childName2);
+                    tBday = (TextView) findViewById(R.id.childBdayT2);
+                    ChildBday = (TextView) findViewById(R.id.childBday2);
+                    ChildImage = (ImageView) findViewById(R.id.chidImage2);
+                    break;
+
+                case "childEdit3":
+                    ChildName = (TextView) findViewById(R.id.childName3);
+                    tBday = (TextView) findViewById(R.id.childBdayT3);
+                    ChildBday = (TextView) findViewById(R.id.childBday3);
+                    ChildImage = (ImageView) findViewById(R.id.chidImage3);
+                    break;
+
+                case "childEdit4":
+                    ChildName = (TextView) findViewById(R.id.childName4);
+                    tBday = (TextView) findViewById(R.id.childBdayT4);
+                    ChildBday = (TextView) findViewById(R.id.childBday4);
+                    ChildImage = (ImageView) findViewById(R.id.chidImage4);
+                    break;
+
+                case "childEdit5":
+                    ChildName = (TextView) findViewById(R.id.childName5);
+                    tBday = (TextView) findViewById(R.id.childBdayT5);
+                    ChildBday = (TextView) findViewById(R.id.childBday5);
+                    ChildImage = (ImageView) findViewById(R.id.chidImage5);
+                    break;
+
+                default:
+                    switch (childNUM) {
+                        case 0:
+                            Big = (CardView) findViewById(R.id.big1);
+                            ChildName = (TextView) findViewById(R.id.childName1);
+                            tBday = (TextView) findViewById(R.id.childBdayT1);
+                            ChildBday = (TextView) findViewById(R.id.childBday1);
+                            ChildImage = (ImageView) findViewById(R.id.chidImage1);
+                            childNUM = 1;
+                            break;
+
+                        case 1:
+                            Big = (CardView) findViewById(R.id.big2);
+                            ChildName = (TextView) findViewById(R.id.childName2);
+                            tBday = (TextView) findViewById(R.id.childBdayT2);
+                            ChildBday = (TextView) findViewById(R.id.childBday2);
+                            ChildImage = (ImageView) findViewById(R.id.chidImage2);
+                            childNUM = 2;
+                            break;
+
+                        case 2:
+                            Big = (CardView) findViewById(R.id.big3);
+                            ChildName = (TextView) findViewById(R.id.childName3);
+                            tBday = (TextView) findViewById(R.id.childBdayT3);
+                            ChildBday = (TextView) findViewById(R.id.childBday3);
+                            ChildImage = (ImageView) findViewById(R.id.chidImage3);
+                            childNUM = 3;
+                            break;
+
+                        case 3:
+                            Big = (CardView) findViewById(R.id.big4);
+                            ChildName = (TextView) findViewById(R.id.childName4);
+                            tBday = (TextView) findViewById(R.id.childBdayT4);
+                            ChildBday = (TextView) findViewById(R.id.childBday4);
+                            ChildImage = (ImageView) findViewById(R.id.chidImage4);
+                            childNUM = 4;
+                            break;
+
+                        case 4:
+                            Big = (CardView) findViewById(R.id.big5);
+                            ChildName = (TextView) findViewById(R.id.childName5);
+                            tBday = (TextView) findViewById(R.id.childBdayT5);
+                            ChildBday = (TextView) findViewById(R.id.childBday5);
+                            ChildImage = (ImageView) findViewById(R.id.chidImage5);
+                            childNUM = 5;
+                            break;
+
+                        case 5:
+                            childNUM = 6;
+                            Toast.makeText(ActActivity.this, R.string.childMAX5, Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+            }
+            if (childNUM >= 6) {
+                childNUM = 5;
+            } else {
                 if (childMod.equals("ADD")) {
                     Big.setVisibility(View.VISIBLE);
                 }
@@ -281,22 +279,18 @@ public class ActActivity extends AppCompatActivity {
                 Date nowDT = new Date();
                 long diff = nowDT.getTime() - BDayDate.getTime();//这样得到的差值是微秒级别
                 if (diff < 0) {
-                    tBday.setText(getResources().getString(R.string.dueDate));
+                    tBday.setText(R.string.dueDate);
                     //xchildImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_pregnancy_colors_24dp,null));
                     // xchildImage.setImageDrawable(ContextCompat.getDrawable(ActActivity.this,R.drawable.ic_pregnancy_colors_24dp));
                 } else {
-                    tBday.setText(getResources().getString(R.string.Bdayis));
+                    tBday.setText(R.string.Bdayis);
                 }
             }
         }
-
-
         childMod = "ADD";
-        if (childNUM >= 6) {
-            childNUM = 5;
-        }
 
     }
+
 
     public void childMod(View v) {
 
@@ -441,13 +435,13 @@ public class ActActivity extends AppCompatActivity {
         Date BDayDate = DTStringtoDate(dateString);
         Date nowDT = new Date();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MM");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM",Locale.TAIWAN);
         String nowMonth = sdf.format(nowDT);
-        sdf = new SimpleDateFormat("dd");
+        sdf = new SimpleDateFormat("dd",Locale.TAIWAN);
         String nowDayOfMonth = sdf.format(nowDT);
-        sdf = new SimpleDateFormat("MM");
+        sdf = new SimpleDateFormat("MM",Locale.TAIWAN);
         String BdayMonth = sdf.format(BDayDate);
-        sdf = new SimpleDateFormat("dd");
+        sdf = new SimpleDateFormat("dd",Locale.TAIWAN);
         String BDayOfMonth = sdf.format(BDayDate);
 
 
@@ -459,20 +453,21 @@ public class ActActivity extends AppCompatActivity {
         long passDays = 280 - days;  //已經懷孕幾天
         double passWeeks = passDays / 7;  //已經懷孕幾週
         double passDay = passDays - passWeeks * 7;  //已經懷孕幾週又幾天
-        float numYr = (float) days / 365;
+        float numAge = (float) days / 365;
 
-        if (numYr > 0) {
+        if (numAge > 0) {
             DecimalFormat df = new DecimalFormat("0.0");
-            String Yr = df.format(numYr);
-            yrOld.setText(Yr + "歲");
+            String age = df.format(numAge);
+            yrOld.setText(getString(R.string.yr,age));
         }
 
         if (diff < 0) {
             tBday.setText(getResources().getString(R.string.dueDate));
             yrOld.setVisibility(View.INVISIBLE);
             if (weeks < 40) {
-                AfterDay.setText("恭喜❤️您已懷孕" + String.valueOf((int) passWeeks) + "週又" + String.valueOf((int) passDay) + "天");
-                DeliveryDay.setText("(再過" + String.valueOf((int) days) + "天，" + name + " 就要出生了)");
+                AfterDay.setText(getString(R.string.pregnancyIndays,(int)passWeeks,(int)passDay));
+                        //"恭喜❤️您已懷孕" + String.valueOf((int) passWeeks) + "週又" + String.valueOf((int) passDay) + "天");
+                DeliveryDay.setText(getString(R.string.pregnancyToBday,(int)days,name));
                 // xchildImage.setColorFilter(Color.LTGRAY,PorterDuff.Mode.DARKEN);
 
                 //xchildImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_pregnancy_colors_24dp,null));
@@ -481,23 +476,24 @@ public class ActActivity extends AppCompatActivity {
                 String[] Items = getResources().getStringArray(R.array.pregnancyText);
                 WeekText.setText(Items[(int) passWeeks]);
             } else {
-                AfterDay.setText("祝福️您能如你所規劃懷孕，並在" + String.valueOf((int) days) + "天後，生下 " + name);
+                AfterDay.setText(getString(R.string.nonpregnancy,(int) days, name));
                 DeliveryDay.setVisibility(View.INVISIBLE);
             }
         } else if (days == 0) {
-            tBday.setText("誕生:");
+            tBday.setText(R.string.BDaying);
             yrOld.setVisibility(View.INVISIBLE);
-            AfterDay.setText("恭喜" + name + "今天出生了❤️ \n祝福生產順利，平安健康");
+            AfterDay.setText(getString(R.string.Bdaying,name));
             DeliveryDay.setVisibility(View.INVISIBLE);
         } else if (nowMonth.equals(BdayMonth) && nowDayOfMonth.equals(BDayOfMonth)) {
             //   int Yr = Math.round(days/365);
-            tBday.setText("生日:");
-            AfterDay.setText("恭喜 " + name + " 今天 " + Math.round(numYr) + "歲了，生日快樂🎂️");
+            tBday.setText(R.string.Bdayis);
+
+            AfterDay.setText(getString(R.string.BdayToday,name,(int)numAge));
             DeliveryDay.setVisibility(View.INVISIBLE);
         } else if (diff > 0) {
-            tBday.setText("生日:");
+            tBday.setText(R.string.Bdayis);
             long n = days - (days / 365) * 365;
-            AfterDay.setText("再過" + String.valueOf((int) n) + "天， " + name + "就要生日了❤️");
+            AfterDay.setText(getString(R.string.nonBdayToday,(int) n,name));
             DeliveryDay.setVisibility(View.INVISIBLE);
         }
 
@@ -686,15 +682,15 @@ public class ActActivity extends AppCompatActivity {
 
 
         switch (searchTag) {
-            case "attraLbs":
-                aToolbar.setTitle("附近景點");
+            case "attraLbs": /* 附近景點 */
+                aToolbar.setTitle(R.string.attractionLBS);
                 //建立一個ArrayAdapter物件，並放置下拉選單的內容
                 lunchList = ArrayAdapter.createFromResource(ActActivity.this,
                         R.array.attraClass_LBS,
                         android.R.layout.simple_spinner_dropdown_item);
                 break;
-            case "eventLbs":
-                aToolbar.setTitle("附近活動");
+            case "eventLbs": /* 附近活動 */
+                aToolbar.setTitle(R.string.eventLBS);
                 lunchList = ArrayAdapter.createFromResource(ActActivity.this,
                         R.array.eventClass_LBS,
                         android.R.layout.simple_spinner_dropdown_item);
@@ -766,11 +762,11 @@ public class ActActivity extends AppCompatActivity {
         if (childSex.isChecked()) { /* 選擇女孩 */
             mChildImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_girl_colors_24dp, null));
             //mChildImage.setAlpha(255);
-            Toast.makeText(ActActivity.this, "已選擇女孩", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ActActivity.this, R.string.selGirl, Toast.LENGTH_SHORT).show();
         } else { /* 選擇男孩 */
             mChildImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_boy_colors_24dp, null));
             //mChildImage.setAlpha(255);
-            Toast.makeText(ActActivity.this, "已選擇男孩", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ActActivity.this, R.string.selBoy, Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -779,20 +775,6 @@ public class ActActivity extends AppCompatActivity {
 
         String vtag = v.getTag().toString();
         switch (vtag) {
-            case "buyPoints":
-                setDialogBroadcast(vtag);
-
-                break;
-
-            case "toCash":
-                setDialogBroadcast(vtag);
-
-                break;
-
-            case "toPoints":
-                setDialogBroadcast(vtag);
-
-                break;
 
             case "childBday":
 /*
@@ -807,7 +789,7 @@ public class ActActivity extends AppCompatActivity {
                         EditText date_textview = (EditText) findViewById(R.id.childBday_edit);
                         date_textview.setText(date);
 
-                        Toast.makeText(ActActivity.this, date + "", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ActActivity.this, getString(R.string.selDate,date), Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -899,58 +881,6 @@ public class ActActivity extends AppCompatActivity {
         public interface DateCallBack {
             public void onClick(String date);
         }
-    }
-
-    private void setDialogBroadcast(String vtag) {
-        String mTitle = "a title";
-        BuyCheckItem = 0;
-        switch (vtag) {
-            case "buyPoints":
-                mTitle = "信用卡購點";
-                items[0] = "購買100點($100)";
-                items[1] = "購買550點($500) \n* 加贈送10% *";
-                break;
-            case "toPoints":
-                mTitle = "版稅兌點";
-                items[0] = "$100 兌換 120點 \n* 加贈送20% *";
-                items[1] = "$500 兌換 600點 \n* 加贈送20% *";
-                break;
-
-            case "toCash":
-                mTitle = "版稅兌現";
-                items[0] = "兌現＄1000";
-                items[1] = "兌現＄5000";
-                break;
-        }
-
-
-        new AlertDialog.Builder(ActActivity.this)
-                //    .setView(viewDialogBroadcast)
-                .setTitle(mTitle)
-                .setIcon(R.drawable.ic_logo_round_colors_24dp)
-                .setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        BuyCheckItem = which;
-
-                    }
-                })
-                .setPositiveButton("確定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(ActActivity.this, items[BuyCheckItem], Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                    }
-                })
-                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-
-                .create().show();
-
     }
 
 /*
