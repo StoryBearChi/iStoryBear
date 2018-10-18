@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
@@ -17,7 +18,7 @@
             style="@style/CardView.Content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2dp"
+            android:layout_marginEnd="2dp"
             android:orientation="vertical">
 
             <TextView
@@ -34,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/textView11"
-                android:layout_toRightOf="@+id/textView11"
                 android:maxLines="2"
                 android:text="標題最多兩行"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -46,7 +46,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="false"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView12"
                 android:paddingTop="3dp"
@@ -68,7 +67,7 @@
             style="@style/CardView.Content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2dp"
+            android:layout_marginEnd="2dp"
             android:orientation="vertical">
 
             <TextView
@@ -85,7 +84,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/textView21"
-                android:layout_toRightOf="@+id/textView21"
                 android:maxLines="2"
                 android:text="標題最多兩行"
                 android:textSize="18sp"
@@ -96,7 +94,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="false"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView22"
                 android:paddingTop="3dp"

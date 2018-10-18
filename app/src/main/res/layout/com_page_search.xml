@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:orientation="vertical">
 
 
     <android.support.v7.widget.Toolbar
@@ -20,8 +20,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:background="@color/snow"
         android:padding="5dp">
 
@@ -31,11 +30,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="5dp"
             android:layout_marginEnd="5dp"
-            android:layout_toLeftOf="@+id/key_edit"
+            android:layout_marginRight="5dp"
             android:layout_toStartOf="@+id/key_edit"
-            android:text="@string/keyword"/>
+            android:layout_toLeftOf="@+id/key_edit"
+            android:text="@string/keyword" />
 
         <AutoCompleteTextView
             android:id="@+id/key_edit"
@@ -86,8 +85,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:visibility="invisible"
-                tools:visibility="visible"
-                tools:text="推薦關鍵字0" />
+                tools:text="推薦關鍵字0"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/hotAttra1"
@@ -97,8 +96,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:visibility="gone"
-                tools:visibility="visible"
-                tools:text="推薦關鍵字1" />
+                tools:text="推薦關鍵字1"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/hotAttra2"
@@ -108,8 +107,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:visibility="gone"
-                tools:visibility="visible"
-                tools:text="推薦關鍵字2" />
+                tools:text="推薦關鍵字2"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/hotAttra3"
@@ -119,8 +118,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:visibility="gone"
-                tools:visibility="visible"
-                tools:text="推薦關鍵字3" />
+                tools:text="推薦關鍵字3"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/hotAttra4"
@@ -130,8 +129,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:visibility="gone"
-                tools:visibility="visible"
-                tools:text="推薦關鍵字4" />
+                tools:text="推薦關鍵字4"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/hotAttra5"
@@ -141,8 +140,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:visibility="gone"
-                tools:visibility="visible"
-                tools:text="推薦關鍵字5" />
+                tools:text="推薦關鍵字5"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/hotAttra6"
@@ -152,8 +151,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:visibility="gone"
-                tools:visibility="visible"
-                tools:text="推薦關鍵字6" />
+                tools:text="推薦關鍵字6"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/hotAttra7"
@@ -163,8 +162,8 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:visibility="gone"
-                tools:visibility="visible"
-                tools:text="推薦關鍵字7" />
+                tools:text="推薦關鍵字7"
+                tools:visibility="visible" />
 
         </am.widget.wraplayout.WrapLayout>
 
@@ -303,13 +302,12 @@
 
     </RelativeLayout>
 
+
     <WebView
         android:id="@+id/missingkids"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp">
+        android:layout_height="wrap_content">
 
     </WebView>
-
 
 </LinearLayout>

@@ -23,7 +23,7 @@
                 <ImageView
                     android:id="@+id/image_story"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@color/snow"
                     app:srcCompat="@drawable/boneisland" />
                 <!-- 點擊後頁面跳至該商品的page_groupbuy_detail -->

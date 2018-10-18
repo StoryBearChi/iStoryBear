@@ -41,6 +41,7 @@
         <include layout="@layout/item_bar_articles" />
         <include layout="@layout/item_bar_articles" />
         <include layout="@layout/item_bar_articles" />
+
     </LinearLayout>
 
 

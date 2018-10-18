@@ -3,6 +3,7 @@ package tw.com.dean.istorybear;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
@@ -146,6 +147,10 @@ public class ResultActivity extends Activity {
                 rToolbar.setTitle("景點推播");
                 break;
 
+            case "notblogMore":
+                Toast.makeText(this, "列出熱門專欄", Toast.LENGTH_SHORT).show();
+                rToolbar.setTitle("熱門專欄");
+                break;
 
         }
 
@@ -165,23 +170,31 @@ public class ResultActivity extends Activity {
 
         webview.setBackgroundColor(Color.TRANSPARENT);
 
-        webview.setWebViewClient(new WebViewClient());
-        webview.loadUrl("https://404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn");
-
+        //设置不用系统浏览器打开,直接显示在当前Webview
         webview.setWebViewClient(new WebViewClient() {
-            //设置不用系统浏览器打开,直接显示在当前Webview
-         //   @Override
-          //  public boolean shouldOverrideUrlLoading(WebView view, String url) {
-         //       view.loadUrl(url);
-         //       return true;
-         //   }
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if (url.contains("404page.missingkids.org.tw")) {
+                    view.loadUrl("https://404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn");
+
+                }else if (url.contains("404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn")){
+                    view.loadUrl(url);
+                }else {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(url));
+                    startActivity(intent);
+                }
+                return true;
+            }
 
             @Override
             public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
                 handler.proceed();
             }
-
         });
+        // webview.setWebViewClient(new WebViewClient());
+        webview.loadUrl("https://404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn");
         /**廣告頁處理 **/
 
 

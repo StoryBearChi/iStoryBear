@@ -8,7 +8,7 @@
 
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar6"
+        android:id="@+id/hotblogBar"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:background="@color/colorStBearBtOrange"

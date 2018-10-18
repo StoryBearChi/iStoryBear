@@ -52,9 +52,15 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".userHomeActivity"
-            android:label="userhomeActivity/"
+            android:label="userhomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".noticeActivity"
+            android:label="noticeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>

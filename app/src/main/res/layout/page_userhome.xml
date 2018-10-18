@@ -10,22 +10,21 @@
         android:id="@+id/userHomeBar"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="@color/colorStBearBtOrange"
+        android:background="@color/Bear_Yellow_dark"
         app:navigationIcon="?attr/homeAsUpIndicator" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_rectangle_y">
-             
+
         <ImageView
             android:id="@+id/storyImage"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"
-            android:layout_margin="3dp"
-            tools:srcCompat="@drawable/ic_logo_round_colors_24dp"
-            app:srcCompat="@drawable/dean" />
+            app:srcCompat="@drawable/dean"
+            tools:srcCompat="@drawable/ic_logo_round_colors_24dp" />
         <!--帳號本人的專欄，點照片可換圖-->
 
         <Button
@@ -33,14 +32,13 @@
             style="@style/heartButton"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="5dp"
-            android:minHeight="0dp"
+            android:layout_marginEnd="5dp"
             android:minWidth="0dp"
-            android:visibility="gone"
-            tools:visibility="visible" />
+            android:minHeight="0dp"
+            android:visibility="invisible" />
         <!--如果是帳號本人的專欄，則不出現
             沒按過則預設空心紅心
             已按過要變成實心紅心，然後列在已關注專欄內-->
@@ -66,8 +64,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/storyImage"
             android:layout_centerHorizontal="true"
-            android:textColor="@android:color/black"
-            android:text="紀登淵" />
+            android:layout_margin="3dp"
+            android:text="紀登淵"
+            android:textColor="@android:color/black" />
             <!--填入該專欄用戶姓名-->
                   
         <TextView
@@ -236,7 +235,7 @@
     </RelativeLayout>
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/hometTabs"
+        android:id="@+id/homeTabs"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bar_height"
         android:background="@android:color/white"
@@ -272,28 +271,6 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/add_edit_fABtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:srcCompat="@drawable/ic_add_black_24dp"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:layout_marginEnd="10dp"/>
-        <!--帳號本人的專欄，才出現visibility="visible"
-            故事與專欄都用@drawable/ic_add_black_24dp，為新增；
-              => 故事跳到 page_story_up
-              => 專欄跳到 page_blog_post
-            簡介時改@drawable/ic_edit_black_24dp，變編輯
-              =>可直接修改用戶暱稱、自我簡介、照片 -->
-
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -312,6 +289,29 @@
 
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_edit_fABtn"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="FABtnOnClk"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:srcCompat="@drawable/ic_add_black_24dp" />
+          <!--  app:layout_behavior="tw.com.dean.istorybear.FabScrollBehavior" -->
+        <!--帳號本人的專欄，才出現visibility="visible"
+            故事與專欄都用@drawable/ic_add_black_24dp，為新增；
+              => 故事跳到 page_story_up
+              => 專欄跳到 page_blog_post
+            簡介時改@drawable/ic_edit_black_24dp，變編輯
+              =>可直接修改用戶暱稱、自我簡介、照片 -->
+
     </RelativeLayout>
 
 

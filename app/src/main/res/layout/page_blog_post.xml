@@ -8,7 +8,7 @@
     android:weightSum="1">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar6"
+        android:id="@+id/postBar"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:background="@color/colorStBearBtOrange"
@@ -27,7 +27,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/note" />
+                android:text="@string/note"
+                android:textSize="12sp" />
 
         </android.support.v7.widget.ButtonBarLayout>
     </android.support.v7.widget.Toolbar>
@@ -85,8 +86,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@+id/articleClass_spinner"
                     android:layout_alignBottom="@+id/articleClass_spinner"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/articleClass_spinner"
                     android:layout_toRightOf="@+id/articleClass_spinner"
                     android:checked="true"
@@ -95,7 +96,9 @@
                     android:textOff="@string/friend"
                     android:textOn="@string/open"
                     android:thumb="@drawable/bg_rectangle_wo_stroke_gold"
-                    android:thumbTextPadding="12dp" tools:targetApi="lollipop" />
+                    android:thumbTextPadding="12dp"
+                    android:visibility="gone"
+                    tools:targetApi="lollipop" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -184,11 +187,13 @@
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
-            android:minHeight="30dp"
             android:minWidth="48dp"
-            app:srcCompat="@drawable/ic_map_black_24dp" android:layout_marginStart="5dp" android:layout_marginEnd="15dp" />
+            android:minHeight="30dp"
+            app:srcCompat="@drawable/ic_map_black_24dp" />
 
         <Button
             android:id="@+id/cancelBtn"
@@ -196,8 +201,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="0.5"
             android:background="@android:color/darker_gray"
             android:minHeight="30dp"

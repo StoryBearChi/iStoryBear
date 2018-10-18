@@ -28,6 +28,8 @@
                     android:layout_marginTop="5dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:onClick="myHomeBtnClk"
+                    android:tag="otherUser"
                     app:srcCompat="@drawable/dean" />
                 <!--作者代表圖
                         由buystory/熱門作家list點擊跳至該作家之page_userhone 故事分頁
@@ -40,11 +42,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="2dp"
-                    android:gravity="center"
                     android:clickable="true"
                     android:focusable="true"
-                    android:textColor="@android:color/black"
-                    android:text="紀登淵" />
+                    android:gravity="center"
+                    android:onClick="myHomeBtnClk"
+                    android:tag="otherUser"
+                    android:text="紀登淵"
+                    android:textColor="@android:color/black" />
                 <!--作者名稱
                          由buystory/熱門作家list點擊跳至該作家之page_userhone 故事分頁
                          由blog/熱門專欄list點擊跳至該作家之page_userhone 專欄分頁

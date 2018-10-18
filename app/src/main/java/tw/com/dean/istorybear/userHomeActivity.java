@@ -1,6 +1,7 @@
 package tw.com.dean.istorybear;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,7 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import tw.com.dean.istorybear.ui.userhome.blogHomeFragment;
 import tw.com.dean.istorybear.ui.userhome.myOverviewFragment;
@@ -18,48 +25,70 @@ import tw.com.dean.istorybear.ui.userhome.storyHomeFragment;
 public class userHomeActivity extends AppCompatActivity {
     private TabLayout homeTablayout;
     private Fragment homeContent;
+    private FloatingActionButton FABtn;
+    private Toolbar aToolbar;
+    private Button loveThis;
+    private TextView authorName;
+    private Boolean editable = false;
+    private Fragment[] homepage = new Fragment[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_userhome);
-        homeTablayout = (TabLayout) findViewById(R.id.hometTabs);
+        homeTablayout = (TabLayout) findViewById(R.id.homeTabs);
+        aToolbar = (Toolbar) findViewById(R.id.userHomeBar);
+        FABtn = (FloatingActionButton) findViewById(R.id.add_edit_fABtn);
+        loveThis = (Button) findViewById(R.id.loveBtn);
+        authorName = (TextView) findViewById(R.id.userName);
 
-       // if (savedInstanceState == null) {
-       //     getSupportFragmentManager().beginTransaction()
-        //            .replace(R.id.myhomelist, UserHomeFragment.newInstance())
-       //             .commitNow();
-     //   }
+
+        homepage[0] = storyHomeFragment.newInstance();
+        homepage[1] = myOverviewFragment.newInstance();
+        homepage[2] = blogHomeFragment.newInstance();
 
         Intent i = getIntent();
         String searchTag = i.getStringExtra("data");
-            switch (searchTag) {
-                case "myBlog":
-                    homeTablayout.getTabAt(2).select();
-                    homeContent = blogHomeFragment.newInstance();
+        switch (searchTag) {
+            case "myStory":
+                homeTablayout.getTabAt(0).select();
+                // switchSubContent(storyHomeFragment.newInstance());
+                switchSubContent(homepage[0]);
+                FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp, null));
+                FABtn.setVisibility(View.VISIBLE);
 
-                    break;
+                break;
 
-                case "myStory":
-                    homeTablayout.getTabAt(0).select();
-                    homeContent = storyHomeFragment.newInstance();
+            case "myOverview":
+                homeTablayout.getTabAt(1).select();
+                //switchSubContent(myOverviewFragment.newInstance());
+                switchSubContent(homepage[1]);
+                FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_edit_black_24dp, null));
+                FABtn.setVisibility(View.VISIBLE);
 
-                    break;
-            }
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.myhomelist, homeContent)
-                .commitNow();
+                break;
+
+            case "myBlog":
+                homeTablayout.getTabAt(2).select();
+                //switchSubContent(blogHomeFragment.newInstance());
+                switchSubContent(homepage[2]);
+                FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp, null));
+                FABtn.setVisibility(View.VISIBLE);
+
+                break;
+
+            case "otherUser": // 預設FABtn is gone
+                homeTablayout.getTabAt(1).select();
+                //switchSubContent(myOverviewFragment.newInstance());
+                switchSubContent(homepage[1]);
+                FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_edit_black_24dp, null));
+                loveThis.setVisibility(View.VISIBLE);
+                break;
+        }
 
         initListener();
 
-        Toolbar aToolbar = (Toolbar) findViewById(R.id.userHomeBar);
         //设置左上角导航键的点击监听事件
-        aToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     private void initListener() {
@@ -68,14 +97,19 @@ public class userHomeActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()) {
                     case 0:
-                        switchSubContent(storyHomeFragment.newInstance());
+                        switchSubContent(homepage[0]);
+                        FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp, null));
+                        editable = false;
                         break;
                     case 1:
-                        switchSubContent(myOverviewFragment.newInstance());
-
+                        switchSubContent(homepage[1]);
+                        FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_edit_black_24dp, null));
                         break;
                     case 2:
-                        switchSubContent(blogHomeFragment.newInstance());
+                        switchSubContent(homepage[2]);
+                        FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp, null));
+                        editable = false;
+
                         break;
                 }
             }
@@ -90,6 +124,28 @@ public class userHomeActivity extends AppCompatActivity {
 
             }
         });
+        aToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        loveThis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (loveThis.isSelected()) { /* 取消收藏，按下後變回空心，收藏數-1 */
+                    loveThis.setSelected(false);
+
+                    Toast.makeText(userHomeActivity.this, R.string.cancelFollow, Toast.LENGTH_SHORT).show();
+                } else { /* 收藏愛心，按下後維持紅心，收藏數+1 */
+                    loveThis.setSelected(true);
+
+                    Toast.makeText(userHomeActivity.this, getString(R.string.followHe, authorName.getText()), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
     }
 
 
@@ -99,8 +155,7 @@ public class userHomeActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.myhomelist, to)
                     .commitNow();
-        }
-        else if (homeContent != to) {
+        } else if (homeContent != to) {
             // FragmentTransaction transaction = fragmentManager.beginTransaction();
             if (!to.isAdded()) { // 判断是否被add过
                 // 隐藏当前的fragment，将 下一个fragment 添加进去
@@ -120,4 +175,36 @@ public class userHomeActivity extends AppCompatActivity {
         }
 
     }
+
+    public void FABtnOnClk(View v) {
+        Intent i = new Intent(userHomeActivity.this, ActActivity.class);
+        switch (homeTablayout.getSelectedTabPosition()) {
+            case 0:
+                //把tag傳給ActActivity
+                i.putExtra("data", "UpStory");
+                startActivity(i); // 將原本Activity的換成ActActivity
+                break;
+            case 1:
+                EditText myOverview = (EditText) findViewById(R.id.user_overview);
+                if (!editable) { //原本是不可編輯模式
+                    Toast.makeText(userHomeActivity.this, "您可開始變更照片、簡介", Toast.LENGTH_SHORT).show();
+                    FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_edit_white_24dp, null));
+                    myOverview.requestFocus();
+                } else {
+                    Toast.makeText(userHomeActivity.this, "停止修改", Toast.LENGTH_SHORT).show();
+                    FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_edit_black_24dp, null));
+                }
+                editable = !editable;
+                myOverview.setFocusableInTouchMode(editable);
+                myOverview.setFocusable(editable);
+                break;
+            case 2:
+                i.putExtra("data", "Post");
+                startActivity(i); // 將原本Activity的換成ActActivity
+                break;
+        }
+
+
+    }
+
 }

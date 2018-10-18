@@ -103,14 +103,14 @@
 
             <Switch
                 android:id="@+id/switch5"
-                android:layout_width="178dp"
+                android:layout_width="187dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView2"
                 android:layout_alignStart="@+id/textView2"
-                android:layout_marginTop="0dp"
                 android:checked="true"
                 android:drawableStart="@drawable/ic_asterisk_red_24dp"
-                android:padding="3dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
                 android:showText="true"
                 android:text="@string/type"
                 android:textOff="@string/Private"

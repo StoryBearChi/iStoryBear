@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar6"
+        android:id="@+id/articleMoreBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bar_height"
         android:background="@color/colorStBearBtOrange"

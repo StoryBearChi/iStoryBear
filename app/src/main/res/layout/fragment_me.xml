@@ -25,38 +25,41 @@
             android:id="@+id/userImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginBottom="7dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_margin="5dp"
             android:clickable="true"
             android:focusable="true"
+            android:onClick="myHomeBtnClk"
+            android:tag="myOverview"
             app:srcCompat="@drawable/ic_logo_round_colors_24dp"
-            tools:srcCompat="@drawable/dean"  />
+            tools:srcCompat="@drawable/dean" />
         <!--填入用戶照片，預設為drawable/ic_logo_round_colors_24dp，點擊可更換-->
 
         <TextView
             android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/userImage"
             android:layout_toRightOf="@id/userImage"
+            android:onClick="myHomeBtnClk"
+            android:tag="myOverview"
+            android:text="紀登淵"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
-            tools:text="紀登淵"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/userImage"/>
+            android:textSize="18sp" />
         <!--填入用戶姓名-->
 
         <TextView
             android:id="@+id/nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/userName"
             android:layout_below="@id/userName"
-            tools:text="小熊爸"
-            android:layout_alignStart="@id/userName"  />
+            android:layout_alignStart="@id/userName"
+            android:layout_alignLeft="@id/userName"
+            android:onClick="myHomeBtnClk"
+            android:tag="myOverview"
+            android:text="小熊爸" />
         <!--填入用戶暱稱-->
 
 
@@ -111,8 +114,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_messages_black_24dp"
-                android:onClick="ActItemBtnClk"
-                android:tag="myNotice"
+                android:onClick="noticeBtnClk"
+                android:tag="personalNotice"
                 android:text="@string/myNotice" />
             <!--跳至page_me_notice-->
 

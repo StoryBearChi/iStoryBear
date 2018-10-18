@@ -67,32 +67,28 @@ public class ActActivity extends AppCompatActivity {
                 aToolbar = (Toolbar) findViewById(R.id.AddAttraBar);
                 break;
 
+
             case "UpStory":
                 setContentView(R.layout.page_story_up);
                 aToolbar = (Toolbar) findViewById(R.id.upStoryBar);
                 break;
 
-
-            //   case "myBlog":
-            //    setContentView(R.layout.page_userhome);
-            //   aToolbar = (Toolbar) findViewById(R.id.userHomeBar);
-
-            //     break;
-
-            // case "myStory":
-            //     setContentView(R.layout.page_userhome);
-            //     aToolbar = (Toolbar) findViewById(R.id.userHomeBar);
-            //     break;
+            case "Post":
+                setContentView(R.layout.page_blog_post);
+                aToolbar = (Toolbar) findViewById(R.id.postBar);
+                break;
 
             case "addFriend":
                 setContentView(R.layout.page_me_addfriend);
                 aToolbar = (Toolbar) findViewById(R.id.addFriend);
                 break;
 
-            case "myNotice":
-                setContentView(R.layout.page_me_notice);
-                aToolbar = (Toolbar) findViewById(R.id.myNoticeBar);
+            case "articleMore":
+                setContentView(R.layout.page_blog_classarticle);
+                aToolbar = (Toolbar) findViewById(R.id.articleMoreBar);
                 break;
+
+
 
             case "userProfile":
 
@@ -104,7 +100,6 @@ public class ActActivity extends AppCompatActivity {
                 aToolbar = (Toolbar) findViewById(R.id.addChild);
                 childSex = (Switch) findViewById(R.id.sex_Switch);
                 mChildImage = (ImageView) findViewById(R.id.myChildImage);
-                //mChildImage.setAlpha(100); //灰暗處理
                 break;
 
             case "myPoints":
@@ -281,7 +276,6 @@ public class ActActivity extends AppCompatActivity {
                 if (diff < 0) {
                     tBday.setText(R.string.dueDate);
                     //xchildImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_pregnancy_colors_24dp,null));
-                    // xchildImage.setImageDrawable(ContextCompat.getDrawable(ActActivity.this,R.drawable.ic_pregnancy_colors_24dp));
                 } else {
                     tBday.setText(R.string.Bdayis);
                 }
@@ -435,65 +429,84 @@ public class ActActivity extends AppCompatActivity {
         Date BDayDate = DTStringtoDate(dateString);
         Date nowDT = new Date();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MM",Locale.TAIWAN);
+        SimpleDateFormat sdf = new SimpleDateFormat("MM", Locale.TAIWAN);
         String nowMonth = sdf.format(nowDT);
-        sdf = new SimpleDateFormat("dd",Locale.TAIWAN);
+        sdf = new SimpleDateFormat("dd", Locale.TAIWAN);
         String nowDayOfMonth = sdf.format(nowDT);
-        sdf = new SimpleDateFormat("MM",Locale.TAIWAN);
+        sdf = new SimpleDateFormat("MM", Locale.TAIWAN);
         String BdayMonth = sdf.format(BDayDate);
-        sdf = new SimpleDateFormat("dd",Locale.TAIWAN);
+        sdf = new SimpleDateFormat("dd", Locale.TAIWAN);
         String BDayOfMonth = sdf.format(BDayDate);
 
 
         long diff = nowDT.getTime() - BDayDate.getTime();//这样得到的差值是微秒级别
 
-        long days = Math.abs(diff / (1000 * 60 * 60 * 24));  //出生日與現在之天數差
-        double weeks = Math.floor(days / 7);  //出生日與現在之週數差
+        long diffDays = Math.abs(diff / (1000 * 60 * 60 * 24));  //出生日與現在之天數差
+        double diffWeeks = Math.floor(diffDays / 7);  //出生日與現在之週數差
+        float numAge = (float) diffDays / 365;  //幾歲
+
         //  double ndays = days-weeks*7;
-        long passDays = 280 - days;  //已經懷孕幾天
+        long passDays = 280 - diffDays;  //已經懷孕幾天
         double passWeeks = passDays / 7;  //已經懷孕幾週
         double passDay = passDays - passWeeks * 7;  //已經懷孕幾週又幾天
-        float numAge = (float) days / 365;
+
 
         if (numAge > 0) {
             DecimalFormat df = new DecimalFormat("0.0");
             String age = df.format(numAge);
-            yrOld.setText(getString(R.string.yr,age));
+            yrOld.setText(getString(R.string.yr, age));
         }
 
         if (diff < 0) {
             tBday.setText(getResources().getString(R.string.dueDate));
             yrOld.setVisibility(View.INVISIBLE);
-            if (weeks < 40) {
-                AfterDay.setText(getString(R.string.pregnancyIndays,(int)passWeeks,(int)passDay));
-                        //"恭喜❤️您已懷孕" + String.valueOf((int) passWeeks) + "週又" + String.valueOf((int) passDay) + "天");
-                DeliveryDay.setText(getString(R.string.pregnancyToBday,(int)days,name));
+            if (diffWeeks < 40) {
+                AfterDay.setText(getString(R.string.pregnancyIndays, (int) passWeeks, (int) passDay));
+                //"恭喜❤️您已懷孕" + String.valueOf((int) passWeeks) + "週又" + String.valueOf((int) passDay) + "天");
+                DeliveryDay.setText(getString(R.string.pregnancyToBday, (int) diffDays, name));
                 // xchildImage.setColorFilter(Color.LTGRAY,PorterDuff.Mode.DARKEN);
 
                 //xchildImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_pregnancy_colors_24dp,null));
                 // xchildImage.setImageDrawable(ContextCompat.getDrawable(ActActivity.this,R.drawable.ic_pregnancy_colors_24dp));
 
-                String[] Items = getResources().getStringArray(R.array.pregnancyText);
+                String[] Items = getResources().getStringArray(R.array.pregnancyText); /*顯示該懷孕週數提示*/
                 WeekText.setText(Items[(int) passWeeks]);
             } else {
-                AfterDay.setText(getString(R.string.nonpregnancy,(int) days, name));
+                AfterDay.setText(getString(R.string.nonpregnancy, (int) diffDays, name));
                 DeliveryDay.setVisibility(View.INVISIBLE);
             }
-        } else if (days == 0) {
+        } else if (diffDays == 0) {
             tBday.setText(R.string.BDaying);
             yrOld.setVisibility(View.INVISIBLE);
-            AfterDay.setText(getString(R.string.Bdaying,name));
+            AfterDay.setText(getString(R.string.Bdaying, name));
             DeliveryDay.setVisibility(View.INVISIBLE);
         } else if (nowMonth.equals(BdayMonth) && nowDayOfMonth.equals(BDayOfMonth)) {
             //   int Yr = Math.round(days/365);
             tBday.setText(R.string.Bdayis);
 
-            AfterDay.setText(getString(R.string.BdayToday,name,(int)numAge));
+            AfterDay.setText(getString(R.string.BdayToday, name, (int) numAge));
             DeliveryDay.setVisibility(View.INVISIBLE);
         } else if (diff > 0) {
             tBday.setText(R.string.Bdayis);
-            long n = days - (days / 365) * 365;
-            AfterDay.setText(getString(R.string.nonBdayToday,(int) n,name));
+
+            /**取得下一個生日日期 nextBDayDate**/
+            Calendar c = Calendar.getInstance();
+            c.setTime(BDayDate);
+            c.add(Calendar.YEAR, (int) numAge);
+            Date nextBDayDate = c.getTime();
+            if (nextBDayDate.compareTo(nowDT) < 0) {
+                c.add(Calendar.YEAR, 1);
+                nextBDayDate = c.getTime();
+            }
+            /**取得下一個生日日期**/
+
+            float Ddiff = (float) (nextBDayDate.getTime() - nowDT.getTime()) / (1000 * 60 * 60 * 24);//離下個生日差幾天
+
+            if (Ddiff < 1 && Ddiff > 0) {  //當不到一天時，以一天計
+                Ddiff = 1;
+            }
+
+            AfterDay.setText(getString(R.string.nonBdayToday, (int) Ddiff, name));
             DeliveryDay.setVisibility(View.INVISIBLE);
         }
 
@@ -789,7 +802,7 @@ public class ActActivity extends AppCompatActivity {
                         EditText date_textview = (EditText) findViewById(R.id.childBday_edit);
                         date_textview.setText(date);
 
-                        Toast.makeText(ActActivity.this, getString(R.string.selDate,date), Toast.LENGTH_LONG).show();
+                        Toast.makeText(ActActivity.this, getString(R.string.selDate, date), Toast.LENGTH_LONG).show();
                     }
                 });
 

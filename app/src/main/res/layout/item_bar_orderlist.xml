@@ -19,7 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="5"
-                tools:text="2017/10/12" />
+                android:text="2017/10/12" />
             <!--訂單成單日期-->
 
             <TextView
@@ -31,7 +31,7 @@
                 android:singleLine="true"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                tools:text="繪本：孤單的毛毛蟲 標題預覽一行 標題預覽一行 標題預覽一行 標題預覽一行 標題預覽一行 標題預覽一行 標題預覽一行" />
+                android:text="繪本：孤單的毛毛蟲 標題預覽一行 標題預覽一行 標題預覽一行 標題預覽一行 標題預覽一行 標題預覽一行 標題預覽一行" />
             <!--訂單名稱(購買之物品名稱)-->
 
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_below="@+id/orderTitle"
                 android:singleLine="true"
                 android:textSize="12sp"
-                tools:text="尚未寄送 內文預覽一行 內文預覽一行 內文預覽一行 內文預覽一行 內文預覽一行" />
+                android:text="尚未寄送 內文預覽一行 內文預覽一行 內文預覽一行 內文預覽一行 內文預覽一行" />
             <!--訂單狀態與明細-->
 
         </RelativeLayout>

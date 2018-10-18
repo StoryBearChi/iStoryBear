@@ -24,7 +24,7 @@
                 <ImageView
                     android:id="@+id/adImage"
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_height="match_parent"
                     android:paddingTop="0dp"
                     android:src="@drawable/yesfox" />
                 <!-- 用來標示該廣告的代表圖，初期可用來做童書首購宣傳 app:srcCompat="@drawable/boneisland"-->
@@ -172,6 +172,8 @@
                         android:layout_marginRight="5dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:onClick="ActItemBtnClk"
+                        android:tag="articleMore"
                         android:text="@string/more"
                         android:textColor="#ffffff" />
                     <!-- 點擊後跳至文章分類頁page_blog_classarticle -->
@@ -290,6 +292,8 @@
                         android:layout_marginRight="5dp"
                         android:clickable="true"
                         android:focusable="true"
+                        android:onClick="ActlistBtnClk"
+                        android:tag="notblogMore"
                         android:text="@string/more"
                         android:textColor="#ffffff" />
                     <!-- 點擊後跳至結果清單頁com_page_result_list

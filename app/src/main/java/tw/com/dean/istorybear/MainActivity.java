@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] items = new String[2];
 
     private Button xPlayBtn;
-    private LinearLayout xPlayer;
+    public static LinearLayout xPlayer;
 
 
     public static int lastPosition = 0;
@@ -152,32 +152,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-      public boolean onKeyDown(int keyCode, KeyEvent event) {
-      if ((keyCode == KEYCODE_BACK) && mWebView.canGoBack()) {
-      mWebView.goBack();
-      return true;
-      }
-      return super.onKeyDown(keyCode, event);
-      }
+     * public boolean onKeyDown(int keyCode, KeyEvent event) {
+     * if ((keyCode == KEYCODE_BACK) && mWebView.canGoBack()) {
+     * mWebView.goBack();
+     * return true;
+     * }
+     * return super.onKeyDown(keyCode, event);
+     * }
      **/
 
     public void toStoryPlayerBtnClk(View v) {
-       // String vtag = v.getTag().toString();
+        // String vtag = v.getTag().toString();
 
         Intent i = new Intent(MainActivity.this, StoryPlayerActivity.class);
         //把按下的Btn tag傳給StoryPlayerActivity
-      //  i.putExtra("data", vtag);
+        //  i.putExtra("data", vtag);
         //將原本Activity的換成StoryPlayerActivity
         startActivity(i);
     }
-    public void killPlayer(View v) {
-
-        LinearLayout player = (LinearLayout) findViewById(R.id.storyNameLayout);
-        player.setVisibility(View.GONE);
-
-    }
-
-
 
     public void SearchBtnClk(View v) {
         String vtag = v.getTag().toString();
@@ -208,6 +200,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void noticeBtnClk(View v) {
+        String vtag = v.getTag().toString();
+        Intent i = new Intent(MainActivity.this, noticeActivity.class);
+        //把按下的Btn tag傳給noticeActivity
+        i.putExtra("data", vtag);
+        //將原本Activity的換成noticeActivity
+        startActivity(i);
+    }
+
     public void ActItemBtnClk(View v) {
 
         String vtag = v.getTag().toString();
@@ -233,7 +234,6 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
 
-
             default:
                 Intent i = new Intent(MainActivity.this, ActActivity.class);
                 //把按下的Btn tag傳給ActActivity
@@ -252,33 +252,31 @@ public class MainActivity extends AppCompatActivity {
         switch (vtag) {
 
             case "backBtn":
-                Toast.makeText(MainActivity.this, R.string.playback , Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, R.string.playback, Toast.LENGTH_SHORT).show();
 
                 break;
 
             case "playBtn":
-                if (xPlayBtn.isSelected()){ /* 暫停播放 */
+                if (xPlayBtn.isSelected()) { /* 暫停播放 */
                     xPlayBtn.setSelected(false);
-                    Toast.makeText(MainActivity.this, R.string.paused , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.paused, Toast.LENGTH_SHORT).show();
 
                 } else { /* 開始播放 */
                     xPlayBtn.setSelected(true);
-                    Toast.makeText(MainActivity.this, R.string.playing , Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(MainActivity.this, R.string.playing, Toast.LENGTH_SHORT).show();
                 }
                 break;
 
             case "nextBtn":
-                Toast.makeText(MainActivity.this, R.string.playnext , Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, R.string.playnext, Toast.LENGTH_SHORT).show();
 
                 break;
 
             case "killPlayer":
-                Toast.makeText(MainActivity.this, R.string.killPlaying , Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, R.string.killPlaying, Toast.LENGTH_SHORT).show();
+                xPlayBtn.setSelected(false); /* 暫停播放 */
                 xPlayer.setVisibility(View.GONE);
-
                 break;
-
 
 
         }
@@ -286,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setDialogBroadcast(String vtag) {
         String mTitle = null;
-        BuyCheckItem=0;
+        BuyCheckItem = 0;
         switch (vtag) {
             case "buyPoints":
                 mTitle = getString(R.string.buyPoints);
@@ -337,44 +335,60 @@ public class MainActivity extends AppCompatActivity {
 }
 
 /**
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        //页面滑动的时候，改变BottomNavigationView的Item高亮
-        navigation.getMenu().getItem(position).setChecked(true);
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
-**/
-    /**
-     * 切換Fragment
-     *
-     * @param lastIndex 上個顯示Fragment的索引
-     * @param index     需要顯示的Fragment的索引
-     */
+ * @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+ * <p>
+ * }
+ * @Override public void onPageSelected(int position) {
+ * //页面滑动的时候，改变BottomNavigationView的Item高亮
+ * navigation.getMenu().getItem(position).setChecked(true);
+ * }
+ * @Override public void onPageScrollStateChanged(int state) {
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
+ * <p>
+ * }
+ **/
+/**
+ * 切換Fragment
+ *
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ */
 
 /**
-    private void initFragments() {
-          fragment_blog = new Fragment_blog();
-          fragment_play = new Fragment_play();
-          fragment_story = new Fragment_story();
-          fragment_buy = new Fragment_buy();
-          fragment_me = new Fragment_me();
+ private void initFragments() {
+ fragment_blog = new Fragment_blog();
+ fragment_play = new Fragment_play();
+ fragment_story = new Fragment_story();
+ fragment_buy = new Fragment_buy();
+ fragment_me = new Fragment_me();
 
-        fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
-        lastShowFragment = 2;
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.fragment_container, fragment_story)
-                .show(fragment_story)
-                .commit();
+ fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ lastShowFragment = 2;
+ getSupportFragmentManager()
+ .beginTransaction()
+ .add(R.id.fragment_container, fragment_story)
+ .show(fragment_story)
+ .commit();
 
-    }
+ }
  **/

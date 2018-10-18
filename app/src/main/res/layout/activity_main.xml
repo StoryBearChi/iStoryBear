@@ -36,9 +36,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include android:id="@+id/story_player"
-            layout="@layout/bar_story_player"
-            tools:visibility="visible" />
+        <include
+            android:id="@+id/story_player"
+            layout="@layout/bar_story_player"/>
 
     </LinearLayout>
 

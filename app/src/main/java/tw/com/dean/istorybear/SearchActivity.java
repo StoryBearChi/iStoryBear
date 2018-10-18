@@ -3,6 +3,7 @@ package tw.com.dean.istorybear;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -144,24 +145,32 @@ public class SearchActivity extends Activity {
         webSettings.setUseWideViewPort(true); //将图片调整到适合webview的大小
         webSettings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
 
-
-        webview.setWebViewClient(new WebViewClient());
-        webview.loadUrl("https://404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn");
-
+        //设置不用系统浏览器打开,直接显示在当前Webview
         webview.setWebViewClient(new WebViewClient() {
-            //设置不用系统浏览器打开,直接显示在当前Webview
-         //   @Override
-         //   public boolean shouldOverrideUrlLoading(WebView view, String url) {
-         //       view.loadUrl(url);
-         //       return true;
-         //   }
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if (url.contains("404page.missingkids.org.tw")) {
+                    view.loadUrl("https://404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn");
+
+                }else if (url.contains("404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn")){
+                    view.loadUrl(url);
+                }else {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(url));
+                    startActivity(intent);
+                }
+                return true;
+            }
 
             @Override
             public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
                 handler.proceed();
             }
-
         });
+       // webview.setWebViewClient(new WebViewClient());
+        webview.loadUrl("https://404page.missingkids.org.tw/api?key=ReMVHyfCTY8mUzMBzyn");
+
         /**廣告頁處理 **/
 
     }

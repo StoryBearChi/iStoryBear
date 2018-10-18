@@ -10,9 +10,9 @@
         android:layout_gravity="bottom"
         android:layout_marginTop="1dp"
         android:background="@color/colorStBearPlayBar"
-        android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:visibility="visible"
+        android:paddingBottom="5dp"
+        android:visibility="gone"
         tools:visibility="visible">
         <!-- 當故事被播放時後，visibility="visible" -->
 
@@ -59,17 +59,16 @@
             android:id="@+id/playStoryName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="@drawable/bg_rectangle_with_stroke_dimgray_textwindow"
-            android:clickable="true"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:onClick="toStoryPlayerBtnClk"
             android:singleLine="true"
-            android:textColor="@android:color/white"
-            android:text="孤單的毛毛蟲孤單的毛毛蟲孤單的毛毛蟲" />
+            android:text="孤單的毛毛蟲    孤單的毛毛蟲     孤單的毛毛蟲"
+            android:textColor="@android:color/white" />
         <!-- 顯示任何被選選播的故事之名稱，超過長度則跑馬燈循回顯示；
         點擊後跳至page_playstory_home -->
 

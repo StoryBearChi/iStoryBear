@@ -40,7 +40,6 @@
         <include layout="@layout/item_bar_story" />
         <include layout="@layout/item_bar_story" />
         <include layout="@layout/item_bar_story" />
-
         <include layout="@layout/item_bar_story" />
     </LinearLayout>
 

@@ -9,12 +9,15 @@
     android:paddingBottom="10dp"
     tools:context=".userHomeActivity">
 
-    <TextView
+    <EditText
         android:id="@+id/user_overview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:padding="5dp"
         android:text="@string/story2" />
         <!--放入用戶專欄自我簡介-->
+
 
 </FrameLayout>
