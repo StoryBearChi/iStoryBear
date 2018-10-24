@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
         style="@style/CardView.Content"
@@ -15,7 +14,7 @@
             android:orientation="horizontal"
             android:padding="3dp">
 
-            <!--
+
             <ImageButton
                 android:id="@+id/buyBtn"
                 style="@style/Widget.AppCompat.Button.Borderless"
@@ -25,7 +24,6 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 app:srcCompat="@drawable/ic_buy_orange_16dp" />
-            -->
 
             <TextView
                 android:id="@+id/goodsName"
@@ -37,7 +35,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:singleLine="true"
-                tools:text="寵物離家記" />
+                android:text="寵物離家記" />
             <!-- 點擊後頁面跳至該商品的page_groupbuy_detail -->
 
             <TextView
@@ -49,7 +47,7 @@
                 android:minEms="5"
                 android:singleLine="true"
                 android:textColor="@color/holo_red_dark"
-                tools:text="特價$270" />
+                android:text="特價$270" />
             <!--填入商品特價，text="特價:$“＋金額，實際賣出價格-->
 
         </LinearLayout>

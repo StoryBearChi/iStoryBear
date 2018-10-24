@@ -30,7 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:visibility="visible">
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <Spinner
                 android:id="@+id/spinner3"
@@ -88,7 +89,6 @@
                             android:layout_height="18dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:visibility="visible"
                             app:srcCompat="@drawable/ic_heart_red_16dp" />
 
                         <TextView
@@ -142,7 +142,6 @@
                             android:layout_height="18dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:visibility="visible"
                             app:srcCompat="@drawable/ic_heart_red_16dp" />
 
                         <TextView
@@ -195,7 +194,6 @@
                             android:layout_height="18dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:visibility="visible"
                             app:srcCompat="@drawable/ic_heart_red_16dp" />
 
                         <TextView
@@ -249,7 +247,6 @@
                             android:layout_height="18dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:visibility="visible"
                             app:srcCompat="@drawable/ic_heart_red_16dp" />
 
                         <TextView
@@ -338,6 +335,8 @@
 
                 </android.support.v7.widget.CardView>
 
+                <include layout="@layout/item_bar_goods" />       <!--團購-->
+                <include layout="@layout/item_bar_goods" />       <!--團購-->
                 <include layout="@layout/item_bar_articles" />   <!--文章-->
                 <include layout="@layout/item_bar_articles" />   <!--文章-->
                 <include layout="@layout/item_bar_story" />      <!--故事-->

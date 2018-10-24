@@ -1,7 +1,10 @@
 package tw.com.dean.istorybear;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -42,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Button xPlayBtn;
     public static LinearLayout xPlayer;
+    private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
+
+    //public static MediaPlayer mediaPlayer;
 
 
     public static int lastPosition = 0;
@@ -49,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
     // private Fragment[] fragments;
     // private int lastShowFragment = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         MenuItem item;
@@ -59,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         xPlayer = (LinearLayout) findViewById(R.id.storyPlayerBar);
 
         mContent = fragment_blog;
-
         if (!logon) { //如果未登入, 則開啟LoginActivity
             Intent intent = new Intent();
             //將原本Activity的換成LoginActivity
@@ -69,6 +76,25 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         BottomNavigationViewHelper.disableShiftMode(navigation);
+        navigation.setSelectedItemId(navigation.getMenu().getItem(2).getItemId()); // 預選故事頁
+
+        /**
+         * 动态获取权限，Android 6.0 新特性，一些保护权限，除了要在AndroidManifest中声明权限，还要使用如下代码动态获取
+         **/
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // 如果裝置版本是6.0（包含）以上
+            // 取得授權狀態，參數是請求授權的名稱
+            int hasPermission = checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE);
+
+            if (hasPermission != PackageManager.PERMISSION_GRANTED) { // 如果未授權
+                // 請求授權
+                //     第一個參數是請求授權的名稱
+                //     第二個參數是請求代碼,自訂，requestCode，主要用于回调的时候检测。
+                //      可以从方法名 requestPermissions 以及第二个参数看出，是支持一次性申请多个权限的，系统会通过对话框 逐一 询问用户是否授权。
+                //      設定的requestCode必須在0~255之間，不然就會得到錯誤
+                requestPermissions( new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+            }
+        }
 
     }
 
@@ -140,7 +166,8 @@ public class MainActivity extends AppCompatActivity {
         ad.setPositiveButton("是", new DialogInterface.OnClickListener() {//退出按鈕
             public void onClick(DialogInterface dialog, int i) {
                 // TODO Auto-generated method stub
-                MainActivity.this.finish();//關閉activity
+                // MainActivity.this.finish();//關閉activity
+                System.exit(0);
             }
         });
         ad.setNegativeButton("否", new DialogInterface.OnClickListener() {
@@ -248,6 +275,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void xPlayerBtnClk(View v) {
         String vtag = v.getTag().toString();
+     //   mediaPlayer = StoryPlayerActivity.mediaPlayer;
 
         switch (vtag) {
 
@@ -259,10 +287,12 @@ public class MainActivity extends AppCompatActivity {
             case "playBtn":
                 if (xPlayBtn.isSelected()) { /* 暫停播放 */
                     xPlayBtn.setSelected(false);
+                    StoryPlayerActivity.mediaPlayer.pause();
                     Toast.makeText(MainActivity.this, R.string.paused, Toast.LENGTH_SHORT).show();
 
                 } else { /* 開始播放 */
                     xPlayBtn.setSelected(true);
+                    StoryPlayerActivity.mediaPlayer.start();
                     Toast.makeText(MainActivity.this, R.string.playing, Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -276,6 +306,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, R.string.killPlaying, Toast.LENGTH_SHORT).show();
                 xPlayBtn.setSelected(false); /* 暫停播放 */
                 xPlayer.setVisibility(View.GONE);
+                StoryPlayerActivity.mediaPlayer.pause();
+               // StoryPlayerActivity.mediaPlayer.release();
+              //  StoryPlayerActivity.mediaPlayer = null;
                 break;
 
 
@@ -343,6 +376,48 @@ public class MainActivity extends AppCompatActivity {
  * navigation.getMenu().getItem(position).setChecked(true);
  * }
  * @Override public void onPageScrollStateChanged(int state) {
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
  * <p>
  * }
  * <p>

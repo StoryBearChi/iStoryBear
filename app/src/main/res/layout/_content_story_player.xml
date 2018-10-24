@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".StoryPlayerActivity"
-    tools:showIn="@layout/activity_story_player1">
+    tools:showIn="@layout/_activity_story_player1">
 
 </android.support.constraint.ConstraintLayout>

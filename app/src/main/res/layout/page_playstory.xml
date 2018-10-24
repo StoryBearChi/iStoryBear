@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -63,8 +62,11 @@
             android:layout_alignBottom="@+id/textView28"
             android:layout_toEndOf="@+id/textView28"
             android:layout_toRightOf="@+id/textView28"
+            android:autoLink="all"
             android:clickable="true"
             android:focusable="true"
+            android:onClick="myHomeBtnClk"
+            android:tag="otherUser"
             android:text="紀登淵"
             android:textColor="@android:color/black" />
         <!--作者姓名，點擊跳至該作家之page_userhone 故事分頁-->
@@ -93,6 +95,8 @@
             android:layout_toRightOf="@+id/textView30"
             android:clickable="true"
             android:focusable="true"
+            android:onClick="myHomeBtnClk"
+            android:tag="otherUser"
             android:text="紀登淵"
             android:textColor="@android:color/black" />
         <!--錄者姓名，點擊跳至該作家之page_userhone 故事分頁-->
@@ -349,6 +353,7 @@
     </RelativeLayout>
 
     <android.support.design.widget.TabLayout
+        android:id="@+id/storyplayerTabs"
         android:layout_width="match_parent"
         android:layout_height="1dp">
 
@@ -370,18 +375,19 @@
             android:layout_height="1dp"/>
         <!--page_playstory_404pj-->
 
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:visibility="gone"
-            tools:visibility="visible"/>
         <!--如果是贊助故事，則visibility="visible"，且故事播放時預設此頁
             page_playstory_sponsor
             如果是非贊助故事，則visibility="gone"-->
 
     </android.support.design.widget.TabLayout>
+    <FrameLayout
+        android:id="@+id/storyplayPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/page_playstory_home"/>
 
-    <include layout="@layout/page_playstory_list"/>
+    </FrameLayout>
+
 
 
 </LinearLayout>

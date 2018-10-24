@@ -1,22 +1,17 @@
 package tw.com.dean.istorybear;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import tw.com.dean.istorybear.ui.userhome.blogHomeFragment;
 import tw.com.dean.istorybear.ui.userhome.myOverviewFragment;
@@ -88,7 +83,6 @@ public class userHomeActivity extends AppCompatActivity {
 
         initListener();
 
-        //设置左上角导航键的点击监听事件
     }
 
     private void initListener() {
@@ -124,12 +118,14 @@ public class userHomeActivity extends AppCompatActivity {
 
             }
         });
+        //设置左上角导航键的点击监听事件
         aToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
         loveThis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,9 +167,8 @@ public class userHomeActivity extends AppCompatActivity {
                         .commitNow();
             }
 
-            homeContent = to;
         }
-
+        homeContent = to;
     }
 
     public void FABtnOnClk(View v) {

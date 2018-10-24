@@ -5,21 +5,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.net.http.SslError;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompatSideChannelService;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.ButtonBarLayout;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -104,7 +98,7 @@ public class ResultActivity extends Activity {
 
             case "StoryPromotion":
                 Toast.makeText(this, "列出促銷故事", Toast.LENGTH_SHORT).show();
-                rToolbar.setTitle("限時優惠");
+                rToolbar.setTitle(R.string.storyPromotion);
                 break;
 
             case "StoryLove":
@@ -113,45 +107,69 @@ public class ResultActivity extends Activity {
                 break;
 
             case "BookPromotion":
-                Toast.makeText(this, "列出促銷商品", Toast.LENGTH_SHORT).show();
-                rToolbar.setTitle("限時優惠");
+                Toast.makeText(this, "列出限時優惠", Toast.LENGTH_SHORT).show();
+                rToolbar.setTitle(R.string.storyPromotion);
                 break;
 
             case "BookLove":
                 Toast.makeText(this, "列出收藏商品", Toast.LENGTH_SHORT).show();
-                rToolbar.setTitle("我收藏的商品");
+                rToolbar.setTitle(R.string.myLoveGoods);
                 break;
 
-            case "AddStory":
+            case "AddStory":  // 找不到在哪裡
                 Toast.makeText(this, "列出收藏商品", Toast.LENGTH_SHORT).show();
                 rToolbar.setTitle("搜尋故事");
                 break;
 
             case "moreNewEvents":
                 Toast.makeText(this, "列出最新活動", Toast.LENGTH_SHORT).show();
-                rToolbar.setTitle("最新活動");
+                rToolbar.setTitle(R.string.eventNew);
                 break;
 
             case "eventSponsorList":
                 Toast.makeText(this, "列出推播活動", Toast.LENGTH_SHORT).show();
-                rToolbar.setTitle("活動推播");
+                rToolbar.setTitle(R.string.eventSponsor);
                 break;
 
             case "moreNewAttra":
                 Toast.makeText(this, "列出最新景點", Toast.LENGTH_SHORT).show();
-                rToolbar.setTitle("最新景點");
+                rToolbar.setTitle(R.string.attractionNew);
                 break;
 
             case "attraSponsorList":
                 Toast.makeText(this, "列出推播景點", Toast.LENGTH_SHORT).show();
-                rToolbar.setTitle("景點推播");
+                rToolbar.setTitle(R.string.attractionSponsor);
                 break;
 
             case "notblogMore":
                 Toast.makeText(this, "列出熱門專欄", Toast.LENGTH_SHORT).show();
-                rToolbar.setTitle("熱門專欄");
+                rToolbar.setTitle(R.string.hotblog);
                 break;
 
+            case "newStoryMore":
+                Toast.makeText(this, "列出最新故事", Toast.LENGTH_SHORT).show();
+                rToolbar.setTitle(R.string.new_story);
+                break;
+
+            case "newGroupbuyMore":
+                Toast.makeText(this, "列出最新團購", Toast.LENGTH_SHORT).show();
+                rToolbar.setTitle(R.string.newGroupbuy);
+                break;
+
+            case "hotGroupbuyMore":
+                Toast.makeText(this, "列出熱門團購", Toast.LENGTH_SHORT).show();
+                rToolbar.setTitle(R.string.hotGroupbuy);
+                break;
+
+            case "timeGroupbuyMore":
+                Toast.makeText(this, "列出限時團購", Toast.LENGTH_SHORT).show();
+                rToolbar.setTitle(R.string.timeGroupbuy);
+                break;
+
+            case "limitedGroupbuyMore":
+                Toast.makeText(this, "列出限量團購", Toast.LENGTH_SHORT).show();
+                rToolbar.setTitle(R.string.limitedGroupbuy);
+                break;
         }
 
         /**廣告頁處理 **/

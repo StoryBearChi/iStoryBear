@@ -21,10 +21,10 @@
 
         <ImageView
             android:id="@+id/storyImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="3dp"
-            tools:srcCompat="@drawable/ic_logo_round_colors_24dp" />
+            app:srcCompat="@drawable/ic_logo_round_colors_24dp" />
 
         <Button
             android:id="@+id/loveBtn"
@@ -352,14 +352,14 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/sellFABtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="10dp"
+            android:layout_alignParentBottom="true"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
             android:clickable="true"
             android:focusable="true"
             app:srcCompat="@drawable/ic_buy_black_24dp" />

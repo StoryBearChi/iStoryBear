@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@color/snow"
+    android:orientation="vertical">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -14,15 +18,18 @@
             <TextView
                 android:id="@+id/textView38"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/cardview_dark_background"
                 android:padding="5dp"
-                android:text="@string/hint30"
-                tools:text="@string/story2" />
+                android:text="@string/story2"
+                android:textColor="@color/holo_green_dark"
+                android:textSize="18sp"
+                tools:text="@string/hint30" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
-</merge>
+</LinearLayout>
 
 
 

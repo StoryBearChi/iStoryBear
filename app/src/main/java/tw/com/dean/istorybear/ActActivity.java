@@ -1,14 +1,11 @@
 package tw.com.dean.istorybear;
 
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.net.http.SslError;
-import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -88,8 +85,6 @@ public class ActActivity extends AppCompatActivity {
                 aToolbar = (Toolbar) findViewById(R.id.articleMoreBar);
                 break;
 
-
-
             case "userProfile":
 
                 userProfile();
@@ -109,6 +104,8 @@ public class ActActivity extends AppCompatActivity {
             case "myEvents":
                 setContentView(R.layout.com_page_result_list);
                 aToolbar = (Toolbar) findViewById(R.id.resultToolbar);
+                aToolbar.setTitle(R.string.myEvents);
+
                 break;
             case "myRoyalty":
                 setContentView(R.layout.page_me_myroyalty);
@@ -441,14 +438,14 @@ public class ActActivity extends AppCompatActivity {
 
         long diff = nowDT.getTime() - BDayDate.getTime();//这样得到的差值是微秒级别
 
-        long diffDays = Math.abs(diff / (1000 * 60 * 60 * 24));  //出生日與現在之天數差
-        double diffWeeks = Math.floor(diffDays / 7);  //出生日與現在之週數差
+        int diffDays = (int)Math.abs(diff / (1000 * 60 * 60 * 24));  //出生日與現在之天數差
+        int diffWeeks = diffDays / 7;  //出生日與現在之週數差
         float numAge = (float) diffDays / 365;  //幾歲
 
         //  double ndays = days-weeks*7;
-        long passDays = 280 - diffDays;  //已經懷孕幾天
-        double passWeeks = passDays / 7;  //已經懷孕幾週
-        double passDay = passDays - passWeeks * 7;  //已經懷孕幾週又幾天
+        int passDays = 280 - diffDays;  //已經懷孕幾天
+        int passWeeks = passDays / 7;  //已經懷孕幾週
+        int passDay = passDays % 7;  //已經懷孕幾週又幾天
 
 
         if (numAge > 0) {
@@ -498,7 +495,7 @@ public class ActActivity extends AppCompatActivity {
                 c.add(Calendar.YEAR, 1);
                 nextBDayDate = c.getTime();
             }
-            /**取得下一個生日日期**/
+
 
             float Ddiff = (float) (nextBDayDate.getTime() - nowDT.getTime()) / (1000 * 60 * 60 * 24);//離下個生日差幾天
 
@@ -744,6 +741,9 @@ public class ActActivity extends AppCompatActivity {
         // 若加载的 html 里有JS 在执行动画等操作，会造成资源浪费（CPU、电量）
         // 在 onStop 和 onResume 里分别把 setJavaScriptEnabled() 给设置成 false 和 true 即可
         webSettings.setJavaScriptEnabled(true);
+
+        // 定位(location)
+        webSettings.setGeolocationEnabled(true);
 
         //设置自适应屏幕，两者合用
         webSettings.setUseWideViewPort(true); //将图片调整到适合webview的大小

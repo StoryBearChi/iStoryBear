@@ -8,10 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import tw.com.dean.istorybear.ui.userhome.blogHomeFragment;
-import tw.com.dean.istorybear.ui.userhome.myOverviewFragment;
-import tw.com.dean.istorybear.ui.userhome.storyHomeFragment;
-
 public class noticeActivity extends AppCompatActivity {
     private TabLayout noticeTablayout;
     private Fragment noticeContent;
@@ -107,9 +103,8 @@ public class noticeActivity extends AppCompatActivity {
                         .show(to)
                         .commitNow();
             }
-
-            noticeContent = to;
         }
+        noticeContent = to;
 
     }
 }
