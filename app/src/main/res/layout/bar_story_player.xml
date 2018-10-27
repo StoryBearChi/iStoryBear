@@ -62,13 +62,14 @@
             android:layout_weight="1"
             android:background="@drawable/bg_rectangle_with_stroke_dimgray_textwindow"
             android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
             android:onClick="toStoryPlayerBtnClk"
             android:singleLine="true"
             android:text="孤單的毛毛蟲    孤單的毛毛蟲     孤單的毛毛蟲"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
         <!-- 顯示任何被選選播的故事之名稱，超過長度則跑馬燈循回顯示；
         點擊後跳至page_playstory_home -->
 

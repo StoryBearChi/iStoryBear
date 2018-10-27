@@ -1,16 +1,26 @@
 package tw.com.dean.istorybear;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +33,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static tw.com.dean.istorybear.StoryPlayerActivity.recording_Name;
+import static tw.com.dean.istorybear.StoryPlayerActivity.story_name;
 
 
 //import android.app.Fragment;
@@ -46,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
     private Button xPlayBtn;
     public static LinearLayout xPlayer;
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
+    public static final int mId = 1;
+
+    private static final String CHANNEL_ID = "故事播放控制";
+
+    public static NotificationManager mNotificationManager;
+
 
     //public static MediaPlayer mediaPlayer;
 
@@ -65,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         xPlayBtn = findViewById(R.id.playpauseBtn);
         xPlayer = (LinearLayout) findViewById(R.id.storyPlayerBar);
+      //  mNotificationManager = StoryPlayerActivity.mNotificationManager;
 
         mContent = fragment_blog;
         if (!logon) { //如果未登入, 則開啟LoginActivity
@@ -91,11 +111,20 @@ public class MainActivity extends AppCompatActivity {
                 //     第二個參數是請求代碼,自訂，requestCode，主要用于回调的时候检测。
                 //      可以从方法名 requestPermissions 以及第二个参数看出，是支持一次性申请多个权限的，系统会通过对话框 逐一 询问用户是否授权。
                 //      設定的requestCode必須在0~255之間，不然就會得到錯誤
-                requestPermissions( new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
             }
         }
+    }
 
+    @Override
+    protected void onDestroy() { /**不知為何無效**/
+        if (mNotificationManager != null) {
+            mNotificationManager.cancelAll();
+        } else if (StoryPlayerActivity.mNotificationManager != null) {
+            StoryPlayerActivity.mNotificationManager.cancelAll();
+        }
+        super.onDestroy();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -108,24 +137,24 @@ public class MainActivity extends AppCompatActivity {
             //viewPager.setCurrentItem(item.getOrder(), false);
             switch (item.getItemId()) {
                 case R.id.navigation_blog:
-                    Toast.makeText(MainActivity.this, "切到專欄", Toast.LENGTH_SHORT).show();
+                    //   Toast.makeText(MainActivity.this, "切到專欄", Toast.LENGTH_SHORT).show();
                     switchContent(fragment_blog);
                     return true;
                 case R.id.navigation_play:
-                    Toast.makeText(MainActivity.this, "切到哪玩", Toast.LENGTH_SHORT).show();
+                    //   Toast.makeText(MainActivity.this, "切到哪玩", Toast.LENGTH_SHORT).show();
                     switchContent(fragment_play);
 
                     return true;
                 case R.id.navigation_story:
-                    Toast.makeText(MainActivity.this, "切到故事", Toast.LENGTH_SHORT).show();
+                    //   Toast.makeText(MainActivity.this, "切到故事", Toast.LENGTH_SHORT).show();
                     switchContent(fragment_story);
                     return true;
                 case R.id.navigation_buy:
-                    Toast.makeText(MainActivity.this, "切到購物", Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(MainActivity.this, "切到購物", Toast.LENGTH_SHORT).show();
                     switchContent(fragment_buy);
                     return true;
                 case R.id.navigation_me:
-                    Toast.makeText(MainActivity.this, "切到會員", Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(MainActivity.this, "切到會員", Toast.LENGTH_SHORT).show();
                     switchContent(fragment_me);
                     return true;
             }
@@ -167,6 +196,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int i) {
                 // TODO Auto-generated method stub
                 // MainActivity.this.finish();//關閉activity
+                if (mNotificationManager != null) {
+                    mNotificationManager.cancelAll();
+                } else if (StoryPlayerActivity.mNotificationManager != null) {
+                    // mediaPlayerNotific();  //先重送，後面取消才部會因null閃退
+                    // mNotificationManager.cancel(mId);
+                    StoryPlayerActivity.mNotificationManager.cancelAll();
+                }
                 System.exit(0);
             }
         });
@@ -193,7 +229,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent i = new Intent(MainActivity.this, StoryPlayerActivity.class);
         //把按下的Btn tag傳給StoryPlayerActivity
-        //  i.putExtra("data", vtag);
+        // i.putExtra("ActBtn", "new");
+        i.setAction("new");
         //將原本Activity的換成StoryPlayerActivity
         startActivity(i);
     }
@@ -270,18 +307,16 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
     }
 
     public void xPlayerBtnClk(View v) {
         String vtag = v.getTag().toString();
-     //   mediaPlayer = StoryPlayerActivity.mediaPlayer;
+        //   mediaPlayer = StoryPlayerActivity.mediaPlayer;
 
         switch (vtag) {
 
             case "backBtn":
                 Toast.makeText(MainActivity.this, R.string.playback, Toast.LENGTH_SHORT).show();
-
                 break;
 
             case "playBtn":
@@ -295,6 +330,7 @@ public class MainActivity extends AppCompatActivity {
                     StoryPlayerActivity.mediaPlayer.start();
                     Toast.makeText(MainActivity.this, R.string.playing, Toast.LENGTH_SHORT).show();
                 }
+                mediaPlayerNotific();
                 break;
 
             case "nextBtn":
@@ -307,12 +343,124 @@ public class MainActivity extends AppCompatActivity {
                 xPlayBtn.setSelected(false); /* 暫停播放 */
                 xPlayer.setVisibility(View.GONE);
                 StoryPlayerActivity.mediaPlayer.pause();
-               // StoryPlayerActivity.mediaPlayer.release();
-              //  StoryPlayerActivity.mediaPlayer = null;
+                mediaPlayerNotific();  //先重送，後面取消才部會因null閃退
+                mNotificationManager.cancel(mId);
                 break;
-
-
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private void createChannel() {
+        NotificationManager
+                mNotificationManager =
+                (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        // 渠道 ID = CHANNEL_ID
+        // 用户看到的渠道名字
+        CharSequence name = "故事播放控制";
+        // 用户看到的渠道描述
+        String description = "用來背景控制故事播放";
+        int importance = NotificationManager.IMPORTANCE_LOW;
+        NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+        // 渠道的配置
+        mChannel.setDescription(description);
+        mChannel.setShowBadge(false);
+        mChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+        mNotificationManager.createNotificationChannel(mChannel);
+    }
+
+
+    private void mediaPlayerNotific() {
+        int playpause;
+
+        // 你只需要在 API 26 以上的版本创建渠道
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            createChannel();
+        }
+
+        Intent intent = new Intent(this, StoryPlayerActivity.class);
+
+        intent.setAction("cancelBtn");
+        // intent.putExtra("ActBtn", "cancelBtn");
+        PendingIntent cancelIntent = PendingIntent.getActivity(this, 1, intent, 0);
+        // PendingIntent pauseIntent = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        intent.setAction("playBtn");
+        //  intent.putExtra("ActBtn", "playBtn");
+        PendingIntent playIntent = PendingIntent.getActivity(this, 2, intent, 0);
+        //PendingIntent playIntent = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        intent.setAction("nextBtn");
+        //  intent.putExtra("ActBtn", "nextBtn");
+        PendingIntent nextIntent = PendingIntent.getActivity(this, 3, intent, 0);
+        // PendingIntent nextIntent = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        // PendingIntent pIntent = PendingIntent.getActivity(this, 1, intent, 0);
+
+        if (xPlayBtn.isSelected()) {
+            playpause = R.drawable.ic_pause_black_24dp;
+        } else { /* 開始播放 */
+            playpause = R.drawable.ic_play_black_24dp;
+        }
+
+        /**debug**
+         Toast.makeText(this,
+         xPlayBtn.isSelected() +
+         "\nBTN:" + playpause +
+         "\npause:" + R.drawable.ic_pause_black_24dp +
+         "\nplay:" + R.drawable.ic_play_black_24dp, Toast.LENGTH_LONG).show();
+         **debug**/
+
+        final NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this, CHANNEL_ID)
+                        .setSmallIcon(R.drawable.ic_logo_black_24dp)
+                        //  .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_logo_round_colors_24dp))
+                        // .setDefaults(NotificationCompat.DEFAULT_ALL)
+                        .setPriority(Notification.PRIORITY_MAX) //設置優先級
+                        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                        .setColor(ContextCompat.getColor(this, R.color.Bear_Orange_dark))
+                        .setContentTitle(story_name.getText())
+                        .setContentText("錄/" + recording_Name.getText())
+                        // .addAction(R.drawable.ic_back_white_24dp, "", null)
+                        .addAction(R.drawable.ic_cancel_black_16dp, "", cancelIntent)
+                        .addAction(playpause, "", playIntent)
+                        .addAction(R.drawable.btn_next, "", nextIntent)
+                        .setOngoing(true)  //用户不能取消，效果类似FLAG_NO_CLEAR
+                        .setStyle(new android.support.v4.media.app.NotificationCompat.MediaStyle()
+                                .setMediaSession(new MediaSessionCompat(this, "MediaSession",
+                                        new ComponentName(this, Intent.ACTION_MEDIA_BUTTON), null)
+                                        .getSessionToken())
+                                //设置要现实在通知右方的图标 最多三个
+                                .setShowActionsInCompactView(0, 1, 2));
+        // .setCancelButtonIntent(cancelIntent) //CancelButton在5.0以下的机器有效
+        //  .setShowCancelButton(true));
+        //送出訊息
+        mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(mId, mBuilder.build());
+        // Start a lengthy operation in a background thread
+        /**
+         new Thread(
+         new Runnable() {
+        @Override public void run() {
+        int incr;
+        for (incr = 0; incr <= 100; incr+=5) {
+        mBuilder.setProgress(100, incr, false);
+        mNotificationManager.notify(mId, mBuilder.build());
+        try {
+        // Sleep for 5 seconds
+        Thread.sleep(5*1000);
+        } catch (InterruptedException e) {
+        e.printStackTrace();
+        //Log.d(TAG, "sleep failure");
+        }
+        }
+        mBuilder.setContentText("Download complete")//下载完成
+        .setProgress(0,0,false);    //移除进度条
+        mNotificationManager.notify(mId, mBuilder.build());
+        }
+        }
+         ).start();
+         **/
+
     }
 
     private void setDialogBroadcast(String vtag) {
@@ -376,6 +524,174 @@ public class MainActivity extends AppCompatActivity {
  * navigation.getMenu().getItem(position).setChecked(true);
  * }
  * @Override public void onPageScrollStateChanged(int state) {
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
+ * <p>
+ * }
+ * <p>
+ * 切換Fragment
+ * @param lastIndex 上個顯示Fragment的索引
+ * @param index     需要顯示的Fragment的索引
+ * <p>
+ * private void initFragments() {
+ * fragment_blog = new Fragment_blog();
+ * fragment_play = new Fragment_play();
+ * fragment_story = new Fragment_story();
+ * fragment_buy = new Fragment_buy();
+ * fragment_me = new Fragment_me();
+ * <p>
+ * fragments = new Fragment[]{(Fragment)fragment_blog, (Fragment)fragment_play, (Fragment)fragment_story,(Fragment)fragment_buy,(Fragment)fragment_me};
+ * lastShowFragment = 2;
+ * getSupportFragmentManager()
+ * .beginTransaction()
+ * .add(R.id.fragment_container, fragment_story)
+ * .show(fragment_story)
+ * .commit();
  * <p>
  * }
  * <p>

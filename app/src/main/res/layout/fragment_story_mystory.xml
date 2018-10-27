@@ -211,8 +211,8 @@
                             android:ellipsize="end"
                             android:focusable="true"
                             android:singleLine="true"
-                            android:onClick="toStoryPlayerBtnClk"
-                            android:text="[母愛] 孤單的毛毛蟲" />
+                            android:text="[勇氣]The inch prince"
+                            android:onClick="toStoryPlayerBtnClk"/>
                         <!-- 點擊後頁面跳至該故事的page_buystory_detail -->
                         <!-- 如為未上架審查或審查退回，則點擊後頁面跳至該故事的page_story_up可修改資料 -->
 
@@ -263,7 +263,7 @@
                             android:gravity="end"
                             android:minEms="3"
                             android:singleLine="true"
-                            android:text="99:59" />
+                            android:text="03:12" />
                         <!--如果該首故事是用戶本人上傳時
                     1.上傳尚未申請上架時==> 點擊後，進行上架申請審查，並跳“已申請，待審查後上架，如欲取消，請點擊x“提示；
                         android:textColor="@android:color/white"

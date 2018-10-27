@@ -23,7 +23,7 @@
                 android:padding="5dp"
                 android:text="@string/story2"
                 android:textColor="@color/holo_green_dark"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 tools:text="@string/hint30" />
 
         </LinearLayout>
