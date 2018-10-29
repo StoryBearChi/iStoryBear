@@ -49,11 +49,8 @@ public class ActActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         Intent i = getIntent();
         searchTag = i.getStringExtra("data");
-
         switch (searchTag) {
             case "AddEvent":
                 setContentView(R.layout.page_event_addevent);
@@ -63,7 +60,6 @@ public class ActActivity extends AppCompatActivity {
                 setContentView(R.layout.page_attraction_addattra);
                 aToolbar = (Toolbar) findViewById(R.id.AddAttraBar);
                 break;
-
 
             case "UpStory":
                 setContentView(R.layout.page_story_up);
@@ -86,7 +82,6 @@ public class ActActivity extends AppCompatActivity {
                 break;
 
             case "userProfile":
-
                 userProfile();
                 break;
 
@@ -112,7 +107,6 @@ public class ActActivity extends AppCompatActivity {
                 aToolbar = (Toolbar) findViewById(R.id.myRoyaltyBar);
                 break;
 
-
             case "scenesEditBtn0":
                 setContentView(R.layout.dialog_mystory_scenes);
                 aToolbar = (Toolbar) findViewById(R.id.scenesBar);
@@ -120,12 +114,10 @@ public class ActActivity extends AppCompatActivity {
 
             case "attraLbs":
                 mapLBS(searchTag);
-
                 break;
 
             case "eventLbs":
                 mapLBS(searchTag);
-
                 break;
 
 
@@ -393,7 +385,6 @@ public class ActActivity extends AppCompatActivity {
                 break;
         }
 
-
         name = ChildName.getText();
         BDay = ChildBday.getText();
 
@@ -426,11 +417,11 @@ public class ActActivity extends AppCompatActivity {
         Date BDayDate = DTStringtoDate(dateString);
         Date nowDT = new Date();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MM", Locale.TAIWAN);
+        SimpleDateFormat sdf = new SimpleDateFormat("mm", Locale.TAIWAN);
         String nowMonth = sdf.format(nowDT);
         sdf = new SimpleDateFormat("dd", Locale.TAIWAN);
         String nowDayOfMonth = sdf.format(nowDT);
-        sdf = new SimpleDateFormat("MM", Locale.TAIWAN);
+        sdf = new SimpleDateFormat("mm", Locale.TAIWAN);
         String BdayMonth = sdf.format(BDayDate);
         sdf = new SimpleDateFormat("dd", Locale.TAIWAN);
         String BDayOfMonth = sdf.format(BDayDate);
@@ -438,7 +429,7 @@ public class ActActivity extends AppCompatActivity {
 
         long diff = nowDT.getTime() - BDayDate.getTime();//这样得到的差值是微秒级别
 
-        int diffDays = (int)Math.abs(diff / (1000 * 60 * 60 * 24));  //出生日與現在之天數差
+        int diffDays = (int) Math.abs(diff / (1000 * 60 * 60 * 24));  //出生日與現在之天數差
         int diffWeeks = diffDays / 7;  //出生日與現在之週數差
         float numAge = (float) diffDays / 365;  //幾歲
 
@@ -496,7 +487,6 @@ public class ActActivity extends AppCompatActivity {
                 nextBDayDate = c.getTime();
             }
 
-
             float Ddiff = (float) (nextBDayDate.getTime() - nowDT.getTime()) / (1000 * 60 * 60 * 24);//離下個生日差幾天
 
             if (Ddiff < 1 && Ddiff > 0) {  //當不到一天時，以一天計
@@ -531,29 +521,14 @@ public class ActActivity extends AppCompatActivity {
 
     private void userProfile() {
 
-        // String[] cItems;
-        //  String[] dItems;
         setContentView(R.layout.page_me_userprofile);
         aToolbar = (Toolbar) findViewById(R.id.userProfileBar);
         Spinner TWCity22Spinner = (Spinner) findViewById(R.id.city_spinner);
 
-        // cItems = getResources().getStringArray(R.array.TWCity22);
-        // ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, cItems);
-
-        //設定下拉選單的樣式
-        // TWCity22Spinner.setAdapter(adapter);
-
-
-        // ArrayAdapter<CharSequence> lunchList = ArrayAdapter.createFromResource(this,
-        //         R.array.TaipeiCity,
-        //         android.R.layout.simple_spinner_dropdown_item);
-        // mDistrictSpinner.setAdapter(lunchList);
-
         //設定項目被選取之後的動作
-
         TWCity22Spinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView adapterView, View view, int position, long id) {
 
+            public void onItemSelected(AdapterView adapterView, View view, int position, long id) {
                 Spinner mDistrictSpinner = findViewById(R.id.district_spinner);
                 ArrayAdapter<CharSequence> lunchList = null;
                 switch (adapterView.getSelectedItem().toString()) {
@@ -668,18 +643,14 @@ public class ActActivity extends AppCompatActivity {
                                 android.R.layout.simple_spinner_dropdown_item);
                         break;
                 }
-
                 mDistrictSpinner.setAdapter(lunchList);
-
-                Toast.makeText(ActActivity.this, "您選擇" + adapterView.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+          //      Toast.makeText(ActActivity.this, "您選擇" + adapterView.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
             }
 
             public void onNothingSelected(AdapterView arg0) {
-                Toast.makeText(ActActivity.this, "您沒有選擇任何項目", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActActivity.this, R.string.noSelect, Toast.LENGTH_SHORT).show();
             }
-
         });
-
     }
 
     public void mapLBS(String searchTag) {
@@ -689,7 +660,6 @@ public class ActActivity extends AppCompatActivity {
         aToolbar = (Toolbar) findViewById(R.id.mapsLbsBar);
         Spinner mMapSpinner = findViewById(R.id.mapSpinner);
         ArrayAdapter<CharSequence> lunchList = null;
-
 
         switch (searchTag) {
             case "attraLbs": /* 附近景點 */
@@ -708,27 +678,16 @@ public class ActActivity extends AppCompatActivity {
         }
         mMapSpinner.setAdapter(lunchList); //設定下拉選單的樣式
 
-
-        //    if (searchTag.equals("attraLbs")){ /* 附近景點 */
-        //建立一個ArrayAdapter物件，並放置下拉選單的內容
-        //        aToolbar.setTitle("附近景點");
-        //        mItems = getResources().getStringArray(R.array.attraClass_LBS);
-        //    } else { /* 附近活動 */
-        //         aToolbar.setTitle("附近活動");
-        //     mItems = getResources().getStringArray(R.array.eventClass_LBS);
-        // }
-        // ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, mItems);
-        //設定下拉選單的樣式
-        //  mMapSpinner.setAdapter(adapter);
-
         //設定項目被選取之後的動作
         mMapSpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             public void onItemSelected(AdapterView adapterView, View view, int position, long id) {
-                Toast.makeText(ActActivity.this, "您選擇" + adapterView.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                if (position!=0){
+                    Toast.makeText(ActActivity.this, "您選擇" + adapterView.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             public void onNothingSelected(AdapterView arg0) {
-                Toast.makeText(ActActivity.this, "您沒有選擇任何項目", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActActivity.this, R.string.noSelect, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -764,10 +723,7 @@ public class ActActivity extends AppCompatActivity {
             public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
                 handler.proceed();
             }
-
         });
-
-
     }
 
     public void setSix(View v) {

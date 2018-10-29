@@ -59,13 +59,14 @@ public class MainActivity extends AppCompatActivity {
     private Button xPlayBtn;
     public static LinearLayout xPlayer;
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
-    public static final int mId = 1;
 
-    private static final String CHANNEL_ID = "故事播放控制";
+    public static final int mId = 1;
+    public static final String CHANNEL_ID = "故事播放控制";
 
     public static NotificationManager mNotificationManager;
 
-
+    public static final int topbar_visibility_height = 540;
+    public static final int topbar_gone_height =740;
     //public static MediaPlayer mediaPlayer;
 
 
@@ -118,15 +119,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() { /**不知為何無效**/
+    protected void onDestroy() { //不知為何無效
+       // Toast.makeText(MainActivity.this, "MainActivity被關", Toast.LENGTH_SHORT).show();
+        super.onDestroy();
         if (mNotificationManager != null) {
             mNotificationManager.cancelAll();
         } else if (StoryPlayerActivity.mNotificationManager != null) {
             StoryPlayerActivity.mNotificationManager.cancelAll();
         }
-        super.onDestroy();
     }
-
+/*
+    @Override
+    protected void onPause() { //不知為何無效
+         Toast.makeText(MainActivity.this, "MainActivity被關", Toast.LENGTH_SHORT).show();
+        if (!isFinishing()) {
+            if (mNotificationManager != null) {
+                mNotificationManager.cancelAll();
+            } else if (StoryPlayerActivity.mNotificationManager != null) {
+                StoryPlayerActivity.mNotificationManager.cancelAll();
+            }
+            super.onPause();
+        }
+    }
+*/
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override

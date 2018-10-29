@@ -7,21 +7,24 @@ import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class Fragment_sub_buygroupbuy extends Fragment {
 
-    public RelativeLayout mGroupbuyTopView;
+  //  public RelativeLayout mGroupbuyTopView;
     public NestedScrollView mGroupbuyScrollView;
-    public View view;
+    public LinearLayout mGroupbuyTopBar;
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_buy_groupbuy, container, false);
+        View view = inflater.inflate(R.layout.fragment_buy_groupbuy, container, false);
 
-        mGroupbuyTopView =(RelativeLayout) view.findViewById(R.id.groupbuyTopView);
+       // mGroupbuyTopView =(RelativeLayout) view.findViewById(R.id.groupbuyTopView);
         mGroupbuyScrollView =(NestedScrollView) view.findViewById(R.id.groupbuyScrollView);
+        mGroupbuyTopBar =(LinearLayout) view.findViewById(R.id.groupbuyTopBar);
 
         initListener();
 
@@ -34,14 +37,14 @@ public class Fragment_sub_buygroupbuy extends Fragment {
         mGroupbuyScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if(mGroupbuyTopView.getVisibility()==View.VISIBLE){
-                    if (oldScrollY==0 & scrollY>oldScrollY) { //當一開始往上滾動時，就關掉TopView
-                        mGroupbuyTopView.setVisibility(View.GONE);
+                if(mGroupbuyTopBar.getVisibility()==View.GONE){
+                    if ( oldScrollY > MainActivity.topbar_visibility_height ) { //當往上滾動隱藏BtnBar時，就顯示TopBtnBar
+                        mGroupbuyTopBar.setVisibility(View.VISIBLE);
                     }
                 }
-                else if(mGroupbuyTopView.getVisibility()==View.GONE) {
-                    if (scrollY==0) { //當已經滾動到最上面時，重新顯示TopView
-                        mGroupbuyTopView.setVisibility(View.VISIBLE);
+                else if(mGroupbuyTopBar.getVisibility()==View.VISIBLE) {
+                    if ( oldScrollY < MainActivity.topbar_gone_height ) { //當往上滾動出現BtnBar時，就不顯示TopBtnBar
+                        mGroupbuyTopBar.setVisibility(View.GONE);
                     }
                 }
             }

@@ -5,79 +5,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/buyStoryTopView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/top_ad_height">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/image_story"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/snow"
-                    android:src="@drawable/p01" />
-                <!-- tools:srcCompat="@drawable/p01"-->
-                <!-- 點擊後頁面跳至該故事的page_buystory_detail -->
-
-                <TextView
-                    android:id="@+id/push_story"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:background="@drawable/ic_star_gold_24dp"
-                    android:gravity="center"
-                    android:paddingLeft="8dp"
-                    android:paddingTop="4dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="4dp"
-                    android:text="限時\n優惠"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/story_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
-                    android:background="#CCD3D3D3"
-                    android:text="阿墨的故事屋" />
-
-            </android.support.v7.widget.CardView>
-            <!-- 上面CardView需可左右滑動，依據1/5~5/5位置顯示不同資料 -->
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/story_page_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="3dp"
-            android:background="@drawable/bg_oval_with_gradient_red"
-            android:gravity="center"
-            android:text="1/5"
-            android:textColor="@android:color/black" />
-        <!-- 上面CardView需可左右滑動，依據位置顯示1/5~5/5 -->
-
-    </RelativeLayout>
-
     <LinearLayout
+        android:id="@+id/buyStoryTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorButtonNormal">
+        android:background="?attr/colorButtonNormal"
+        android:visibility="gone">
 
         <Button
-            android:id="@+id/story_search_button"
+            android:id="@+id/storySearchTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -90,7 +26,7 @@
         <!-- 點擊後頁面跳至page_buystory_search -->
 
         <Button
-            android:id="@+id/story_promotion_btn"
+            android:id="@+id/storyPromotionTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -103,7 +39,7 @@
         <!-- 點擊後頁面跳至com_page_result_list -->
 
         <Button
-            android:id="@+id/story_love_btn"
+            android:id="@+id/storyLoveTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -126,6 +62,118 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/buyStoryTopView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/top_ad_height">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/image_story"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/snow"
+                            android:src="@drawable/p01" />
+                        <!-- tools:srcCompat="@drawable/p01"-->
+                        <!-- 點擊後頁面跳至該故事的page_buystory_detail -->
+
+                        <TextView
+                            android:id="@+id/push_story"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:background="@drawable/ic_star_gold_24dp"
+                            android:gravity="center"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="限時\n優惠"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/story_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:background="#CCD3D3D3"
+                            android:text="阿墨的故事屋" />
+
+                    </android.support.v7.widget.CardView>
+                    <!-- 上面CardView需可左右滑動，依據1/5~5/5位置顯示不同資料 -->
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/story_page_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/bg_oval_with_gradient_red"
+                    android:gravity="center"
+                    android:text="1/5"
+                    android:textColor="@android:color/black" />
+                <!-- 上面CardView需可左右滑動，依據位置顯示1/5~5/5 -->
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorButtonNormal">
+
+                <Button
+                    android:id="@+id/story_search_button"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_search_black_24dp"
+                    android:onClick="SearchBtnClk"
+                    android:tag="StorySearch"
+                    android:text="@string/storySearch"
+                    android:textSize="12sp" />
+                <!-- 點擊後頁面跳至page_buystory_search -->
+
+                <Button
+                    android:id="@+id/story_promotion_btn"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_cutoff_colors_24dp"
+                    android:onClick="ActlistBtnClk"
+                    android:tag="StoryPromotion"
+                    android:text="@string/storyPromotion"
+                    android:textSize="12sp" />
+                <!-- 點擊後頁面跳至com_page_result_list -->
+
+                <Button
+                    android:id="@+id/story_love_btn"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_heart_red_24dp"
+                    android:onClick="ActlistBtnClk"
+                    android:tag="StoryLove"
+                    android:text="@string/loveStory"
+                    android:textSize="12sp" />
+                <!-- 點擊後頁面跳至com_page_result_list -->
+
+            </LinearLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/newStoryBar"

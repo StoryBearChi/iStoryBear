@@ -17,18 +17,19 @@ import android.widget.Toast;
 
 public class Fragment_blog extends Fragment {
 
-    public RelativeLayout mblogTopView;
+  //  public RelativeLayout mblogTopView;
     public NestedScrollView mBlogScrollView;
-    public View view;
+    public LinearLayout mBlogTopBar;
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_blog, container, false);
+        View view = inflater.inflate(R.layout.fragment_blog, container, false);
 
         mBlogScrollView =(NestedScrollView) view.findViewById(R.id.blogScrollView);
-        mblogTopView =(RelativeLayout) view.findViewById(R.id.blogTopView);
+        mBlogTopBar =(LinearLayout) view.findViewById(R.id.blogTopBar);
 
         initListener();
         return view;
@@ -41,18 +42,14 @@ public class Fragment_blog extends Fragment {
         mBlogScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if(mblogTopView.getVisibility()==View.VISIBLE){
-                    if (oldScrollY==0 & scrollY>oldScrollY) { //當一開始往上滾動時，就關掉TopView
-                     //   Snackbar.make(view, Integer.toString(oldScrollY)+"->"+Integer.toString(scrollY), Snackbar.LENGTH_LONG)
-                      //          .show();
-                        mblogTopView.setVisibility(View.GONE);
+                if(mBlogTopBar.getVisibility()==View.GONE){
+                    if ( oldScrollY > MainActivity.topbar_visibility_height ) { //當往上滾動隱藏BtnBar時，就顯示TopBtnBar
+                        mBlogTopBar.setVisibility(View.VISIBLE);
                     }
                 }
-                else if(mblogTopView.getVisibility()==View.GONE) {
-                    if (scrollY==0) { //當已經滾動到最上面時，重新顯示TopView
-                      //  Snackbar.make(view, Integer.toString(oldScrollY)+"->"+Integer.toString(scrollY), Snackbar.LENGTH_LONG)
-                      //          .show();
-                        mblogTopView.setVisibility(View.VISIBLE);
+                else if(mBlogTopBar.getVisibility()==View.VISIBLE) {
+                    if ( oldScrollY < MainActivity.topbar_gone_height ) { //當往上滾動出現BtnBar時，就不顯示TopBtnBar
+                        mBlogTopBar.setVisibility(View.GONE);
                     }
                 }
             }

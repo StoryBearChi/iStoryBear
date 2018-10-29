@@ -45,21 +45,23 @@ public class StoryPlayerActivity extends AppCompatActivity {
     private Button mBackBtn, mNextBtn, mHeartBtn, mStoryListBtn;
     public static LinearLayout xPlayer;
     public static Button mPlayBtn, barPlaypauseBtn, mPlayAllBtn;
-    private Fragment homeContent, tempContent;
+    public static Fragment homeContent, tempContent;
     private Fragment[] storypage = new Fragment[4];
     private Toolbar sToolbar;
     private RatingBar sRatingBar;
     private TabLayout playerTablayout;
     private SeekBar mseekBar;
 
+    public static boolean isLoop , isList ;
     public static TextView mplayMin, mtotalTime, story_name, recording_Name, barStoryName;
 
     private Boolean isplaying = false;
     private static final int UPDATE_TIME = 2;
-    public static final int mId = 1;
 
     public static MediaPlayer mediaPlayer;
-    private static final String CHANNEL_ID = "故事播放控制";
+
+    //public static final int mId = 1;
+    //public static final String CHANNEL_ID = "故事播放控制";
 
     public static NotificationManager mNotificationManager;
 
@@ -104,6 +106,15 @@ public class StoryPlayerActivity extends AppCompatActivity {
                 switchSubContent(storypage[0]);
             }
 
+            if (isLoop) {
+                mPlayAllBtn.setSelected(true);
+            }
+
+            if (isList) {
+                mStoryListBtn.setSelected(true);
+                switchSubContent(storypage[3]);
+            }
+
             if (barPlaypauseBtn.isSelected()) { // 與MainActivity.xPlayer狀態同步
                 mPlayBtn.setSelected(true);  /* 播放 */
             } else {
@@ -135,7 +146,7 @@ public class StoryPlayerActivity extends AppCompatActivity {
             switch (cmd) {
                 case "cancelBtn":
                     mediaPlayerNotific();  //先重送，後面取消才部會因null閃退
-                    mNotificationManager.cancel(mId);
+                    mNotificationManager.cancel(MainActivity.mId);
                     StoryPlayerActivity.mediaPlayer.pause();
                     StoryPlayerActivity.mPlayBtn.setSelected(false);
                     barPlaypauseBtn.setSelected(false); // 將MainActivity.xPlayer狀態同步
@@ -166,14 +177,18 @@ public class StoryPlayerActivity extends AppCompatActivity {
             StoryPlayerActivity.this.finish(); //更新按鍵狀態後就關掉
         }
     }
-
+/*
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (!mediaPlayer.isPlaying()) {
-            stop();
+      //  Toast.makeText(StoryPlayerActivity.this, "StoryPlayerActivity被關", Toast.LENGTH_SHORT).show();
+        if (mNotificationManager != null) {
+            mNotificationManager.cancelAll();
+        } else if (StoryPlayerActivity.mNotificationManager != null) {
+            StoryPlayerActivity.mNotificationManager.cancelAll();
         }
     }
+    */
     /**
      * 停止並釋放mediaPlayer
      **/
@@ -196,7 +211,7 @@ public class StoryPlayerActivity extends AppCompatActivity {
         // 用户看到的渠道描述
         String description = "用來背景控制故事播放";
         int importance = NotificationManager.IMPORTANCE_LOW;
-        NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance); // 用户看到的渠道名字
+        NotificationChannel mChannel = new NotificationChannel(MainActivity.CHANNEL_ID, name, importance); // 用户看到的渠道名字
         // 渠道的配置
         mChannel.setDescription(description);
         mChannel.setShowBadge(false);
@@ -239,13 +254,11 @@ public class StoryPlayerActivity extends AppCompatActivity {
 
         /**debug**
          Toast.makeText(StoryPlayerActivity.this,
-         mPlayBtn.isSelected() +
-         "\nBTN:" + playpause +
-         "\npause:" + R.drawable.ic_pause_black_24dp +
-         "\nplay:" + R.drawable.ic_play_black_24dp, Toast.LENGTH_LONG).show();
+         mPlayBtn.isSelected() + "\nBTN:" + playpause + "\npause:" + R.drawable.ic_pause_black_24dp + "\nplay:" + R.drawable.ic_play_black_24dp, Toast.LENGTH_LONG).show();
          **debug**/
+
         final NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this, CHANNEL_ID)
+                new NotificationCompat.Builder(this, MainActivity.CHANNEL_ID)
                         .setSmallIcon(R.drawable.ic_logo_black_24dp)
                         //  .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_logo_round_colors_24dp))
                         // .setDefaults(NotificationCompat.DEFAULT_ALL)
@@ -263,38 +276,11 @@ public class StoryPlayerActivity extends AppCompatActivity {
                                 .setMediaSession(new MediaSessionCompat(this, "MediaSession",
                                         new ComponentName(this, Intent.ACTION_MEDIA_BUTTON), null)
                                         .getSessionToken())
-                                //设置要现实在通知右方的图标 最多三个
-                                .setShowActionsInCompactView(0, 1, 2));
-        // .setCancelButtonIntent(cancelIntent) //CancelButton在5.0以下的机器有效
-        //  .setShowCancelButton(true));
-        //送出訊息
+                                .setShowActionsInCompactView(0, 1, 2));//设置要现实在通知右方的图标(最多能設三个)
+
         mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(mId, mBuilder.build());
-        // Start a lengthy operation in a background thread
-        /**
-         new Thread(
-         new Runnable() {
-        @Override public void run() {
-        int incr;
-        for (incr = 0; incr <= 100; incr+=5) {
-        mBuilder.setProgress(100, incr, false);
-        mNotificationManager.notify(mId, mBuilder.build());
-        try {
-        // Sleep for 5 seconds
-        Thread.sleep(5*1000);
-        } catch (InterruptedException e) {
-        e.printStackTrace();
-        //Log.d(TAG, "sleep failure");
-        }
-        }
-        mBuilder.setContentText("Download complete")//下载完成
-        .setProgress(0,0,false);    //移除进度条
-        mNotificationManager.notify(mId, mBuilder.build());
-        }
-        }
-         ).start();
-         **/
+        mNotificationManager.notify(MainActivity.mId, mBuilder.build()); //送出訊息
 
     }
 
@@ -304,28 +290,8 @@ public class StoryPlayerActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-
                 initMediaPlayerListener();
-
-                handler.sendEmptyMessage(UPDATE_TIME);  //更新播放時間
-                int max = mediaPlayer.getDuration();    //取得音檔長度
-                mseekBar.setMax(max);  //設定seekBar長度
-
-                new Thread() {  //开启进程控制SeekBar
-                    public void run() {
-                        isplaying = true;
-                        while (isplaying) {
-                            int position = mediaPlayer.getCurrentPosition();
-                            mseekBar.setProgress(position);
-                            try {
-                                Thread.sleep(500);
-                            } catch (InterruptedException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                }.start();
+                SeekBarAuto();
             }
         }).start();
     }
@@ -350,30 +316,9 @@ public class StoryPlayerActivity extends AppCompatActivity {
                     mediaPlayer.prepare();
                     mediaPlayer.start();
                     barStoryName.setText(story_name.getText()); //同步故事名稱到playerBar
-
                     initMediaPlayerListener();
-
-                    handler.sendEmptyMessage(UPDATE_TIME);  //更新播放時間
-                    int max = mediaPlayer.getDuration();    //取得音檔長度
-                    mseekBar.setMax(max);  //設定seekBar長度
-
-                    new Thread() {  //开启进程控制SeekBar
-                        public void run() {
-                            isplaying = true;
-                            while (isplaying) {
-                                int position = mediaPlayer.getCurrentPosition();
-                                mseekBar.setProgress(position);
-                                try {
-                                    Thread.sleep(500);
-                                } catch (InterruptedException e) {
-                                    // TODO Auto-generated catch block
-                                    e.printStackTrace();
-                                }
-                            }
-
-                        }
-                    }.start();
-                    mediaPlayer.setLooping(false); // 預設重複播放
+                    SeekBarAuto();
+                  //  mediaPlayer.setLooping(false); // 預設不單曲重複播放
 
                 } catch (Exception e) {
                     e.printStackTrace(); //把原始错误信息顯示出来
@@ -384,6 +329,55 @@ public class StoryPlayerActivity extends AppCompatActivity {
         mPlayBtn.setSelected(true);
         barPlaypauseBtn.setSelected(true);
     }
+
+    private void  SeekBarAuto() { //啟動Thread去定期更新播放進度bar
+        handler.sendEmptyMessage(UPDATE_TIME);  //更新播放時間
+        int max = mediaPlayer.getDuration();    //取得音檔長度
+        mseekBar.setMax(max);  //設定seekBar長度
+        new Thread() {  //开启进程控制SeekBar
+            public void run() {
+                isplaying = true;
+                while (isplaying) {
+                    int position = mediaPlayer.getCurrentPosition();
+                    mseekBar.setProgress(position);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
+    }
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+                    mPlayBtn.setSelected(false);
+                    xPlayer.setVisibility(View.GONE);
+                    xPlayer.findViewById(R.id.playpauseBtn).setSelected(false); // 將MainActivity.xPlayer狀態同步
+                    break;
+                case UPDATE_TIME: {
+                    /**
+                     * 更新时间
+                     */
+                    int position = mediaPlayer.getCurrentPosition();
+                    int totalduration = mediaPlayer.getDuration();
+
+                    updateTime(mplayMin, position);
+                    updateTime(mtotalTime, totalduration);
+
+                    handler.sendEmptyMessageDelayed(UPDATE_TIME, 500);
+
+                }
+                break;
+            }
+        }
+    };
 
     private void initMediaPlayerListener() {
         mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {  //顯示播放錯誤碼
@@ -405,6 +399,7 @@ public class StoryPlayerActivity extends AppCompatActivity {
                     paramMediaPlayer.pause();
                     Toast.makeText(StoryPlayerActivity.this, "故事說完了😊️", Toast.LENGTH_SHORT).show();
                     mPlayBtn.setSelected(false);
+                    mediaPlayerNotific(); //更新播放訊息
                     xPlayer.findViewById(R.id.playpauseBtn).setSelected(false); // 將MainActivity.xPlayer狀態同步
                     xPlayer.setVisibility(View.GONE);
                 }
@@ -441,35 +436,6 @@ public class StoryPlayerActivity extends AppCompatActivity {
         });
     }
 
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what) {
-                case 1:
-                    mPlayBtn.setSelected(false);
-                    xPlayer.setVisibility(View.GONE);
-                    xPlayer.findViewById(R.id.playpauseBtn).setSelected(false); // 將MainActivity.xPlayer狀態同步
-                    break;
-                case UPDATE_TIME: {
-                    /**
-                     * 更新时间
-                     */
-                    int position = mediaPlayer.getCurrentPosition();
-                    int totalduration = mediaPlayer.getDuration();
-
-                    updateTime(mplayMin, position);
-                    updateTime(mtotalTime, totalduration);
-
-                    handler.sendEmptyMessageDelayed(UPDATE_TIME, 500);
-
-                }
-                break;
-
-
-            }
-        }
-    };
 
     public void myHomeBtnClk(View v) {
         String vtag = v.getTag().toString();
@@ -606,11 +572,12 @@ public class StoryPlayerActivity extends AppCompatActivity {
             case "playAllBtn":
                 if (mPlayAllBtn.isSelected()) { /* 不循環播放 */
                     mPlayAllBtn.setSelected(false);
-
+                    isLoop = false;
                     Toast.makeText(StoryPlayerActivity.this, R.string.nonlooPlay, Toast.LENGTH_SHORT).show();
+
                 } else { /* 循環播放 */
                     mPlayAllBtn.setSelected(true);
-
+                    isLoop = true;
                     Toast.makeText(StoryPlayerActivity.this, R.string.looPlay, Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -646,17 +613,18 @@ public class StoryPlayerActivity extends AppCompatActivity {
             case "storyListBtn":
                 if (mStoryListBtn.isSelected()) { /* 關閉播放故事列表 */
                     mStoryListBtn.setSelected(false);
+                    isList = false;
                     if (tempContent == null) {
-                        switchSubContent(storypage[0]);
+                        switchSubContent(storypage[0]); //如果暫存沒東西，就把切到預設頁
                     } else {
-                        switchSubContent(tempContent);
+                        switchSubContent(tempContent); //如果暫存有東西，就把切到暫存頁
                     }
                     Toast.makeText(StoryPlayerActivity.this, R.string.hidePlayingList, Toast.LENGTH_SHORT).show();
                 } else { /* 列出播放故事列表 */
                     mStoryListBtn.setSelected(true);
-                    tempContent = homeContent;
+                    isList = true;
+                    tempContent = homeContent;  //把現在的Content推入暫存
                     switchSubContent(storypage[3]);
-
                     Toast.makeText(StoryPlayerActivity.this, R.string.showPlayingList, Toast.LENGTH_SHORT).show();
                 }
 

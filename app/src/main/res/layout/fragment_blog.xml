@@ -7,87 +7,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/blogTopView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/top_ad_height"
-        android:visibility="visible">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/adImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingTop="0dp"
-                    android:src="@drawable/yesfox" />
-                <!-- 用來標示該廣告的代表圖，初期可用來做童書首購宣傳 app:srcCompat="@drawable/boneisland"-->
-
-                <TextView
-                    android:id="@+id/adNote"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_margin="5dp"
-                    android:background="#CCD3D3D3"
-                    android:ellipsize="marquee"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:gravity="center"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:maxLength="18"
-                    android:singleLine="true"
-                    android:text="新書上市" />
-                <!-- 用來標示該廣告的標籤，初期可用來做童書首購宣傳 -->
-
-                <TextView
-                    android:id="@+id/adTag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="end"
-                    android:layout_margin="5dp"
-                    android:background="#CCD3D3D3"
-                    android:text="贊助" />
-                <!-- 用來標示該廣告的標籤，初期可用來做童書首購宣傳 -->
-
-            </android.support.v7.widget.CardView>
-
-            <!-- 上面CardView需可左右滑動，依據1/5~5/5位置顯示不同資料 -->
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/adPageNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="3dp"
-            android:background="@drawable/bg_oval_with_gradient_red"
-            android:gravity="center"
-            android:text="1/5"
-            android:textColor="@android:color/black" />
-        <!-- 上面CardView需可左右滑動，依據位置顯示1/5~5/5 -->
-
-    </RelativeLayout>
-
     <LinearLayout
+        android:id="@+id/blogTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorButtonNormal" >
+        android:background="?attr/colorButtonNormal"
+        android:visibility="gone">
 
         <Button
-            android:id="@+id/articleSearchBtn"
+            android:id="@+id/articleSearchTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -100,7 +28,7 @@
         <!-- 點擊後跳至搜尋頁com_page_search -->
 
         <Button
-            android:id="@+id/articleLoveBtn"
+            android:id="@+id/articleLoveTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,7 +41,7 @@
         <!-- 點擊後跳至結果清單頁com_page_result_list -->
 
         <Button
-            android:id="@+id/blogSearchBtn"
+            android:id="@+id/blogSearchTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,7 +54,7 @@
         <!-- 點擊後跳至搜尋頁com_page_search -->
 
         <Button
-            android:id="@+id/blogLoveBtn"
+            android:id="@+id/blogLoveTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -149,6 +77,139 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/blogTopView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/top_ad_height"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/adImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="0dp"
+                            android:src="@drawable/yesfox" />
+                        <!-- 用來標示該廣告的代表圖，初期可用來做童書首購宣傳 app:srcCompat="@drawable/boneisland"-->
+
+                        <TextView
+                            android:id="@+id/adNote"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_margin="5dp"
+                            android:background="#CCD3D3D3"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:maxLength="18"
+                            android:singleLine="true"
+                            android:text="新書上市" />
+                        <!-- 用來標示該廣告的標籤，初期可用來做童書首購宣傳 -->
+
+                        <TextView
+                            android:id="@+id/adTag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="end"
+                            android:layout_margin="5dp"
+                            android:background="#CCD3D3D3"
+                            android:text="贊助" />
+                        <!-- 用來標示該廣告的標籤，初期可用來做童書首購宣傳 -->
+
+                    </android.support.v7.widget.CardView>
+
+                    <!-- 上面CardView需可左右滑動，依據1/5~5/5位置顯示不同資料 -->
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/adPageNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/bg_oval_with_gradient_red"
+                    android:gravity="center"
+                    android:text="1/5"
+                    android:textColor="@android:color/black" />
+                <!-- 上面CardView需可左右滑動，依據位置顯示1/5~5/5 -->
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorButtonNormal">
+
+                <Button
+                    android:id="@+id/articleSearchBtn"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_search_black_24dp"
+                    android:onClick="SearchBtnClk"
+                    android:tag="ArticleSearch"
+                    android:text="@string/articleSearch"
+                    android:textSize="12sp" />
+                <!-- 點擊後跳至搜尋頁com_page_search -->
+
+                <Button
+                    android:id="@+id/articleLoveBtn"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_heart_red_24dp"
+                    android:onClick="ActlistBtnClk"
+                    android:tag="ArticleLove"
+                    android:text="@string/articleLove"
+                    android:textSize="12sp" />
+                <!-- 點擊後跳至結果清單頁com_page_result_list -->
+
+                <Button
+                    android:id="@+id/blogSearchBtn"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_search_black_24dp"
+                    android:onClick="SearchBtnClk"
+                    android:tag="BlogSearch"
+                    android:text="@string/blogSearch"
+                    android:textSize="12sp" />
+                <!-- 點擊後跳至搜尋頁com_page_search -->
+
+                <Button
+                    android:id="@+id/blogLoveBtn"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_blog_orange_24dp"
+                    android:onClick="ActlistBtnClk"
+                    android:tag="BlogLove"
+                    android:text="@string/blogLove"
+                    android:textSize="12sp" />
+                <!-- 點擊後跳至結果清單頁com_page_result_list -->
+
+            </LinearLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/articleBar"
@@ -306,7 +367,6 @@
 
             <!-- 依權重列出6個平台熱門專欄，權重=總文章被收藏數Ｘ文章數＋總故事被收藏數Ｘ故事數＋系統調整值(預設為0)
                     點擊後跳至該專欄頁page_userhome，並預設在專欄文章分頁 -->
-            <include layout="@layout/item_author" />
             <include layout="@layout/item_author" />
             <include layout="@layout/item_author" />
             <include layout="@layout/item_author" />

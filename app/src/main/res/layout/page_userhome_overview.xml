@@ -16,7 +16,7 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:padding="5dp"
-        android:text="@string/story2" />
+        android:text="@string/LuOverview" />
         <!--放入用戶專欄自我簡介-->
 
 

@@ -48,7 +48,7 @@ public class userHomeActivity extends AppCompatActivity {
             case "myStory":
                 homeTablayout.getTabAt(0).select();
                 // switchSubContent(storyHomeFragment.newInstance());
-                switchSubContent(homepage[0]);
+                switchSubContent(homepage[0]); //以登入者會員ID讀取該會員資料，最好寫入本地暫存，然後更新資料 -> 還沒做
                 FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp, null));
                 FABtn.setVisibility(View.VISIBLE);
 
@@ -56,8 +56,7 @@ public class userHomeActivity extends AppCompatActivity {
 
             case "myOverview":
                 homeTablayout.getTabAt(1).select();
-                //switchSubContent(myOverviewFragment.newInstance());
-                switchSubContent(homepage[1]);
+                switchSubContent(homepage[1]); //以登入者會員ID讀取該會員資料，最好寫入本地暫存，然後更新資料 -> 還沒做
                 FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_edit_black_24dp, null));
                 FABtn.setVisibility(View.VISIBLE);
 
@@ -65,17 +64,15 @@ public class userHomeActivity extends AppCompatActivity {
 
             case "myBlog":
                 homeTablayout.getTabAt(2).select();
-                //switchSubContent(blogHomeFragment.newInstance());
-                switchSubContent(homepage[2]);
+                switchSubContent(homepage[2]); //以登入者會員ID讀取該會員資料，最好寫入本地暫存，然後更新資料 -> 還沒做
                 FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp, null));
                 FABtn.setVisibility(View.VISIBLE);
 
                 break;
 
-            case "otherUser": // 預設FABtn is gone
+            case "otherUser": // 非本人預設FABtn is gone，收藏鈕出現
                 homeTablayout.getTabAt(1).select();
-                //switchSubContent(myOverviewFragment.newInstance());
-                switchSubContent(homepage[1]);
+                switchSubContent(homepage[1]); //以Tag會員ID讀取該會員資料，然後更新資料 -> 還沒做
                 FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_edit_black_24dp, null));
                 loveThis.setVisibility(View.VISIBLE);
                 break;
@@ -98,6 +95,7 @@ public class userHomeActivity extends AppCompatActivity {
                     case 1:
                         switchSubContent(homepage[1]);
                         FABtn.setImageDrawable(getResources().getDrawable(R.drawable.ic_edit_black_24dp, null));
+                        editable = true;
                         break;
                     case 2:
                         switchSubContent(homepage[2]);

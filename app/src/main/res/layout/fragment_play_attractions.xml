@@ -6,91 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/attraTopView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/top_ad_height">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/attra_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/snow"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:srcCompat="@drawable/attraction01" />
-                <!-- 填入該景點代表圖
-                    點擊後跳至景點詳細頁page_attraction_detail-->
-
-                <TextView
-                    android:id="@+id/attra_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="#CCD3D3D3"
-                    android:clickable="true"
-                    android:ellipsize="marquee"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:marqueeRepeatLimit="marquee_forever"
-                    android:maxLength="18"
-                    android:singleLine="true"
-                    android:text="大湖公園" />
-                <!-- 填入該景點名稱
-                點擊後跳至景點詳細頁page_event_detail-->
-
-                <TextView
-                    android:id="@+id/attra_distance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="#CCD3D3D3"
-                    android:text="2.0km" />
-                <!-- 填入該地點距離，以km為單位，取到小數點後1位，四捨五入-->
-
-            </android.support.v7.widget.CardView>
-
-            <!-- 上面CardView需可左右滑動，依據1/5~5/5位置顯示不同資料 -->
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/attra_page_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="3dp"
-            android:background="@drawable/bg_oval_with_gradient_red"
-            android:gravity="center"
-            android:text="1/5"
-            android:textColor="@android:color/black" />
-        <!-- 上面CardView需可左右滑動，依據位置顯示1/5~5/5 -->
-
-    </RelativeLayout>
-
     <LinearLayout
+        android:id="@+id/attraTopBtnBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorButtonNormal">
+        android:background="?attr/colorButtonNormal"
+        android:visibility="gone">
 
         <Button
-            android:id="@+id/attraLbsBtn"
+            android:id="@+id/attraLbsTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,7 +27,7 @@
         <!-- 點擊後跳至附近景點頁page_attraction_lbs -->
 
         <Button
-            android:id="@+id/attra_search_button"
+            android:id="@+id/attraSearchTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,7 +40,7 @@
         <!-- 點擊後跳至搜尋景點頁page_search -->
 
         <Button
-            android:id="@+id/attra_love_button"
+            android:id="@+id/attraLoveTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -129,7 +53,7 @@
         <!-- 點擊後跳至景點收藏頁page_event_attra_list -->
 
         <Button
-            android:id="@+id/AddAttraBtn"
+            android:id="@+id/AddAttraTopBtn"
             style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -152,6 +76,144 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/attraTopView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/top_ad_height">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/attra_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/snow"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:srcCompat="@drawable/attraction01" />
+                        <!-- 填入該景點代表圖
+                    點擊後跳至景點詳細頁page_attraction_detail-->
+
+                        <TextView
+                            android:id="@+id/attra_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="#CCD3D3D3"
+                            android:clickable="true"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:maxLength="18"
+                            android:singleLine="true"
+                            android:text="大湖公園" />
+                        <!-- 填入該景點名稱
+                點擊後跳至景點詳細頁page_event_detail-->
+
+                        <TextView
+                            android:id="@+id/attra_distance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:background="#CCD3D3D3"
+                            android:text="2.0km" />
+                        <!-- 填入該地點距離，以km為單位，取到小數點後1位，四捨五入-->
+
+                    </android.support.v7.widget.CardView>
+
+                    <!-- 上面CardView需可左右滑動，依據1/5~5/5位置顯示不同資料 -->
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/attra_page_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/bg_oval_with_gradient_red"
+                    android:gravity="center"
+                    android:text="1/5"
+                    android:textColor="@android:color/black" />
+                <!-- 上面CardView需可左右滑動，依據位置顯示1/5~5/5 -->
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorButtonNormal">
+
+                <Button
+                    android:id="@+id/attraLbsBtn"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_map_black_24dp"
+                    android:onClick="ActItemBtnClk"
+                    android:tag="attraLbs"
+                    android:text="@string/attractionLBS"
+                    android:textSize="12sp" />
+                <!-- 點擊後跳至附近景點頁page_attraction_lbs -->
+
+                <Button
+                    android:id="@+id/attra_search_button"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_search_black_24dp"
+                    android:onClick="SearchBtnClk"
+                    android:tag="AttraSearch"
+                    android:text="@string/attractionSearch"
+                    android:textSize="12sp" />
+                <!-- 點擊後跳至搜尋景點頁page_search -->
+
+                <Button
+                    android:id="@+id/attra_love_button"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_heart_red_24dp"
+                    android:onClick="ActlistBtnClk"
+                    android:tag="AttraLove"
+                    android:text="@string/attractionLove"
+                    android:textSize="12sp" />
+                <!-- 點擊後跳至景點收藏頁page_event_attra_list -->
+
+                <Button
+                    android:id="@+id/AddAttraBtn"
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless.Small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_add_black_24dp"
+                    android:onClick="ActItemBtnClk"
+                    android:tag="AddAttra"
+                    android:text="@string/attractionAdd"
+                    android:textSize="12sp" />
+                <!-- 點擊後跳至新增活動頁page_attraction_addattra -->
+
+            </LinearLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/new_attra_bar"
